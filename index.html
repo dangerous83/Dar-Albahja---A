@@ -9,20 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   DAR ALBAHJA — BRAND IDENTITY PROPOSAL
-   Corporate interactive presentation · Marrakech heritage
+   DAR ALBAHJA — BRAND IDENTITY PROPOSAL · EXTENDED EDITION
+   ~50 page cinematic interactive deck · Marrakech heritage
    ============================================================ */
 :root{
-  --burgundy:#840522;
-  --burgundy-deep:#5c0317;
-  --green:#2C663A;
-  --gold:#C69835;
-  --gold-soft:#dbb567;
-  --ivory:#F5F1E8;
-  --ivory-2:#efe9dc;
-  --ink:#2a211c;
-  --ink-soft:#5c5049;
-  --charcoal:#16110f;
+  --burgundy:#840522; --burgundy-deep:#5c0317;
+  --green:#2C663A; --gold:#C69835; --gold-soft:#dbb567;
+  --ivory:#F5F1E8; --ivory-2:#efe9dc;
+  --ink:#2a211c; --ink-soft:#5c5049; --charcoal:#16110f;
   --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --sans:'Montserrat', 'Segoe UI', Arial, sans-serif;
   --arabic:'Amiri', 'Traditional Arabic', serif;
@@ -30,14 +24,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
-body{
-  background:var(--ivory);
-  color:var(--ink);
-  font-family:var(--sans);
-  overflow:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-/* Subtle zellige eight-point star texture */
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23840522' stroke-width='1'%3E%3Cpath d='M48 8 58 38 88 48 58 58 48 88 38 58 8 48 38 38Z'/%3E%3Cpath d='M48 20 55 41 76 48 55 55 48 76 41 55 20 48 41 41Z'/%3E%3C/g%3E%3C/svg%3E");
@@ -45,53 +32,31 @@ body::before{
 }
 img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer}
-
-/* ---------- shared typography ---------- */
-.eyebrow{
-  font-family:var(--sans);font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--gold);font-weight:600;
-}
+.eyebrow{font-size:.66rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .eyebrow .num{color:var(--burgundy);margin-right:.9em}
 h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-height:1.06}
 .ar{font-family:var(--arabic);direction:rtl}
-.ar-sub{
-  font-family:var(--arabic);color:var(--green);font-size:1.05rem;direction:rtl;
-  opacity:.85;letter-spacing:0;
-}
-.lead{font-size:1.02rem;line-height:1.75;color:var(--ink-soft);font-weight:400}
-.orn{
-  display:flex;align-items:center;gap:14px;margin:18px 0;color:var(--gold);
-}
-.orn::before,.orn::after{content:"";height:1px;flex:0 0 64px;background:linear-gradient(90deg,transparent,var(--gold));}
+.ar-sub{font-family:var(--arabic);color:var(--green);font-size:1.05rem;direction:rtl;opacity:.85}
+.lead{font-size:1rem;line-height:1.8;color:var(--ink-soft)}
+.orn{display:flex;align-items:center;gap:14px;margin:18px 0;color:var(--gold)}
+.orn::before,.orn::after{content:"";height:1px;flex:0 0 64px;background:linear-gradient(90deg,transparent,var(--gold))}
 .orn::after{background:linear-gradient(90deg,var(--gold),transparent)}
 .orn svg{width:18px;height:18px;flex:none}
 
-/* ============================================================
-   PASSWORD GATE
-   ============================================================ */
+/* ============ PASSWORD GATE ============ */
 #gate{
   position:fixed;inset:0;z-index:900;display:flex;align-items:center;justify-content:center;
-  background:
-    radial-gradient(1100px 700px at 50% 15%, rgba(198,152,53,.14), transparent 60%),
-    radial-gradient(900px 700px at 50% 110%, rgba(132,5,34,.25), transparent 55%),
-    var(--charcoal);
+  background:radial-gradient(1100px 700px at 50% 15%, rgba(198,152,53,.14), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(132,5,34,.25), transparent 55%), var(--charcoal);
   transition:opacity .9s var(--ease), visibility .9s;
 }
 #gate.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#gate::before{
-  content:"";position:absolute;inset:0;opacity:.07;
+#gate::before{content:"";position:absolute;inset:0;opacity:.07;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23C69835' stroke-width='1'%3E%3Cpath d='M60 10 72.5 47.5 110 60 72.5 72.5 60 110 47.5 72.5 10 60 47.5 47.5Z'/%3E%3C/g%3E%3C/svg%3E");
-  background-size:120px 120px;
-}
+  background-size:120px 120px;}
 .gate-card{position:relative;text-align:center;padding:56px 64px;max-width:560px;width:92%}
-.gate-frame{
-  position:absolute;inset:0;border:1px solid rgba(198,152,53,.4);border-radius:180px 180px 14px 14px;
-  pointer-events:none;
-}
-.gate-frame::before{
-  content:"";position:absolute;inset:8px;border:1px solid rgba(198,152,53,.22);
-  border-radius:172px 172px 10px 10px;
-}
+.gate-frame{position:absolute;inset:0;border:1px solid rgba(198,152,53,.4);border-radius:180px 180px 14px 14px;pointer-events:none}
+.gate-frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(198,152,53,.22);border-radius:172px 172px 10px 10px}
 .gate-emblem{width:74px;height:74px;margin:0 auto 20px;color:var(--gold)}
 .gate-emblem svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(198,152,53,.35))}
 .gate-title{font-family:var(--serif);font-size:2.4rem;color:var(--ivory);letter-spacing:.08em;font-weight:600}
@@ -99,17 +64,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .gate-ar{font-family:var(--arabic);color:var(--gold-soft);font-size:1.5rem;margin-top:12px;direction:rtl}
 .gate-hint{color:rgba(245,241,232,.55);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin:26px 0 14px;line-height:2}
 .gate-input-row{display:flex;gap:10px;justify-content:center;margin-top:6px}
-#gateInput{
-  background:rgba(245,241,232,.06);border:1px solid rgba(198,152,53,.45);color:var(--ivory);
-  padding:14px 20px;font-size:1.05rem;letter-spacing:.4em;text-align:center;width:230px;
-  border-radius:4px;outline:none;font-family:var(--sans);transition:.3s;
-}
+#gateInput{background:rgba(245,241,232,.06);border:1px solid rgba(198,152,53,.45);color:var(--ivory);
+  padding:14px 20px;font-size:1.05rem;letter-spacing:.4em;text-align:center;width:230px;border-radius:4px;outline:none;transition:.3s}
 #gateInput:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,152,53,.15)}
-#gateBtn{
-  background:linear-gradient(135deg,var(--gold),#a87c22);border:none;color:#231a08;
-  font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.7rem;
-  padding:0 26px;border-radius:4px;transition:.3s;
-}
+#gateBtn{background:linear-gradient(135deg,var(--gold),#a87c22);border:none;color:#231a08;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;font-size:.7rem;padding:0 26px;border-radius:4px;transition:.3s}
 #gateBtn:hover{filter:brightness(1.12);transform:translateY(-1px)}
 .gate-err{color:#e6a5b1;font-size:.75rem;letter-spacing:.12em;margin-top:14px;height:16px;opacity:0;transition:.3s}
 .gate-err.show{opacity:1}
@@ -117,16 +76,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}40%{transform:translateX(10px)}60%{transform:translateX(-7px)}80%{transform:translateX(4px)}}
 .gate-foot{margin-top:30px;color:rgba(245,241,232,.35);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase}
 
-/* ============================================================
-   LOADER
-   ============================================================ */
-#loader{
-  position:fixed;inset:0;z-index:800;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:
-    radial-gradient(900px 600px at 50% 40%, rgba(198,152,53,.10), transparent 60%),
-    var(--charcoal);
-  transition:opacity 1s var(--ease), visibility 1s;
-}
+/* ============ LOADER ============ */
+#loader{position:fixed;inset:0;z-index:800;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(900px 600px at 50% 40%, rgba(198,152,53,.10), transparent 60%), var(--charcoal);
+  transition:opacity 1s var(--ease), visibility 1s;}
 #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
 .loader-star{width:110px;height:110px;color:var(--gold);animation:spin 14s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -137,98 +90,67 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .loader-bar i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--burgundy),var(--gold));transition:transform .25s ease}
 .loader-pct{color:rgba(245,241,232,.5);font-size:.68rem;letter-spacing:.4em;margin-top:14px}
 
-/* ============================================================
-   DECK CHROME
-   ============================================================ */
+/* ============ DECK CHROME ============ */
 #app{position:fixed;inset:0;z-index:10;opacity:0;transition:opacity 1s var(--ease)}
 #app.on{opacity:1}
-.topbar{
-  position:absolute;top:0;left:0;right:0;height:64px;z-index:60;
-  display:flex;align-items:center;justify-content:space-between;padding:0 26px;
-  background:linear-gradient(180deg,rgba(245,241,232,.92),rgba(245,241,232,0));
-}
+#pbar{position:absolute;top:0;left:0;right:0;height:3px;z-index:70;background:rgba(132,5,34,.12)}
+#pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--burgundy),var(--gold));transition:width .6s var(--ease)}
+.topbar{position:absolute;top:3px;left:0;right:0;height:62px;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  padding:0 26px;background:linear-gradient(180deg,rgba(245,241,232,.92),rgba(245,241,232,0));}
 .brandmini{display:flex;align-items:center;gap:12px}
 .brandmini .bm-ic{width:34px;height:34px;color:var(--burgundy)}
 .brandmini .bm-tx{font-family:var(--serif);font-weight:700;color:var(--burgundy);font-size:1.02rem;letter-spacing:.14em}
 .brandmini .bm-tx span{display:block;font-family:var(--sans);font-weight:600;font-size:.5rem;letter-spacing:.44em;color:var(--gold);margin-top:2px}
 .topctl{display:flex;gap:8px}
-.ctl{
-  width:38px;height:38px;border-radius:50%;border:1px solid rgba(132,5,34,.28);background:rgba(245,241,232,.7);
-  color:var(--burgundy);display:flex;align-items:center;justify-content:center;transition:.25s;
-  backdrop-filter:blur(4px);
-}
+.ctl{width:38px;height:38px;border-radius:50%;border:1px solid rgba(132,5,34,.28);background:rgba(245,241,232,.7);
+  color:var(--burgundy);display:flex;align-items:center;justify-content:center;transition:.25s;backdrop-filter:blur(4px)}
 .ctl:hover{background:var(--burgundy);color:var(--ivory);transform:translateY(-1px)}
 .ctl svg{width:17px;height:17px}
 .ctl.mute .on-ic{display:none}
 .ctl:not(.mute) .off-ic{display:none}
-
-/* progress rail */
-.rail{position:absolute;right:22px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:11px}
-.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--burgundy);background:transparent;padding:0;position:relative;transition:.3s}
-.dot:hover{background:var(--gold);border-color:var(--gold)}
-.dot.active{background:var(--burgundy);transform:scale(1.35);box-shadow:0 0 0 4px rgba(132,5,34,.14)}
-.dot .tip{
-  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;
-  background:var(--charcoal);color:var(--ivory);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  padding:6px 12px;border-radius:3px;opacity:0;pointer-events:none;transition:.25s;
-}
-.dot .tip b{color:var(--gold-soft);font-family:var(--arabic);font-size:.78rem;margin-right:6px;font-weight:400}
-.dot:hover .tip{opacity:1;transform:translateY(-50%) translateX(0)}
-
-/* bottom nav */
-.botbar{
-  position:absolute;bottom:0;left:0;right:0;height:70px;z-index:60;
-  display:flex;align-items:center;justify-content:space-between;padding:0 26px;
-  background:linear-gradient(0deg,rgba(245,241,232,.94),rgba(245,241,232,0));
-}
-.counter{font-family:var(--serif);color:var(--burgundy);font-size:1rem;letter-spacing:.14em;min-width:90px}
+.ctl.playing .play-ic{display:none}
+.ctl:not(.playing) .pause-ic{display:none}
+.ctl.playing{background:var(--green);color:var(--ivory);border-color:var(--green)}
+.botbar{position:absolute;bottom:0;left:0;right:0;height:70px;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  padding:0 26px;background:linear-gradient(0deg,rgba(245,241,232,.94),rgba(245,241,232,0));}
+.counter{font-family:var(--serif);color:var(--burgundy);font-size:1rem;letter-spacing:.14em;min-width:110px}
 .counter b{font-size:1.5rem}
 .counter i{color:var(--gold);font-style:normal;margin:0 6px}
 .navbtns{display:flex;gap:10px}
-.nbtn{
-  height:44px;border-radius:24px;border:1px solid var(--burgundy);background:transparent;color:var(--burgundy);
-  display:flex;align-items:center;gap:9px;padding:0 22px;font-size:.66rem;letter-spacing:.3em;
-  text-transform:uppercase;font-weight:600;transition:.3s;
-}
+.nbtn{height:44px;border-radius:24px;border:1px solid var(--burgundy);background:transparent;color:var(--burgundy);
+  display:flex;align-items:center;gap:9px;padding:0 22px;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;transition:.3s}
 .nbtn:hover{background:var(--burgundy);color:var(--ivory);gap:13px}
 .nbtn.primary{background:var(--burgundy);color:var(--ivory)}
 .nbtn.primary:hover{background:var(--burgundy-deep)}
 .nbtn svg{width:15px;height:15px}
-.slidetitle{position:absolute;left:50%;transform:translateX(-50%);text-align:center;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:14px;align-items:center}
-.slidetitle .ar{font-family:var(--arabic);font-size:.95rem;letter-spacing:0;color:var(--green);text-transform:none}
-@media(max-width:760px){.slidetitle{display:none}.rail{display:none}}
+.slidetitle{position:absolute;left:50%;transform:translateX(-50%);text-align:center;font-size:.6rem;letter-spacing:.36em;
+  text-transform:uppercase;color:var(--ink-soft);display:flex;gap:14px;align-items:center;font-weight:600}
+.slidetitle .ar{font-family:var(--arabic);font-size:.95rem;letter-spacing:0;color:var(--green);text-transform:none;font-weight:400}
+@media(max-width:760px){.slidetitle{display:none}}
 
-/* menu overlay */
-#menu{
-  position:fixed;inset:0;z-index:200;background:rgba(22,17,15,.97);display:flex;align-items:center;justify-content:center;
-  opacity:0;visibility:hidden;transition:.5s var(--ease);
-}
+/* menu overlay (chapter navigator) */
+#menu{position:fixed;inset:0;z-index:200;background:rgba(22,17,15,.97);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.5s var(--ease)}
 #menu.open{opacity:1;visibility:visible}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;max-width:1100px;width:92%;max-height:82vh;overflow:auto;padding:10px}
-.mitem{
-  border:1px solid rgba(198,152,53,.3);background:rgba(245,241,232,.03);padding:22px 20px;text-align:left;
-  color:var(--ivory);transition:.3s;border-radius:4px;transform:translateY(14px);opacity:0;
-}
-#menu.open .mitem{transform:translateY(0);opacity:1}
-.mitem:hover{background:rgba(198,152,53,.14);border-color:var(--gold);transform:translateY(-3px)}
-.mitem .mnum{font-family:var(--serif);color:var(--gold);font-size:1.35rem}
-.mitem .mtt{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;margin-top:8px;font-weight:600}
-.mitem .mar{font-family:var(--arabic);color:var(--gold-soft);font-size:1rem;margin-top:6px;direction:rtl;text-align:right}
-#menuClose{position:absolute;top:26px;right:30px;background:none;border:1px solid rgba(245,241,232,.3);color:var(--ivory);width:44px;height:44px;border-radius:50%;font-size:1.1rem;transition:.3s}
+.menu-inner{max-width:1180px;width:94%;max-height:84vh;overflow:auto;padding:10px}
+.menu-part{color:var(--gold);font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;font-weight:700;margin:20px 4px 10px;display:flex;gap:12px;align-items:baseline}
+.menu-part .ar{font-family:var(--arabic);font-size:.95rem;letter-spacing:0;color:var(--gold-soft)}
+.menu-row{display:flex;flex-wrap:wrap;gap:8px}
+.mitem{border:1px solid rgba(198,152,53,.3);background:rgba(245,241,232,.03);padding:10px 16px;text-align:left;color:var(--ivory);
+  transition:.3s;border-radius:4px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;display:flex;gap:10px;align-items:center}
+.mitem b{font-family:var(--serif);color:var(--gold);font-size:.9rem;font-weight:600}
+.mitem:hover{background:rgba(198,152,53,.14);border-color:var(--gold);transform:translateY(-2px)}
+.mitem.here{background:var(--burgundy);border-color:var(--burgundy)}
+#menuClose{position:absolute;top:26px;right:30px;background:none;border:1px solid rgba(245,241,232,.3);color:var(--ivory);
+  width:44px;height:44px;border-radius:50%;font-size:1.1rem;transition:.3s}
 #menuClose:hover{background:var(--burgundy);border-color:var(--burgundy)}
 
-/* ============================================================
-   SLIDES
-   ============================================================ */
+/* ============ SLIDES ============ */
 .stage{position:absolute;inset:0}
-.slide{
-  position:absolute;inset:0;padding:84px 96px 88px;display:flex;flex-direction:column;justify-content:center;
-  opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .7s var(--ease),transform .7s var(--ease),visibility .7s;
-  overflow:hidden;
-}
+.slide{position:absolute;inset:0;padding:84px 96px 88px;display:flex;flex-direction:column;justify-content:center;
+  opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .7s var(--ease),transform .7s var(--ease),visibility .7s;overflow:hidden}
 .slide.active{opacity:1;visibility:visible;transform:scale(1);z-index:20}
 @media(max-width:900px){.slide{padding:76px 24px 84px;overflow-y:auto;justify-content:flex-start}}
-/* staggered reveals */
 .rev{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
 .slide.active .rev{opacity:1;transform:none}
 .rev-l{opacity:0;transform:translateX(-34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
@@ -236,53 +158,30 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .slide.active .rev-l,.slide.active .rev-r{opacity:1;transform:none}
 .rev-sc{opacity:0;transform:scale(.88);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
 .slide.active .rev-sc{opacity:1;transform:scale(1)}
-
-/* big ghost ornament per slide */
-.ghost{
-  position:absolute;font-family:var(--arabic);color:var(--burgundy);opacity:.045;pointer-events:none;
-  font-size:clamp(200px,34vw,460px);line-height:1;right:-40px;bottom:-90px;direction:rtl;
-}
-
-/* ---------- COVER ---------- */
-.cover{align-items:center;text-align:center}
-.cover-logo{width:min(300px,46vw);position:relative}
-.cover-logo img{width:100%;mix-blend-mode:multiply}
-.cover-halo{
-  position:absolute;inset:-14%;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(198,152,53,.22),transparent 62%);
-  animation:halo 5s ease-in-out infinite;
-}
-@keyframes halo{0%,100%{transform:scale(.96);opacity:.7}50%{transform:scale(1.05);opacity:1}}
-.cover h1{font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:.06em;margin-top:8px}
-.cover .cov-ar{font-family:var(--arabic);font-size:clamp(1.3rem,2.6vw,1.9rem);color:var(--green);margin-top:6px}
-.cover .cov-tag{margin-top:16px;font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
-.cover .cov-tag b{color:var(--gold)}
-.enterbtn{
-  margin-top:28px;background:var(--burgundy);color:var(--ivory);border:none;border-radius:30px;
-  padding:16px 42px;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;
-  display:inline-flex;align-items:center;gap:12px;transition:.35s;box-shadow:0 14px 34px -12px rgba(132,5,34,.55);
-}
-.enterbtn:hover{background:var(--green);gap:18px;box-shadow:0 16px 40px -12px rgba(44,102,58,.55)}
-.floating-star{position:absolute;color:var(--gold);opacity:.35;animation:floaty 7s ease-in-out infinite}
-.floating-star svg{width:100%;height:100%}
-@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(24deg)}}
-
-/* ---------- layout helpers ---------- */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;height:100%}
-@media(max-width:900px){.split{grid-template-columns:1fr !important;gap:26px;height:auto}}
+.ghost{position:absolute;font-family:var(--arabic);color:var(--burgundy);opacity:.045;pointer-events:none;
+  font-size:clamp(200px,34vw,460px);line-height:1;right:-40px;bottom:-90px;direction:rtl}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;height:100%}
+.split.flip>:first-child{order:2}
+@media(max-width:900px){.split{grid-template-columns:1fr !important;gap:26px;height:auto}.split.flip>:first-child{order:0}}
 .head h2{font-size:clamp(1.8rem,3.4vw,2.8rem);margin:12px 0 4px}
 .head .har{font-family:var(--arabic);color:var(--green);font-size:1.2rem;direction:rtl;display:inline-block}
 
-/* frame for images */
-.arch{
-  position:relative;border:1px solid rgba(132,5,34,.3);padding:10px;background:#fff;
-  border-radius:6px;box-shadow:0 30px 70px -30px rgba(42,33,28,.4);cursor:zoom-in;transition:.4s;
-}
+/* part divider slides */
+.divider{background:radial-gradient(1000px 600px at 70% 20%, rgba(198,152,53,.12), transparent 60%), var(--charcoal);align-items:flex-start}
+.divider .dv-num{font-family:var(--serif);font-size:clamp(6rem,17vw,15rem);line-height:.9;color:transparent;
+  -webkit-text-stroke:1px rgba(198,152,53,.5);letter-spacing:.04em}
+.divider h2{color:var(--ivory);font-size:clamp(2.4rem,5.4vw,4.2rem);margin-top:10px}
+.divider .dv-ar{font-family:var(--arabic);color:var(--gold-soft);font-size:clamp(1.4rem,2.8vw,2.2rem);margin-top:8px}
+.divider .dv-sub{color:rgba(245,241,232,.55);font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;margin-top:22px;font-weight:600}
+.divider .dv-line{width:120px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:26px}
+.divider .ghost{color:var(--gold);opacity:.05}
+
+/* image frame */
+.arch{position:relative;border:1px solid rgba(132,5,34,.3);padding:10px;background:#fff;border-radius:6px;
+  box-shadow:0 30px 70px -30px rgba(42,33,28,.4);cursor:zoom-in;transition:.4s}
 .arch:hover{transform:translateY(-6px);box-shadow:0 40px 80px -30px rgba(132,5,34,.4)}
-.arch::after{
-  content:"⌕ CLICK TO ENLARGE · اضغط للتكبير";position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
-  font-size:.56rem;letter-spacing:.26em;color:var(--gold);white-space:nowrap;font-weight:600;font-family:var(--sans);
-}
+.arch::after{content:"⌕ CLICK TO ENLARGE · اضغط للتكبير";position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
+  font-size:.56rem;letter-spacing:.26em;color:var(--gold);white-space:nowrap;font-weight:600}
 .arch img{width:100%;border-radius:3px}
 .arch .corner{position:absolute;width:22px;height:22px;border:2px solid var(--gold);pointer-events:none}
 .arch .c1{top:-6px;left:-6px;border-right:none;border-bottom:none}
@@ -290,67 +189,119 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .arch .c3{bottom:-6px;left:-6px;border-right:none;border-top:none}
 .arch .c4{bottom:-6px;right:-6px;border-left:none;border-top:none}
 
-/* journey / agenda */
-.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-@media(max-width:900px){.jgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.jgrid{grid-template-columns:1fr}}
-.jcard{
-  text-align:left;border:1px solid rgba(132,5,34,.22);background:rgba(255,255,255,.55);padding:22px;border-radius:5px;
-  transition:.35s;position:relative;overflow:hidden;
-}
-.jcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transition:.35s;transform-origin:top}
-.jcard:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 22px 44px -22px rgba(132,5,34,.35);background:#fff}
-.jcard:hover::before{transform:scaleY(1)}
-.jcard .jn{font-family:var(--serif);font-size:1.5rem;color:var(--gold)}
-.jcard .jt{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--burgundy);margin-top:8px}
-.jcard .ja{font-family:var(--arabic);color:var(--green);font-size:1rem;margin-top:5px;direction:rtl;text-align:right}
-.jcard .go{position:absolute;right:16px;bottom:14px;color:var(--gold);opacity:0;transition:.3s;transform:translateX(-8px)}
-.jcard:hover .go{opacity:1;transform:none}
+/* sketch crops */
+.crop{border-radius:6px;border:1px solid rgba(132,5,34,.25);box-shadow:0 24px 50px -26px rgba(42,33,28,.45);
+  background-color:#f7f3ea;background-repeat:no-repeat;position:relative;overflow:hidden;transition:.4s;cursor:zoom-in}
+.crop:hover{transform:translateY(-5px) scale(1.01);border-color:var(--gold)}
+.crop .cr-tag{position:absolute;left:0;bottom:0;right:0;padding:24px 14px 10px;
+  background:linear-gradient(0deg,rgba(22,17,15,.72),transparent);color:var(--ivory);display:flex;justify-content:space-between;align-items:baseline}
+.crop .cr-tag b{font-family:var(--serif);font-size:1rem;letter-spacing:.06em;font-weight:600}
+.crop .cr-tag .ar{font-family:var(--arabic);color:var(--gold-soft);font-size:.92rem}
+.cropgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.cropgrid .crop{height:200px}
+@media(max-width:900px){.cropgrid .crop{height:150px}}
 
-/* story pillars */
+/* pillars & lists */
 .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
 @media(max-width:900px){.pillars{grid-template-columns:1fr 1fr}}
-.pill{
-  border:1px solid rgba(44,102,58,.25);padding:20px 16px;text-align:center;border-radius:70px 70px 6px 6px;
-  background:rgba(255,255,255,.5);transition:.35s;
-}
-.pill:hover{background:var(--green);border-color:var(--green)}
-.pill:hover *{color:var(--ivory)!important}
+.pill{border:1px solid rgba(44,102,58,.25);padding:20px 16px;text-align:center;border-radius:70px 70px 6px 6px;
+  background:rgba(255,255,255,.5);transition:.35s;cursor:pointer}
+.pill:hover,.pill.on{background:var(--green);border-color:var(--green)}
+.pill:hover *,.pill.on *{color:var(--ivory)!important}
 .pill .pi{width:30px;height:30px;margin:0 auto 10px;color:var(--gold)}
 .pill .pt{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--burgundy)}
 .pill .pa{font-family:var(--arabic);color:var(--green);margin-top:4px;font-size:.95rem}
-.bigword{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--ink);font-style:italic;line-height:1.4}
+.bigword{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--ink);font-style:italic;line-height:1.45}
 .bigword b{color:var(--burgundy);font-style:normal}
-
-/* numbered feature list */
 .numlist{display:flex;flex-direction:column;gap:12px;margin-top:24px}
-.nitem{display:flex;gap:16px;align-items:flex-start;padding:12px 16px;border-radius:5px;border:1px solid transparent;transition:.3s;cursor:pointer}
-.nitem:hover,.nitem.on{background:rgba(255,255,255,.7);border-color:rgba(198,152,53,.45);box-shadow:0 14px 30px -18px rgba(42,33,28,.3)}
-.nitem .nn{
-  flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);color:var(--burgundy);
-  font-family:var(--serif);font-size:1.05rem;display:flex;align-items:center;justify-content:center;transition:.3s;
-}
-.nitem:hover .nn,.nitem.on .nn{background:var(--burgundy);color:var(--ivory);border-color:var(--burgundy)}
+.nitem{display:flex;gap:16px;align-items:flex-start;padding:12px 16px;border-radius:5px;border:1px solid transparent;transition:.3s}
+.nitem:hover{background:rgba(255,255,255,.7);border-color:rgba(198,152,53,.45);box-shadow:0 14px 30px -18px rgba(42,33,28,.3)}
+.nitem .nn{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);color:var(--burgundy);
+  font-family:var(--serif);font-size:1.05rem;display:flex;align-items:center;justify-content:center;transition:.3s}
+.nitem:hover .nn{background:var(--burgundy);color:var(--ivory);border-color:var(--burgundy)}
 .nitem h3{font-size:1.12rem;color:var(--ink)}
 .nitem h3 span{font-family:var(--arabic);color:var(--green);font-size:.95rem;margin-right:8px}
 .nitem p{font-size:.82rem;color:var(--ink-soft);line-height:1.6;margin-top:4px}
 
-/* ---------- ANATOMY (hotspots) ---------- */
-.anat-wrap{position:relative;width:min(390px,74vw);margin:0 auto}
+/* ---------- COVER ---------- */
+.cover{align-items:center;text-align:center}
+.cover .cov-star{width:84px;height:84px;color:var(--gold);margin-bottom:8px;animation:spin 22s linear infinite}
+.cover h1{font-size:clamp(2.6rem,6vw,4.8rem);letter-spacing:.05em}
+.cover .cov-ar{font-family:var(--arabic);font-size:clamp(1.4rem,3vw,2.2rem);color:var(--green);margin-top:10px}
+.cover .cov-tag{margin-top:18px;font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.cover .cov-tag b{color:var(--gold)}
+.cover .cov-note{margin-top:26px;border:1px dashed rgba(198,152,53,.6);border-radius:40px;padding:12px 28px;
+  font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--burgundy);font-weight:600;background:rgba(255,255,255,.5)}
+.cover .cov-note .ar{font-family:var(--arabic);font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--green);margin-right:8px}
+.enterbtn{margin-top:30px;background:var(--burgundy);color:var(--ivory);border:none;border-radius:30px;
+  padding:16px 42px;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;
+  display:inline-flex;align-items:center;gap:12px;transition:.35s;box-shadow:0 14px 34px -12px rgba(132,5,34,.55)}
+.enterbtn:hover{background:var(--green);gap:18px;box-shadow:0 16px 40px -12px rgba(44,102,58,.55)}
+.floating-star{position:absolute;color:var(--gold);opacity:.35;animation:floaty 7s ease-in-out infinite}
+.floating-star svg{width:100%;height:100%}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(24deg)}}
+
+/* ---------- ASSEMBLY GAME ---------- */
+.asm{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:26px;align-items:center;height:100%}
+@media(max-width:900px){.asm{grid-template-columns:1fr;height:auto}}
+.asm-col{display:flex;flex-direction:column;gap:14px}
+.el-card{border:1px solid rgba(132,5,34,.25);background:rgba(255,255,255,.6);border-radius:6px;padding:14px 16px;
+  text-align:left;display:flex;gap:14px;align-items:center;transition:.4s var(--ease);position:relative;overflow:hidden}
+.el-card .ei{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--burgundy);transition:.4s}
+.el-card .ei svg{width:22px;height:22px}
+.el-card .et b{display:block;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
+.el-card .et .ar{font-family:var(--arabic);color:var(--green);font-size:.92rem}
+.el-card .et small{display:block;font-size:.66rem;color:var(--ink-soft);margin-top:3px;line-height:1.5}
+.el-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 18px 38px -18px rgba(132,5,34,.35);background:#fff}
+.el-card.done{border-color:var(--green);background:#fff}
+.el-card.done .ei{background:var(--green);border-color:var(--green);color:var(--ivory)}
+.el-card.done::after{content:"✓";position:absolute;top:8px;right:12px;color:var(--green);font-weight:700}
+.asm-center{text-align:center;position:relative}
+.asm-ring{width:min(300px,60vw);height:min(300px,60vw);margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center}
+.asm-oct{position:absolute;inset:12%;border:2px dashed rgba(132,5,34,.4);transform:rotate(45deg);border-radius:26px;transition:1s var(--ease)}
+.asm-oct2{position:absolute;inset:20%;border:1px dashed rgba(198,152,53,.5);transform:rotate(22deg);border-radius:50%;transition:1s var(--ease)}
+.asm.done .asm-oct{border-color:var(--gold);animation:spin 8s linear infinite}
+.asm-q{font-family:var(--serif);font-size:4rem;color:rgba(132,5,34,.3);transition:.5s}
+.asm-slots{position:absolute;inset:0;pointer-events:none}
+.asm-slot{position:absolute;width:16px;height:16px;border-radius:50%;border:1px solid var(--gold);background:transparent;transition:.5s;transform:translate(-50%,-50%)}
+.asm-slot.lit{background:var(--gold);box-shadow:0 0 14px rgba(198,152,53,.8)}
+.asm-count{font-family:var(--serif);color:var(--burgundy);font-size:1.2rem;margin-top:14px;letter-spacing:.14em}
+.asm-hint{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:600}
+.asm-hint .ar{font-family:var(--arabic);font-size:.92rem;letter-spacing:0;text-transform:none;color:var(--green)}
+#mergeBtn{margin-top:16px;background:var(--gold);color:#231a08;border:none;border-radius:30px;padding:15px 36px;
+  font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;opacity:0;transform:translateY(14px) scale(.9);
+  pointer-events:none;transition:.5s var(--ease);box-shadow:0 14px 34px -12px rgba(198,152,53,.7)}
+#mergeBtn.show{opacity:1;transform:none;pointer-events:auto;animation:mergepulse 1.6s infinite}
+@keyframes mergepulse{0%,100%{box-shadow:0 0 0 0 rgba(198,152,53,.5)}50%{box-shadow:0 0 0 16px rgba(198,152,53,0)}}
+#mergeBtn:hover{background:var(--burgundy);color:var(--ivory)}
+/* merged state */
+.asm.merged .el-card{opacity:0;pointer-events:none}
+.asm.merged .asm-col.left .el-card{transform:translateX(60px) scale(.7)}
+.asm.merged .asm-col.right .el-card{transform:translateX(-60px) scale(.7)}
+.asm.merged .asm-q,.asm.merged .asm-slots{opacity:0}
+.asm-logo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
+.asm-logo img{width:82%;mix-blend-mode:multiply}
+.asm.merged .asm-oct,.asm.merged .asm-oct2{opacity:0}
+.asm.merged .asm-logo{animation:logoreveal 1.6s var(--ease) .5s forwards}
+@keyframes logoreveal{0%{opacity:0;transform:scale(1.5);filter:blur(24px) grayscale(1)}60%{opacity:1}100%{opacity:1;transform:scale(1);filter:blur(0) grayscale(0)}}
+.burst{position:absolute;left:50%;top:50%;width:10px;height:10px;color:var(--gold);opacity:0;pointer-events:none}
+.asm.merged .burst{animation:burst 1.2s var(--ease) .6s forwards}
+@keyframes burst{0%{opacity:1;transform:translate(-50%,-50%) rotate(var(--r)) translateY(0) scale(.6)}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--r)) translateY(-150px) scale(1.4)}}
+#asmNext{margin-top:10px;opacity:0;pointer-events:none;transition:.6s;transition-delay:1.6s}
+.asm.merged #asmNext{opacity:1;pointer-events:auto}
+
+/* ---------- ANATOMY ---------- */
+.anat-wrap{position:relative;width:min(380px,72vw);margin:0 auto}
 .anat-wrap img{width:100%;mix-blend-mode:multiply}
-.hs{
-  position:absolute;width:30px;height:30px;border-radius:50%;border:none;transform:translate(-50%,-50%);
+.hs{position:absolute;width:30px;height:30px;border-radius:50%;border:none;transform:translate(-50%,-50%);
   background:rgba(132,5,34,.92);color:var(--ivory);font-weight:700;font-size:.8rem;z-index:5;
-  display:flex;align-items:center;justify-content:center;transition:.3s;
-}
+  display:flex;align-items:center;justify-content:center;transition:.3s}
 .hs::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(132,5,34,.55);animation:pulse 2.2s infinite}
 @keyframes pulse{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.7);opacity:0}}
 .hs:hover{background:var(--gold);transform:translate(-50%,-50%) scale(1.15)}
 .hs.on{background:var(--green);transform:translate(-50%,-50%) scale(1.2)}
-.anat-card{
-  border:1px solid rgba(198,152,53,.5);border-left:4px solid var(--gold);background:#fff;border-radius:6px;
-  padding:26px 28px;min-height:230px;box-shadow:0 26px 60px -30px rgba(42,33,28,.35);position:relative;overflow:hidden;
-}
+.anat-card{border:1px solid rgba(198,152,53,.5);border-left:4px solid var(--gold);background:#fff;border-radius:6px;
+  padding:26px 28px;min-height:230px;box-shadow:0 26px 60px -30px rgba(42,33,28,.35);position:relative;overflow:hidden}
 .anat-card .ac-num{position:absolute;right:18px;top:6px;font-family:var(--serif);font-size:4.4rem;color:rgba(198,152,53,.14)}
 .anat-card h3{font-size:1.55rem}
 .anat-card .ac-ar{font-family:var(--arabic);color:var(--green);font-size:1.2rem;margin-top:2px;direction:rtl;display:inline-block}
@@ -358,81 +309,69 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .anat-card .ac-mean{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
 .tagchip{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--green);color:var(--green);border-radius:20px;padding:5px 12px;font-weight:600}
 
-/* ---------- COLORS ---------- */
+/* ---------- COLORS / TYPE / VARIATIONS ---------- */
 .pal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
 @media(max-width:900px){.pal{grid-template-columns:1fr 1fr}}
 .sw{border:1px solid rgba(42,33,28,.14);border-radius:6px;overflow:hidden;text-align:left;background:#fff;transition:.35s;position:relative;padding:0}
 .sw:hover{transform:translateY(-7px);box-shadow:0 28px 54px -22px rgba(42,33,28,.4)}
 .sw .swc{height:120px;position:relative;transition:.3s}
-.sw .swc::after{content:"COPY HEX · انسخ";position:absolute;inset:auto 0 0 0;text-align:center;padding:7px;font-size:.55rem;letter-spacing:.24em;color:#fff;background:rgba(0,0,0,.22);opacity:0;transition:.3s;font-weight:600}
+.sw .swc::after{content:"COPY HEX · انسخ";position:absolute;inset:auto 0 0 0;text-align:center;padding:7px;font-size:.55rem;
+  letter-spacing:.24em;color:#fff;background:rgba(0,0,0,.22);opacity:0;transition:.3s;font-weight:600}
 .sw:hover .swc::after{opacity:1}
 .sw .swi{padding:14px 16px}
 .sw .swn{font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
 .sw .swa{font-family:var(--arabic);color:var(--green);font-size:.92rem;margin-top:2px}
-.sw .swh{font-size:.66rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.06em;line-height:1.7}
+.sw .swh{font-size:.66rem;color:var(--ink-soft);margin-top:6px;line-height:1.7}
 .sw.copied .swc::after{content:"✓ COPIED · تم النسخ";opacity:1;background:rgba(44,102,58,.75)}
-.ratio{display:flex;height:14px;border-radius:8px;overflow:hidden;margin-top:24px;border:1px solid rgba(42,33,28,.15)}
-.ratio i{display:block;height:100%}
-
-/* ---------- TYPO ---------- */
-.type-spec{background:#fff;border:1px solid rgba(42,33,28,.12);border-radius:6px;padding:22px 28px;margin-top:14px;transition:.3s}
-.type-spec:hover{border-color:var(--gold);box-shadow:0 20px 44px -24px rgba(42,33,28,.3)}
+.ratio{display:flex;height:44px;border-radius:8px;overflow:hidden;margin-top:24px;border:1px solid rgba(42,33,28,.15)}
+.ratio i{display:flex;align-items:center;justify-content:center;height:100%;color:#fff;font-size:.6rem;letter-spacing:.2em;font-weight:700;transition:.4s}
+.ratio i:hover{filter:brightness(1.15)}
+.type-spec{background:#fff;border:1px solid rgba(42,33,28,.12);border-radius:6px;padding:24px 30px;margin-top:14px;transition:.3s}
+.type-spec:hover{border-color:var(--gold);box-shadow:0 20px 44px -24px rgba(42,33,28,.3);transform:translateY(-3px)}
 .type-spec .ts-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.type-spec .ts-demo{font-size:1.9rem;color:var(--ink);margin-top:8px;line-height:1.15}
+.type-spec .ts-demo{font-size:2.2rem;color:var(--ink);margin-top:10px;line-height:1.2}
 .type-spec .ts-demo.serif{font-family:var(--serif);font-weight:600}
-.type-spec .ts-demo.sans{font-family:var(--sans);font-weight:500;font-size:1.25rem;letter-spacing:.14em}
-.type-spec .ts-demo.arab{font-family:var(--arabic);direction:rtl;font-size:2rem}
-.type-spec .ts-sub{font-size:.72rem;color:var(--ink-soft);margin-top:8px;letter-spacing:.06em}
-
-/* ---------- VARIATIONS ---------- */
-.varstage{
-  border-radius:8px;padding:28px;transition:background .6s var(--ease), box-shadow .6s;
-  display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;
-  background:#fff;border:1px solid rgba(42,33,28,.12);box-shadow:0 30px 60px -34px rgba(42,33,28,.4);
-}
+.type-spec .ts-demo.sans{font-family:var(--sans);font-weight:500;font-size:1.3rem;letter-spacing:.14em}
+.type-spec .ts-demo.arab{font-family:var(--arabic);direction:rtl;font-size:2.3rem}
+.type-spec .ts-sub{font-size:.74rem;color:var(--ink-soft);margin-top:10px;line-height:1.7}
+.varstage{border-radius:8px;padding:28px;transition:background .6s var(--ease);display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;
+  background:#fff;border:1px solid rgba(42,33,28,.12);box-shadow:0 30px 60px -34px rgba(42,33,28,.4)}
 @media(max-width:700px){.varstage{grid-template-columns:1fr}}
 .varstage.dark{background:var(--charcoal);border-color:rgba(198,152,53,.3)}
 .varstage figure{margin:0;cursor:zoom-in;transition:.35s;border-radius:4px;overflow:hidden}
 .varstage figure:hover{transform:scale(1.025)}
-.varstage img{width:100%;max-height:34vh;object-fit:contain}
-.vtabs{display:flex;gap:10px;margin:20px 0}
-.vtab{
-  border:1px solid var(--burgundy);background:transparent;color:var(--burgundy);border-radius:24px;
-  padding:11px 26px;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;transition:.3s;
-}
-.vtab .ar{font-family:var(--arabic);margin-right:7px;font-size:.9rem;text-transform:none;letter-spacing:0}
-.vtab:hover{background:rgba(132,5,34,.08)}
-.vtab.on{background:var(--burgundy);color:var(--ivory)}
-.varthumbs{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-.varthumbs figure{width:104px;border:1px solid rgba(42,33,28,.15);border-radius:4px;overflow:hidden;cursor:zoom-in;margin:0;transition:.3s;background:#fff}
-.varthumbs figure:hover{transform:translateY(-4px);border-color:var(--gold)}
+.varstage img{width:100%;max-height:36vh;object-fit:contain}
+.lockrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+@media(max-width:800px){.lockrow{grid-template-columns:1fr}}
+.lockrow figure{margin:0;border:1px solid rgba(42,33,28,.15);border-radius:6px;overflow:hidden;cursor:zoom-in;transition:.35s;background:#fff}
+.lockrow figure:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 24px 48px -22px rgba(132,5,34,.35)}
+.lockrow figcaption{padding:10px 14px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--burgundy);font-weight:700;display:flex;justify-content:space-between}
+.lockrow figcaption .ar{font-family:var(--arabic);color:var(--green);font-size:.9rem;letter-spacing:0}
 
-/* ---------- MOODBOARDS ---------- */
-.moodgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
-@media(max-width:800px){.moodgrid{grid-template-columns:1fr}}
-.mood{position:relative;border-radius:6px;overflow:hidden;cursor:zoom-in;box-shadow:0 22px 50px -26px rgba(42,33,28,.5)}
-.mood img{width:100%;height:200px;object-fit:cover;transition:transform 1.4s var(--ease)}
-.mood:hover img{transform:scale(1.08)}
-.mood .mcap{
-  position:absolute;inset:auto 0 0 0;padding:34px 20px 14px;color:var(--ivory);
-  background:linear-gradient(0deg,rgba(22,17,15,.85),transparent);display:flex;justify-content:space-between;align-items:flex-end;
-}
-.mood .mcap b{font-family:var(--serif);font-size:1.1rem;letter-spacing:.06em;font-weight:600}
-.mood .mcap b small{display:block;font-family:var(--sans);font-size:.54rem;letter-spacing:.28em;color:var(--gold-soft);margin-top:4px;text-transform:uppercase}
-.mood .mcap .ar{font-family:var(--arabic);color:var(--gold-soft);font-size:1rem}
-.mood .mtag{position:absolute;top:14px;left:14px;background:var(--burgundy);color:var(--ivory);font-family:var(--serif);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:2}
+/* ---------- FULL-BLEED MOOD ---------- */
+.full{padding:0 !important;justify-content:flex-end}
+.full .fbg{position:absolute;inset:0;overflow:hidden;cursor:zoom-in}
+.full .fbg img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 6s var(--ease)}
+.full.active .fbg img{transform:scale(1.02)}
+.full .fcap{position:relative;z-index:5;margin:0 0 92px 96px;max-width:520px;background:rgba(22,17,15,.82);backdrop-filter:blur(8px);
+  border-left:4px solid var(--gold);padding:28px 32px;border-radius:0 8px 8px 0;pointer-events:none}
+@media(max-width:900px){.full .fcap{margin:0 20px 92px}}
+.full .fcap .eyebrow{color:var(--gold-soft)}
+.full .fcap h2{color:var(--ivory);font-size:clamp(1.7rem,3.2vw,2.6rem);margin-top:8px}
+.full .fcap .har{font-family:var(--arabic);color:var(--gold-soft);font-size:1.2rem}
+.full .fcap p{color:rgba(245,241,232,.8);font-size:.84rem;line-height:1.7;margin-top:10px}
 
-/* ---------- APPLICATIONS ---------- */
-.appgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-@media(max-width:1000px){.appgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.appgrid{grid-template-columns:1fr}}
-.appit{position:relative;border-radius:6px;overflow:hidden;cursor:zoom-in;background:#fff;border:1px solid rgba(42,33,28,.12);transition:.35s}
-.appit:hover{transform:translateY(-6px);box-shadow:0 26px 50px -22px rgba(132,5,34,.35);border-color:var(--gold)}
-.appit img{width:100%;height:128px;object-fit:cover;transition:transform 1.2s var(--ease)}
-.appit:hover img{transform:scale(1.07)}
-.appit .acap{padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-.appit .acap b{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);font-weight:700}
-.appit .acap .ar{font-family:var(--arabic);color:var(--green);font-size:.88rem}
+/* ---------- APPLICATION PAGES ---------- */
+.appimg{position:relative;border-radius:8px;overflow:hidden;cursor:zoom-in;box-shadow:0 34px 70px -30px rgba(42,33,28,.55);transition:.4s}
+.appimg:hover{transform:translateY(-6px)}
+.appimg img{width:100%;max-height:62vh;object-fit:cover;transition:transform 4s var(--ease)}
+.appimg:hover img{transform:scale(1.05)}
+.appimg .ai-zoom{position:absolute;right:14px;bottom:14px;background:rgba(22,17,15,.7);color:var(--ivory);font-size:.56rem;
+  letter-spacing:.24em;padding:8px 14px;border-radius:20px;font-weight:600}
+.checkrow{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:.86rem;color:var(--ink-soft);line-height:1.6}
+.chk svg{flex:none;width:17px;height:17px;color:var(--green);margin-top:2px}
+.chk .ar{font-family:var(--arabic);color:var(--green)}
 
 /* ---------- CLOSING ---------- */
 .closing{align-items:center;text-align:center}
@@ -444,10 +383,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .sig .sv{font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin-top:6px}
 
 /* ---------- LIGHTBOX ---------- */
-#lb{
-  position:fixed;inset:0;z-index:300;background:rgba(22,17,15,.96);display:flex;flex-direction:column;
-  align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.45s var(--ease);padding:30px;
-}
+#lb{position:fixed;inset:0;z-index:300;background:rgba(22,17,15,.96);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.45s var(--ease);padding:30px}
 #lb.open{opacity:1;visibility:visible}
 #lbImg{max-width:88vw;max-height:74vh;border-radius:4px;box-shadow:0 40px 100px -30px #000;transform:scale(.94);transition:.45s var(--ease);background:#fff}
 #lb.open #lbImg{transform:scale(1)}
@@ -455,32 +392,29 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 #lbCap .ar{display:block;font-family:var(--arabic);color:var(--gold-soft);font-size:1.1rem;margin-top:4px}
 #lbClose{position:absolute;top:24px;right:28px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(245,241,232,.35);background:none;color:var(--ivory);font-size:1.15rem;transition:.3s}
 #lbClose:hover{background:var(--burgundy);border-color:var(--burgundy)}
-.lbnav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(245,241,232,.3);background:rgba(245,241,232,.06);color:var(--ivory);font-size:1.2rem;transition:.3s;z-index:5}
+.lbnav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(245,241,232,.3);
+  background:rgba(245,241,232,.06);color:var(--ivory);font-size:1.2rem;transition:.3s;z-index:5}
 .lbnav:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
 #lbPrev{left:26px}#lbNext{right:26px}
-
-/* helper */
-.kbd-hint{position:absolute;bottom:74px;left:50%;transform:translateX(-50%);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(92,80,73,.55);z-index:55;font-weight:600}
+.kbd-hint{position:absolute;bottom:74px;left:50%;transform:translateX(-50%);font-size:.56rem;letter-spacing:.3em;
+  text-transform:uppercase;color:rgba(92,80,73,.55);z-index:55;font-weight:600}
 @media(max-width:760px){.kbd-hint{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ================= SVG DEFS ================= -->
 <svg width="0" height="0" style="position:absolute">
   <defs>
-    <g id="star8">
-      <path d="M12 0 15.1 8.9 24 12 15.1 15.1 12 24 8.9 15.1 0 12 8.9 8.9Z" fill="currentColor"/>
-    </g>
+    <g id="star8"><path d="M12 0 15.1 8.9 24 12 15.1 15.1 12 24 8.9 15.1 0 12 8.9 8.9Z" fill="currentColor"/></g>
     <g id="tagineIcon">
       <path d="M12 2c.9 0 1.6.5 1.6 1.2 0 .5-.3.8-.6 1.1.2.1.4.4.4.7v1.2c2.9 1 5.2 3.6 5.9 6.8H4.7c.7-3.2 3-5.8 5.9-6.8V5c0-.3.2-.6.4-.7-.3-.3-.6-.6-.6-1.1C10.4 2.5 11.1 2 12 2Z" fill="currentColor"/>
       <path d="M3.5 14.5h17c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5h-17C2.7 17.5 2 16.8 2 16s.7-1.5 1.5-1.5Z" fill="currentColor"/>
       <path d="M12 18.5c2 0 3.8.5 5 1.3-1.2 1.1-3 1.7-5 1.7s-3.8-.6-5-1.7c1.2-.8 3-1.3 5-1.3Z" fill="currentColor" opacity=".55"/>
     </g>
+    <g id="checkIc"><path d="M4 12.5 9.5 18 20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
   </defs>
 </svg>
 
-<!-- ================= LOADER ================= -->
 <div id="loader">
   <div class="loader-star">
     <svg viewBox="0 0 24 24" fill="none">
@@ -495,13 +429,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
   <div class="loader-pct" id="loadPct">PREPARING · جاري التحميل 0%</div>
 </div>
 
-<!-- ================= PASSWORD GATE ================= -->
 <div id="gate" class="hidden" aria-hidden="true">
   <div class="gate-card" id="gateCard">
     <div class="gate-frame"></div>
-    <div class="gate-emblem">
-      <svg viewBox="0 0 24 24"><use href="#tagineIcon"/></svg>
-    </div>
+    <div class="gate-emblem"><svg viewBox="0 0 24 24"><use href="#tagineIcon"/></svg></div>
     <div class="gate-title">Dar Albahja<small>Brand Identity Proposal</small></div>
     <div class="gate-ar">عرض الهوية البصرية — دار البهجة</div>
     <p class="gate-hint">Private preview — enter access key<br><span class="ar" style="font-size:.95rem;letter-spacing:0;text-transform:none">عرض خاص — أدخل رمز الدخول</span></p>
@@ -514,15 +445,18 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
   </div>
 </div>
 
-<!-- ================= APP ================= -->
 <div id="app">
-  <!-- top bar -->
+  <div id="pbar"><i></i></div>
   <div class="topbar">
     <div class="brandmini">
       <div class="bm-ic"><svg viewBox="0 0 24 24"><use href="#tagineIcon"/></svg></div>
       <div class="bm-tx">DAR ALBAHJA<span>MARRAKECH · مراكش</span></div>
     </div>
     <div class="topctl">
+      <button class="ctl" id="playBtn" title="Auto-play the presentation">
+        <svg class="play-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+      </button>
       <button class="ctl" id="sndBtn" title="Sound on/off">
         <svg class="on-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M18.5 6.5a8 8 0 0 1 0 11"/></svg>
         <svg class="off-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
@@ -530,405 +464,1245 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
       <button class="ctl" id="fsBtn" title="Fullscreen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
       </button>
-      <button class="ctl" id="menuBtn" title="Index">
+      <button class="ctl" id="menuBtn" title="Chapters">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
       </button>
     </div>
   </div>
 
-  <!-- progress rail -->
-  <div class="rail" id="rail"></div>
-
-  <!-- slides -->
   <div class="stage" id="stage">
 
-    <!-- 01 · COVER -->
-    <section class="slide cover" data-title="Cover" data-ar="الغلاف">
-      <div class="floating-star" style="width:26px;height:26px;top:16%;left:12%"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
-      <div class="floating-star" style="width:18px;height:18px;top:24%;right:16%;animation-delay:1.4s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
-      <div class="floating-star" style="width:14px;height:14px;bottom:22%;left:20%;animation-delay:2.6s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
-      <div class="cover-logo rev-sc" style="--d:.15s">
-        <div class="cover-halo"></div>
-        <img src="Dar%20Albahja-Englsih%20and%20Arabic.jpg" alt="Dar Albahja primary logo">
+  <!-- ============ PAGE 1 · COVER (no logo shown) ============ -->
+  <section class="slide cover" data-title="Cover" data-ar="الغلاف" data-part="Opening" data-partar="الافتتاح">
+    <div class="floating-star" style="width:26px;height:26px;top:16%;left:12%"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
+    <div class="floating-star" style="width:18px;height:18px;top:24%;right:16%;animation-delay:1.4s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
+    <div class="floating-star" style="width:14px;height:14px;bottom:22%;left:20%;animation-delay:2.6s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
+    <div class="cov-star rev-sc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1 15.1 8.9 23 12 15.1 15.1 12 23 8.9 15.1 1 12 8.9 8.9Z" stroke="currentColor" stroke-width=".8"/><path d="M12 5 14 10 19 12 14 14 12 19 10 14 5 12 10 10Z" stroke="currentColor" stroke-width=".6" opacity=".7"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></div>
+    <div class="eyebrow rev" style="--d:.2s">Brand Identity Proposal · Confidential</div>
+    <h1 class="rev" style="--d:.35s">The House of Joy</h1>
+    <div class="cov-ar rev" style="--d:.5s">دار البهجة — مراكش</div>
+    <div class="cov-tag rev" style="--d:.65s">A complete identity <b>·</b> from first pencil stroke <b>·</b> to storefront</div>
+    <div class="cov-note rev" style="--d:.8s">The logo stays sealed until you assemble it, chapter by chapter <span class="ar">الشعار مختوم حتى تُركّبوه بأنفسكم</span></div>
+    <button class="enterbtn rev" style="--d:.95s" data-goto="1">
+      Begin the story · ابدأ القصة
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+    </button>
+  </section>
+
+  <!-- ============ PAGE 2 · DIVIDER I ============ -->
+  <section class="slide divider" data-title="Part I" data-ar="الجزء الأول" data-part="Part I — Discovery" data-partar="الاكتشاف">
+    <div class="ghost">١</div>
+    <div class="dv-num rev">01</div>
+    <h2 class="rev" style="--d:.15s">Discovery</h2>
+    <div class="dv-ar rev" style="--d:.28s">الاكتشاف — من هي دار البهجة؟</div>
+    <div class="dv-sub rev" style="--d:.4s">The client · the name · the promise · the pillars</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 3 · THE BRIEF ============ -->
+  <section class="slide" data-title="The Brief" data-ar="الموجز" data-part="Part I — Discovery" data-partar="الاكتشاف">
+    <div class="ghost">موجز</div>
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part I · Discovery</div>
+          <h2>The brief we were given</h2>
+          <span class="har">الموجز الذي انطلقنا منه</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Create a complete visual identity for an authentic Moroccan restaurant —
+        one that feels <b>hand-crafted and soulful</b>, yet disciplined enough to run across signage systems,
+        packaging lines, uniforms and a delivery fleet without losing a single thread of its heritage.</p>
       </div>
-      <div class="rev" style="--d:.45s">
-        <div class="orn"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+      <div class="numlist">
+        <div class="nitem rev" style="--d:.2s"><div class="nn">١</div>
+          <div><h3>Rooted, not costumed <span>أصالة لا تقليد</span></h3><p>Real Moroccan craft language — zellige, arabesque, calligraphy — never tourist clichés.</p></div></div>
+        <div class="nitem rev" style="--d:.32s"><div class="nn">٢</div>
+          <div><h3>Bilingual by birth <span>ثنائية اللغة</span></h3><p>English leads internationally; Arabic is the origin of the name and must live inside the mark itself.</p></div></div>
+        <div class="nitem rev" style="--d:.44s"><div class="nn">٣</div>
+          <div><h3>Built to scale <span>قابلة للتوسع</span></h3><p>One identity that survives a wax seal, a shopfront, a rollup banner and a motorbike box.</p></div></div>
+        <div class="nitem rev" style="--d:.56s"><div class="nn">٤</div>
+          <div><h3>Joy as strategy <span>البهجة استراتيجية</span></h3><p>Every touchpoint should feel like being welcomed into a Moroccan home on a feast day.</p></div></div>
       </div>
-      <h1 class="rev" style="--d:.55s">Brand Identity Proposal</h1>
-      <div class="cov-ar rev" style="--d:.68s">عرض الهوية البصرية</div>
-      <div class="cov-tag rev" style="--d:.8s">Dar Albahja <b>·</b> Marrakech <b>·</b> Authentic Moroccan Cuisine</div>
-      <button class="enterbtn rev" style="--d:.95s" data-goto="1">
-        Begin the journey · ابدأ الرحلة
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 4 · THE NAME: DAR ============ -->
+  <section class="slide" data-title="The Name · Dar" data-ar="الاسم — دار" data-part="Part I — Discovery" data-partar="الاكتشاف">
+    <div class="ghost">دار</div>
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part I · Discovery — The name, word one</div>
+          <h2>“Dar” — the house</h2>
+          <span class="har">دار — البيت الذي يحتضن ضيوفه</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="bigword rev" style="--d:.25s">In Morocco a <b>dar</b> is not just a building. It is the courtyard house —
+        the riad — where the family gathers, the table is always long, and the door is always open.</p>
+        <p class="lead rev" style="--d:.38s">Choosing “Dar” instead of “restaurant” repositions the entire brand:
+        guests are not customers, they are <b>invited into a home</b>. This single word drives the ornamental frame
+        of the logo — an architectural doorway that shelters everything inside it.</p>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%201.png');background-size:820%;background-position:0% 14%"
+             data-full="Sketch Draw 1.png" data-cap="Hand study — horseshoe arches of the medina" data-capar="دراسة يدوية — أقواس المدينة">
+          <div class="cr-tag"><b>Pencil study · The Doorway</b><span class="ar">دراسة القوس</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 5 · THE NAME: ALBAHJA ============ -->
+  <section class="slide" data-title="The Name · Albahja" data-ar="الاسم — البهجة" data-part="Part I — Discovery" data-partar="الاكتشاف">
+    <div class="ghost">بهجة</div>
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part I · Discovery — The name, word two</div>
+          <h2>“Albahja” — the joy</h2>
+          <span class="har">البهجة — لقب مراكش نفسها</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="bigword rev" style="--d:.25s"><b>Albahja</b> means joy — and for centuries it has been the beloved
+        nickname of Marrakech itself: <b>Madinat al-Bahja, the City of Joy</b>.</p>
+        <p class="lead rev" style="--d:.38s">The name is therefore a double signature: it promises an emotion
+        <i>and</i> names the city of origin in the same breath. That is why “MARRAKECH” sits inside the lockup in
+        saffron gold — not as an address, but as a birthplace. <span class="ar-sub">مدينة البهجة — مراكش</span></p>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%201.png');background-size:340%;background-position:24% 44%"
+             data-full="Sketch Draw 1.png" data-cap="Hand study — Marrakech ambiance at dusk" data-capar="دراسة يدوية — أجواء مراكش">
+          <div class="cr-tag"><b>Pencil study · The City of Joy</b><span class="ar">مدينة البهجة</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 6 · PROMISE ============ -->
+  <section class="slide" data-title="The Promise" data-ar="الوعد" data-part="Part I — Discovery" data-partar="الاكتشاف">
+    <div class="ghost">وعد</div>
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part I · Discovery — Positioning</div>
+          <h2>One sentence we<br>never break</h2>
+          <span class="har">جملة واحدة لا نحيد عنها</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="bigword rev" style="--d:.25s">“From the rich culture of Morocco to your table —
+        <b>Dar Albahja is more than a name, it's an experience.</b>”</p>
+        <p class="lead rev" style="--d:.4s">This is the sentence written in pencil at the bottom of our very first
+        sketch board, and it survived every round of refinement untouched. Everything you are about to see —
+        frame, tagine, steam, calligraphy, color — exists to keep this promise.
+        <span class="ar-sub">من ثقافة المغرب الغنية إلى مائدتكم</span></p>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="crop" style="height:20vh;background-image:url('Sketch%20Draw%201.png');background-size:400%;background-position:26% 100%"
+             data-full="Sketch Draw 1.png" data-cap="The promise — written in pencil on the first board" data-capar="الوعد بخط الرصاص على اللوحة الأولى">
+          <div class="cr-tag"><b>The original pencil note</b><span class="ar">الملاحظة الأصلية</span></div>
+        </div>
+        <p class="lead rev" style="--d:.45s;font-size:.8rem;margin-top:36px">Positioning: a <b>premium yet welcoming</b> Moroccan dining brand —
+        corporate enough for franchising, soulful enough to feel hand-made.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 7 · PILLARS ============ -->
+  <section class="slide" data-title="Brand Pillars" data-ar="الركائز" data-part="Part I — Discovery" data-partar="الاكتشاف">
+    <div class="ghost">ركائز</div>
+    <div class="head rev">
+      <div class="eyebrow">Part I · Discovery — Click each pillar</div>
+      <h2>Four pillars hold the house</h2>
+      <span class="har">أربع ركائز تحمل الدار — اضغط على كل ركيزة</span>
+    </div>
+    <div class="pillars" style="margin-top:34px">
+      <div class="pill rev" style="--d:.15s" data-pillar="0">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 4l9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div>
+        <div class="pt">Heritage</div><div class="pa">التراث</div>
+      </div>
+      <div class="pill rev" style="--d:.25s" data-pillar="1">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#tagineIcon"/></svg></div>
+        <div class="pt">Authenticity</div><div class="pa">الأصالة</div>
+      </div>
+      <div class="pill rev" style="--d:.35s" data-pillar="2">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6.6 5.5 5.5 0 0 1 21.5 12C19 16.4 12 21 12 21Z"/></svg></div>
+        <div class="pt">Hospitality</div><div class="pa">الضيافة</div>
+      </div>
+      <div class="pill rev" style="--d:.45s" data-pillar="3">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="pt">Joy</div><div class="pa">البهجة</div>
+      </div>
+    </div>
+    <div class="anat-card rev" style="--d:.55s;margin-top:26px;min-height:150px" id="pillarCard">
+      <div class="ac-num">١</div>
+      <h3 id="plTitle">Heritage — التراث</h3>
+      <p id="plBody">Centuries of Moroccan craft — zellige tilework, carved cedar, hammered brass — translated into a
+      logo built from the same geometric grammar. Heritage is why the mark uses real construction geometry, not decoration.</p>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 8 · DIVIDER II ============ -->
+  <section class="slide divider" data-title="Part II" data-ar="الجزء الثاني" data-part="Part II — Inspiration" data-partar="الإلهام">
+    <div class="ghost">٢</div>
+    <div class="dv-num rev">02</div>
+    <h2 class="rev" style="--d:.15s">Inspiration</h2>
+    <div class="dv-ar rev" style="--d:.28s">الإلهام — أربعة مصادر مغربية</div>
+    <div class="dv-sub rev" style="--d:.4s">Arches · zellige · arabesque · the tagine — studied by hand, in pencil</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 9 · INSPIRATION: ARCHES ============ -->
+  <section class="slide" data-title="Arches" data-ar="الأقواس" data-part="Part II — Inspiration" data-partar="الإلهام">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part II · Inspiration — Source 1 of 4</div>
+          <h2>Horseshoe arches</h2>
+          <span class="har">أقواس حدوة الفرس — عمارة خالدة</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">The doorways of the medina — horseshoe and ogee arches that have framed
+        Moroccan welcomes for a thousand years. We drew them first because the logo needed a <b>threshold</b>:
+        a shape that says <i>enter, you are expected</i>.</p>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Becomes the ogee frame of the final emblem <span class="ar">— يصبح إطار الشعار</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Timeless architecture → timeless identity <span class="ar">— عمارة خالدة</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:3.5% 15%"
+             data-full="Sketch Draw 1.png" data-cap="Pencil study — horseshoe arch, timeless architecture" data-capar="دراسة القوس بالرصاص">
+          <div class="cr-tag"><b>Study I · The Arch</b><span class="ar">القوس</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 10 · INSPIRATION: ZELLIGE ============ -->
+  <section class="slide" data-title="Zellige" data-ar="الزليج" data-part="Part II — Inspiration" data-partar="الإلهام">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part II · Inspiration — Source 2 of 4</div>
+          <h2>Zellige geometry</h2>
+          <span class="har">هندسة الزليج — توازن وانسجام</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Hand-cut tile mosaics whose eight-point <b>khatam stars</b> repeat to infinity —
+        harmony and balance made mathematical. This is the grammar behind every star motif and lattice band you will
+        find inside the mark.</p>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Becomes the eight-point stars of the wreath <span class="ar">— نجوم الشعار</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Geometry gives the brand its discipline <span class="ar">— الانضباط الهندسي</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:15% 15%"
+             data-full="Sketch Draw 1.png" data-cap="Pencil study — zellige geometry, harmony &amp; balance" data-capar="دراسة الزليج بالرصاص">
+          <div class="cr-tag"><b>Study II · Zellige</b><span class="ar">الزليج</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 11 · INSPIRATION: ARABESQUE ============ -->
+  <section class="slide" data-title="Arabesque" data-ar="الأرابيسك" data-part="Part II — Inspiration" data-partar="الإلهام">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part II · Inspiration — Source 3 of 4</div>
+          <h2>Arabesque foliage</h2>
+          <span class="har">أوراق الأرابيسك — نماء وازدهار</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Scrolling vines and leaves — nature formalized into ornament, the symbol of
+        <b>growth and prosperity</b>. In the final logo the arabesque becomes a living wreath in Medina Green,
+        wrapping the emblem the way gardens wrap a riad courtyard.</p>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Becomes the green wreath of the emblem <span class="ar">— إكليل الشعار الأخضر</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Nature &amp; prosperity, drawn not stated <span class="ar">— نماء وازدهار</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:27% 15%"
+             data-full="Sketch Draw 1.png" data-cap="Pencil study — arabesque foliage, nature &amp; prosperity" data-capar="دراسة الأرابيسك بالرصاص">
+          <div class="cr-tag"><b>Study III · Arabesque</b><span class="ar">الأرابيسك</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 12 · INSPIRATION: TAGINE ============ -->
+  <section class="slide" data-title="The Tagine" data-ar="الطاجين" data-part="Part II — Inspiration" data-partar="الإلهام">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part II · Inspiration — Source 4 of 4</div>
+          <h2>The tagine</h2>
+          <span class="har">الطاجين — نكهات أصيلة وكرم الضيافة</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Morocco's most beloved vessel — the conical clay pot that slow-cooks
+        generosity itself. Of every symbol we studied, only the tagine says <b>food, gathering and heritage</b>
+        in a single silhouette. It earned the center of the logo.</p>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Becomes the hero icon at the heart of the mark <span class="ar">— الأيقونة البطلة</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Its steam becomes the golden crown <span class="ar">— بخاره تاج ذهبي</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:38.5% 15%"
+             data-full="Sketch Draw 1.png" data-cap="Pencil study — the tagine, authentic flavors" data-capar="دراسة الطاجين بالرصاص">
+          <div class="cr-tag"><b>Study IV · The Tagine</b><span class="ar">الطاجين</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 13 · DIVIDER III ============ -->
+  <section class="slide divider" data-title="Part III" data-ar="الجزء الثالث" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="ghost">٣</div>
+    <div class="dv-num rev">03</div>
+    <h2 class="rev" style="--d:.15s">The Sketch</h2>
+    <div class="dv-ar rev" style="--d:.28s">الرسم — كل شعار عظيم يبدأ بقلم رصاص</div>
+    <div class="dv-sub rev" style="--d:.4s">Eight documented stages · from rough thumbnail to refined mark</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 14 · FULL SKETCH BOARD ============ -->
+  <section class="slide" data-title="The First Board" data-ar="اللوحة الأولى" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — The document</div>
+          <h2>Everything begins<br>on one board</h2>
+          <span class="har">كل شيء بدأ على لوحة واحدة</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Before a single vector was drawn, the whole identity was worked out in
+        pencil: inspiration studies, core elements, the color story and the design evolution — all on this
+        presentation board. The next pages walk through it <b>piece by piece</b>.</p>
+        <p class="lead rev" style="--d:.38s;font-size:.8rem">Click the board to inspect it at full size.
+        <span class="ar-sub" style="font-size:.9rem">اضغط على اللوحة لتكبيرها</span></p>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="arch" data-full="Sketch Draw 1.png" data-cap="Concept &amp; sketch presentation board — the complete document" data-capar="لوحة العرض الكاملة للرسومات الأولية">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <img src="Sketch%20Draw%201.png" alt="Concept sketch presentation board" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 15 · CORE ELEMENTS ============ -->
+  <section class="slide" data-title="Core Elements" data-ar="العناصر الأساسية" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="head rev">
+      <div class="eyebrow">Part III · The Sketch — Click any study to enlarge</div>
+      <h2>Eight core elements, studied one by one</h2>
+      <span class="har">العناصر الأساسية — دُرست عنصراً عنصراً</span>
+    </div>
+    <div class="cropgrid" style="grid-template-columns:repeat(4,1fr);margin-top:26px">
+      <div class="crop rev" style="--d:.1s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:38.5% 22%"
+           data-full="Sketch Draw 1.png" data-cap="Ornamental frame — symmetry, protection, elegance" data-capar="الإطار الزخرفي">
+        <div class="cr-tag"><b>Ornamental Frame</b><span class="ar">الإطار</span></div>
+      </div>
+      <div class="crop rev" style="--d:.18s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:48% 22%"
+           data-full="Sketch Draw 1.png" data-cap="Tagine icon — heritage, flavors, gathering" data-capar="أيقونة الطاجين">
+        <div class="cr-tag"><b>Tagine Icon</b><span class="ar">الطاجين</span></div>
+      </div>
+      <div class="crop rev" style="--d:.26s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:57.5% 22%"
+           data-full="Sketch Draw 1.png" data-cap="Steam — warmth, aroma, life" data-capar="البخار">
+        <div class="cr-tag"><b>Steam</b><span class="ar">البخار</span></div>
+      </div>
+      <div class="crop rev" style="--d:.34s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:66.5% 22%"
+           data-full="Sketch Draw 1.png" data-cap="Floral star — beauty, balance, tradition" data-capar="النجمة الزهرية">
+        <div class="cr-tag"><b>Floral Star</b><span class="ar">النجمة</span></div>
+      </div>
+      <div class="crop rev" style="--d:.42s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:38.5% 55%"
+           data-full="Sketch Draw 1.png" data-cap="Arabesque foliage — growth, prosperity, nature" data-capar="أوراق الأرابيسك">
+        <div class="cr-tag"><b>Arabesque</b><span class="ar">الأرابيسك</span></div>
+      </div>
+      <div class="crop rev" style="--d:.5s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:48% 55%"
+           data-full="Sketch Draw 1.png" data-cap="Lattice band — unity, rhythm, craftsmanship" data-capar="الشريط الشبكي">
+        <div class="cr-tag"><b>Lattice Band</b><span class="ar">الشبكة</span></div>
+      </div>
+      <div class="crop rev" style="--d:.58s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:57.5% 55%"
+           data-full="Sketch Draw 1.png" data-cap="Arabic influence — identity, pride, authenticity" data-capar="الأثر العربي">
+        <div class="cr-tag"><b>Arabic Script</b><span class="ar">الخط</span></div>
+      </div>
+      <div class="crop rev" style="--d:.66s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:66.5% 55%"
+           data-full="Sketch Draw 1.png" data-cap="Serif typography — heritage, strength, timelessness" data-capar="الحرف السيريفي">
+        <div class="cr-tag"><b>Serif Type</b><span class="ar">الحرف</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 16 · COLOR STORY IN PENCIL ============ -->
+  <section class="slide" data-title="Color In Pencil" data-ar="اللون بالرصاص" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — The color story</div>
+          <h2>Color was chosen<br>before the computer</h2>
+          <span class="har">الألوان اختيرت قبل الحاسوب</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Three pigment swatches scrubbed straight onto the board:
+        <b style="color:var(--burgundy)">maroon</b> for heritage, elegance and pride ·
+        <b style="color:var(--green)">green</b> for nature, harmony and growth ·
+        <b style="color:var(--gold)">gold</b> for warmth, luxury and tradition.</p>
+        <p class="lead rev" style="--d:.38s">The pencil note beside them reads: <i>“a palette inspired by Morocco's
+        landscapes, tiles and timeless crafts.”</i> The digital palette in Part V is simply this page, measured.
+        <span class="ar-sub">لوحة ألوان من مناظر المغرب وبلاطه وحرفه الخالدة</span></p>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%201.png');background-size:330%;background-position:7% 82%"
+             data-full="Sketch Draw 1.png" data-cap="The color story — maroon, green, gold in raw pigment" data-capar="قصة الألوان بالصبغة الخام">
+          <div class="cr-tag"><b>Raw pigment studies</b><span class="ar">دراسات الصبغة</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 17 · DEVELOPMENT SHEET ============ -->
+  <section class="slide" data-title="Development Sheet" data-ar="ورقة التطوير" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split" style="grid-template-columns:.75fr 1.25fr">
+      <div class="rev-l" style="--d:.25s">
+        <div class="arch" data-full="Sketch Draw 2.png" data-cap="Logo development sheet — nine stages, pencil to polish" data-capar="ورقة تطوير الشعار — تسع مراحل">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <img src="Sketch%20Draw%202.png" alt="Logo development sheet" loading="lazy" style="max-height:58vh;object-fit:cover;object-position:top">
+        </div>
+      </div>
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — The working document</div>
+          <h2>Nine stages,<br>fully documented</h2>
+          <span class="har">تسع مراحل موثقة بالكامل</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Rough ideas → geometric frame → central icon → ornamental details →
+        ink outlines → typography studies → layout composition → color exploration → the final refined logo.
+        Nothing skipped, nothing improvised.</p>
+        <p class="lead rev" style="--d:.38s">The next four pages zoom into this sheet stage by stage, so you can
+        follow exactly how the pencil became the mark. <span class="ar-sub">الصفحات التالية تكبّر كل مرحلة على حدة</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 18 · STAGES 1-2 ============ -->
+  <section class="slide" data-title="Stages 1–2" data-ar="المرحلة ١–٢" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — Stages 1 &amp; 2 of 9</div>
+          <h2>Rough ideas &amp;<br>the geometric frame</h2>
+          <span class="har">الأفكار الأولية والإطار الهندسي</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s"><b>Nine thumbnails</b> tested different frames, tagine silhouettes and
+        steam gestures. One composition earned refinement — and its frame was then rebuilt properly:
+        an ogee outline constructed on <b>45° guides</b>, so the “hand-drawn” emblem is secretly precise.</p>
+      </div>
+      <div class="cropgrid rev-r" style="--d:.3s">
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:330%;background-position:9% 9%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 1 — nine rough thumbnail explorations" data-capar="المرحلة ١ — الأفكار الأولية">
+          <div class="cr-tag"><b>1 · Rough Ideas</b><span class="ar">أفكار أولية</span></div>
+        </div>
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:260%;background-position:52% 12%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 2 — ogee frame constructed on 45° geometry" data-capar="المرحلة ٢ — الإطار الهندسي">
+          <div class="cr-tag"><b>2 · Geometric Frame</b><span class="ar">الإطار</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 19 · STAGES 3-4 ============ -->
+  <section class="slide" data-title="Stages 3–4" data-ar="المرحلة ٣–٤" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — Stages 3 &amp; 4 of 9</div>
+          <h2>The hero icon &amp;<br>its ornaments</h2>
+          <span class="har">الأيقونة البطلة وزخارفها</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">The tagine was drawn as a <b>patterned ceramic</b>, not a flat pictogram —
+        florals on the cone, a diamond band on the lid. Around it, the supporting cast was detailed by hand:
+        star motifs, flower accents, scrolling leaves and the lattice band.</p>
+      </div>
+      <div class="cropgrid rev-l" style="--d:.3s">
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:300%;background-position:90% 11%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 3 — the central tagine icon, patterned by hand" data-capar="المرحلة ٣ — الأيقونة المركزية">
+          <div class="cr-tag"><b>3 · Central Icon</b><span class="ar">الأيقونة</span></div>
+        </div>
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:300%;background-position:10% 36%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 4 — ornamental details: stars, flowers, lattice" data-capar="المرحلة ٤ — التفاصيل الزخرفية">
+          <div class="cr-tag"><b>4 · Ornamental Details</b><span class="ar">الزخارف</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 20 · STAGES 5-6 ============ -->
+  <section class="slide" data-title="Stages 5–6" data-ar="المرحلة ٥–٦" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — Stages 5 &amp; 6 of 9</div>
+          <h2>Ink outlines &amp;<br>typography studies</h2>
+          <span class="har">الحبر ودراسات الخطوط</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">A clean <b>ink pass</b> committed the composition. Then the name was
+        tested letter by letter: three serif candidates for “Dar Albahja”, two naskh weights for
+        <span class="ar" style="color:var(--green)">دار البهجة مراكش</span> — until both scripts balanced
+        on the same baseline of dignity.</p>
+      </div>
+      <div class="cropgrid rev-r" style="--d:.3s">
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:280%;background-position:88% 37%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 5 — ink outlines of the full emblem" data-capar="المرحلة ٥ — الحبر">
+          <div class="cr-tag"><b>5 · Ink Outlines</b><span class="ar">الحبر</span></div>
+        </div>
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:320%;background-position:9% 56%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 6 — bilingual typography studies" data-capar="المرحلة ٦ — دراسات الخطوط">
+          <div class="cr-tag"><b>6 · Typography Studies</b><span class="ar">الخطوط</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 21 · STAGES 7-9 ============ -->
+  <section class="slide" data-title="Stages 7–9" data-ar="المرحلة ٧–٩" data-part="Part III — The Sketch" data-partar="الرسم">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — Stages 7, 8 &amp; 9 of 9</div>
+          <h2>Composition, color,<br>and the final pencil mark</h2>
+          <span class="har">التكوين واللون واللمسة الأخيرة</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">The lockup was composed — emblem above, serif name, gold MARRAKECH,
+        Arabic beneath, tagline seal below. Three single-ink versions tested <b>maroon, green and gold</b> separately…
+        then the final refined logo united all three. That mark is waiting for you in the next chapter —
+        <b>you will assemble it yourself</b>. <span class="ar-sub">ستركّبون الشعار بأنفسكم في الفصل القادم</span></p>
+      </div>
+      <div class="cropgrid rev-l" style="--d:.3s">
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:300%;background-position:47% 58%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 7 — layout composition of the full lockup" data-capar="المرحلة ٧ — التكوين">
+          <div class="cr-tag"><b>7 · Layout Composition</b><span class="ar">التكوين</span></div>
+        </div>
+        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:330%;background-position:7% 73%"
+             data-full="Sketch Draw 2.png" data-cap="Stage 8 — color exploration in the three brand inks" data-capar="المرحلة ٨ — استكشاف اللون">
+          <div class="cr-tag"><b>8 · Color Exploration</b><span class="ar">اللون</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 22 · DIVIDER IV ============ -->
+  <section class="slide divider" data-title="Part IV" data-ar="الجزء الرابع" data-part="Part IV — The Assembly" data-partar="التركيب">
+    <div class="ghost">٤</div>
+    <div class="dv-num rev">04</div>
+    <h2 class="rev" style="--d:.15s">The Assembly</h2>
+    <div class="dv-ar rev" style="--d:.28s">التركيب — حان دوركم الآن</div>
+    <div class="dv-sub rev" style="--d:.4s">Six elements are ready. Merge them — and the logo reveals itself.</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 23 · ASSEMBLY GAME ============ -->
+  <section class="slide" data-title="Assemble The Logo" data-ar="ركّب الشعار" data-part="Part IV — The Assembly" data-partar="التركيب">
+    <div class="head rev" style="text-align:center">
+      <div class="eyebrow">Part IV — Click all six elements, then merge them</div>
+      <h2 style="margin-bottom:0">Assemble the logo yourself</h2>
+      <span class="har">اضغط على العناصر الستة ثم ادمجها ليظهر الشعار</span>
+    </div>
+    <div class="asm" id="asm">
+      <div class="asm-col left">
+        <button class="el-card rev" style="--d:.1s" data-el="0">
+          <span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c2 2.5 6 3 8 7s-1 9-8 11c-7-2-10-7-8-11s6-4.5 8-7Z"/></svg></span>
+          <span class="et"><b>The Ogee Frame</b><span class="ar">الإطار المغربي</span><small>Symmetry · protection · the doorway of the dar</small></span>
+        </button>
+        <button class="el-card rev" style="--d:.2s" data-el="1">
+          <span class="ei"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#tagineIcon"/></svg></span>
+          <span class="et"><b>The Tagine</b><span class="ar">الطاجين</span><small>Heritage · flavor · the gathering table</small></span>
+        </button>
+        <button class="el-card rev" style="--d:.3s" data-el="2">
+          <span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 20c-2-3 2-5 0-8s2-5 0-8M15 20c-2-3 2-5 0-8s2-5 0-8"/></svg></span>
+          <span class="et"><b>The Rising Steam</b><span class="ar">البخار</span><small>Warmth · aroma · a kitchen that never sleeps</small></span>
+        </button>
+      </div>
+      <div class="asm-center">
+        <div class="asm-ring">
+          <div class="asm-oct"></div>
+          <div class="asm-oct2"></div>
+          <div class="asm-q" id="asmQ">؟</div>
+          <div class="asm-slots" id="asmSlots"></div>
+          <div class="asm-logo" id="asmLogo">
+            <img src="Dar%20Albahja-Englsih%20and%20Arabic.jpg" alt="Dar Albahja — the assembled logo">
+          </div>
+          <span class="burst" style="--r:0deg"><svg viewBox="0 0 24 24" fill="currentColor" width="14"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:45deg"><svg viewBox="0 0 24 24" fill="currentColor" width="12"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:90deg"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:135deg"><svg viewBox="0 0 24 24" fill="currentColor" width="12"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:180deg"><svg viewBox="0 0 24 24" fill="currentColor" width="14"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:225deg"><svg viewBox="0 0 24 24" fill="currentColor" width="12"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:270deg"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><use href="#star8"/></svg></span>
+          <span class="burst" style="--r:315deg"><svg viewBox="0 0 24 24" fill="currentColor" width="12"><use href="#star8"/></svg></span>
+        </div>
+        <div class="asm-count rev" style="--d:.3s" id="asmCount">0 / 6 elements gathered</div>
+        <div class="asm-hint rev" style="--d:.4s" id="asmHint">Click the six elements around the seal <span class="ar">اضغط على العناصر الستة</span></div>
+        <button id="mergeBtn">✦ Merge the elements · ادمج العناصر</button>
+        <div id="asmNext"><button class="enterbtn" data-goto="23" style="margin-top:8px">Behold the identity · ها هي الهوية
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div>
+      </div>
+      <div class="asm-col right">
+        <button class="el-card rev" style="--d:.15s" data-el="3">
+          <span class="ei"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><use href="#star8"/></svg></span>
+          <span class="et"><b>Khatam Stars</b><span class="ar">النجوم الثمانية</span><small>Zellige geometry · balance · tradition</small></span>
+        </button>
+        <button class="el-card rev" style="--d:.25s" data-el="4">
+          <span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 18c4-8 8 2 12-6M6 8c2-2 5-2 6 0M14 16c2 2 5 2 6 0"/></svg></span>
+          <span class="et"><b>Arabesque Wreath</b><span class="ar">إكليل الأرابيسك</span><small>Growth · prosperity · the living garden</small></span>
+        </button>
+        <button class="el-card rev" style="--d:.35s" data-el="5">
+          <span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 17V7m0 6c3 0 3-4 6-4m0 8V7m5 10c-2 0-3-2-3-5s1-5 3-5 3 2 3 5-1 5-3 5Z"/></svg></span>
+          <span class="et"><b>Bilingual Name</b><span class="ar">الاسم بلغتين</span><small>Serif dignity + naskh soul, on one baseline</small></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 24 · THE FINAL IDENTITY ============ -->
+  <section class="slide" data-title="The Identity" data-ar="الهوية" data-part="Part IV — The Assembly" data-partar="التركيب">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part IV · The Assembly — Revealed</div>
+          <h2>Dar Albahja,<br>assembled</h2>
+          <span class="har">دار البهجة — الشعار مكتملاً</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">Every element you just merged is present and accounted for:
+        the ogee doorway shelters the patterned tagine; golden steam rises through the arch; khatam stars and the
+        arabesque wreath orbit in zellige rhythm; and the bilingual name anchors it all above the tagline seal.</p>
+        <p class="bigword rev" style="--d:.4s">Nothing here is decoration. <b>Everything is meaning.</b></p>
+      </div>
+      <div class="rev-sc" style="--d:.3s">
+        <div class="arch" data-full="Dar Albahja-Englsih and Arabic.jpg" data-cap="The final identity — full bilingual lockup" data-capar="الهوية النهائية — الشعار الكامل">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <img src="Dar%20Albahja-Englsih%20and%20Arabic.jpg" alt="Dar Albahja final logo" loading="lazy" style="max-height:60vh;object-fit:contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 25 · ANATOMY ============ -->
+  <section class="slide" data-title="Logo Anatomy" data-ar="تشريح الشعار" data-part="Part IV — The Assembly" data-partar="التركيب">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part IV · The Assembly — Tap the numbered points</div>
+          <h2>Every line has a meaning</h2>
+          <span class="har">كل خط في الشعار يحمل معنى — اضغط على النقاط</span>
+        </div>
+        <div class="anat-card rev" style="--d:.2s" id="anatCard">
+          <div class="ac-num" id="acNum">١</div>
+          <h3 id="acTitle">The Rising Steam</h3>
+          <span class="ac-ar" id="acAr">البخار المتصاعد</span>
+          <p id="acBody">Three hand-drawn curls of golden steam crown the mark — the universal promise of food served hot, alive and generous. It is the brand saying: the kitchen never sleeps.</p>
+          <div class="ac-mean" id="acTags"><span class="tagchip">Warmth</span><span class="tagchip">Aroma</span><span class="tagchip">Life</span></div>
+        </div>
+      </div>
+      <div class="rev-sc" style="--d:.25s">
+        <div class="anat-wrap">
+          <img src="Dar%20Albahja-Englsih%20and%20Arabic.jpg" alt="Dar Albahja logo anatomy">
+          <button class="hs on" style="left:50%;top:12%" data-i="0">1</button>
+          <button class="hs" style="left:50%;top:34%" data-i="1">2</button>
+          <button class="hs" style="left:24%;top:24%" data-i="2">3</button>
+          <button class="hs" style="left:76%;top:40%" data-i="3">4</button>
+          <button class="hs" style="left:50%;top:62%" data-i="4">5</button>
+          <button class="hs" style="left:50%;top:77%" data-i="5">6</button>
+          <button class="hs" style="left:50%;top:91%" data-i="6">7</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 26 · CONSTRUCTION ============ -->
+  <section class="slide" data-title="Construction" data-ar="البناء الهندسي" data-part="Part IV — The Assembly" data-partar="التركيب">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part IV · The Assembly — Under the hood</div>
+          <h2>Hand-drawn face,<br>engineered bones</h2>
+          <span class="har">وجه مرسوم باليد وهيكل مهندس</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">The ogee frame is constructed on <b>45° guides</b> with mirrored quadrants;
+        the tagine sits on the exact vertical axis; the stars are placed on radial divisions of the wreath circle.
+        This is why the emblem stays crisp from a wax seal to a five-metre facade.</p>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Scales from 12&nbsp;mm stamp to building signage <span class="ar">— قابل للتكبير</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Symmetrical quadrants — flawless embroidery &amp; engraving <span class="ar">— تناظر كامل</span></span></div>
+          <div class="chk rev" style="--d:.55s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Clear-space rule: one star-width on all sides <span class="ar">— مساحة أمان</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%202.png');background-size:250%;background-position:52% 12%"
+             data-full="Sketch Draw 2.png" data-cap="Construction — the ogee frame on 45° geometry" data-capar="البناء الهندسي للإطار">
+          <div class="cr-tag"><b>45° construction grid</b><span class="ar">شبكة البناء</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 27 · DIVIDER V ============ -->
+  <section class="slide divider" data-title="Part V" data-ar="الجزء الخامس" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="ghost">٥</div>
+    <div class="dv-num rev">05</div>
+    <h2 class="rev" style="--d:.15s">The Identity System</h2>
+    <div class="dv-ar rev" style="--d:.28s">نظام الهوية — الألوان والخطوط والنسخ</div>
+    <div class="dv-sub rev" style="--d:.4s">Color · typography · variations · lockups</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 28 · OFFICIAL PALETTE ============ -->
+  <section class="slide" data-title="Palette Board" data-ar="لوحة الألوان" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part V · System — The official specification</div>
+          <h2>The measured palette</h2>
+          <span class="har">لوحة الألوان الرسمية الموثقة</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.25s">The pencil pigments of Part III, measured into print-ready law:
+        every color specified in <b>HEX for screens, CMYK for print, and PANTONE for fabric, ceramic and signage</b> —
+        so the burgundy on a menu matches the burgundy on a uniform apron, forever.</p>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="arch" data-full="Color palette.png" data-cap="Official brand color palette — HEX · CMYK · PANTONE" data-capar="لوحة الألوان الرسمية">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <img src="Color%20palette.png" alt="Official color palette board" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 29 · INTERACTIVE SWATCHES ============ -->
+  <section class="slide" data-title="The Four Colors" data-ar="الألوان الأربعة" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="ghost">لون</div>
+    <div class="head rev">
+      <div class="eyebrow">Part V · System — Click a swatch to copy its HEX</div>
+      <h2>Four colors, four characters</h2>
+      <span class="har">أربعة ألوان بأربع شخصيات — اضغط لنسخ اللون</span>
+    </div>
+    <div class="pal">
+      <button class="sw rev" style="--d:.12s" data-hex="#840522">
+        <div class="swc" style="background:#840522"></div>
+        <div class="swi"><div class="swn">Marrakech Burgundy</div><div class="swa">أحمر مراكش</div><div class="swh">HEX #840522 · CMYK 0/96/74/48 · PANTONE 1955&nbsp;C<br>Heritage · elegance · pride</div></div>
       </button>
-    </section>
-
-    <!-- 02 · JOURNEY -->
-    <section class="slide" data-title="The Journey" data-ar="الرحلة">
-      <div class="ghost">بهجة</div>
-      <div class="head rev">
-        <div class="eyebrow"><span class="num">٠١ / 01</span>The Journey — Click any chapter</div>
-        <h2>How this identity was crafted</h2>
-        <span class="har">كيف صُنعت هذه الهوية — اضغط على أي فصل</span>
-      </div>
-      <div class="jgrid">
-        <button class="jcard rev" style="--d:.1s" data-goto="2"><span class="jn">02</span><div class="jt">Brand Story</div><div class="ja">قصة العلامة</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.16s" data-goto="3"><span class="jn">03</span><div class="jt">The Sketch — Where It Begins</div><div class="ja">الرسم الأولي</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.22s" data-goto="4"><span class="jn">04</span><div class="jt">Design Evolution</div><div class="ja">تطور التصميم</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.28s" data-goto="5"><span class="jn">05</span><div class="jt">Logo Anatomy — Interactive</div><div class="ja">تشريح الشعار</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.34s" data-goto="6"><span class="jn">06</span><div class="jt">Color Story</div><div class="ja">قصة الألوان</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.4s" data-goto="7"><span class="jn">07</span><div class="jt">Typography</div><div class="ja">الخطوط</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.46s" data-goto="8"><span class="jn">08</span><div class="jt">Logo Variations</div><div class="ja">نسخ الشعار</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.52s" data-goto="9"><span class="jn">09</span><div class="jt">Mood Boards</div><div class="ja">لوحات الإلهام</div><span class="go">→</span></button>
-        <button class="jcard rev" style="--d:.58s" data-goto="10"><span class="jn">10</span><div class="jt">Brand In The Real World</div><div class="ja">تطبيقات الهوية</div><span class="go">→</span></button>
-      </div>
-    </section>
-
-    <!-- 03 · STORY -->
-    <section class="slide" data-title="Brand Story" data-ar="قصة العلامة">
-      <div class="ghost">دار</div>
-      <div class="split">
-        <div>
-          <div class="head rev">
-            <div class="eyebrow"><span class="num">٠٢ / 02</span>Brand Story</div>
-            <h2>The House of Joy</h2>
-            <span class="har">دار البهجة — بيت الفرح والضيافة</span>
-          </div>
-          <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
-          <p class="bigword rev" style="--d:.22s">“<b>Dar</b>” means <b>home</b>. “<b>Albahja</b>” means <b>joy</b> — and it is also the beloved nickname of Marrakech itself: <b>the City of Joy</b>.</p>
-          <p class="lead rev" style="--d:.32s" style="margin-top:16px">
-            This identity is built on that single powerful idea: every guest who walks in is not entering a restaurant —
-            they are entering a Moroccan home where food, warmth and celebration are shared.
-            Nothing in this logo is decorative by accident; every line carries the heritage of Marrakech.
-          </p>
-        </div>
-        <div>
-          <div class="pillars">
-            <div class="pill rev" style="--d:.25s">
-              <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 4l9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div>
-              <div class="pt">Heritage</div><div class="pa">التراث</div>
-            </div>
-            <div class="pill rev" style="--d:.33s">
-              <div class="pi"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#tagineIcon"/></svg></div>
-              <div class="pt">Authenticity</div><div class="pa">الأصالة</div>
-            </div>
-            <div class="pill rev" style="--d:.41s">
-              <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6.6 5.5 5.5 0 0 1 21.5 12C19 16.4 12 21 12 21Z"/></svg></div>
-              <div class="pt">Hospitality</div><div class="pa">الضيافة</div>
-            </div>
-            <div class="pill rev" style="--d:.49s">
-              <div class="pi"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
-              <div class="pt">Joy</div><div class="pa">البهجة</div>
-            </div>
-          </div>
-          <p class="lead rev" style="--d:.58s;margin-top:22px">
-            Positioning: a <b>premium yet welcoming</b> Moroccan dining brand — corporate enough for franchising and signage systems,
-            soulful enough to feel hand-crafted. <span class="ar-sub">من ثقافة المغرب الغنية إلى مائدتكم.</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 · SKETCH -->
-    <section class="slide" data-title="The Sketch" data-ar="الرسم الأولي">
-      <div class="split">
-        <div>
-          <div class="head rev">
-            <div class="eyebrow"><span class="num">٠٣ / 03</span>Where every great logo begins</div>
-            <h2>The Sketch</h2>
-            <span class="har">كل شعار عظيم يبدأ بقلم رصاص</span>
-          </div>
-          <div class="numlist">
-            <div class="nitem rev" style="--d:.15s">
-              <div class="nn">١</div>
-              <div><h3>Moroccan inspiration <span>الإلهام المغربي</span></h3>
-              <p>Horseshoe arches, zellige geometry, arabesque foliage and the tagine — studied and drawn by hand before any digital work began.</p></div>
-            </div>
-            <div class="nitem rev" style="--d:.25s">
-              <div class="nn">٢</div>
-              <div><h3>Core elements <span>العناصر الأساسية</span></h3>
-              <p>The ornamental frame (symmetry &amp; protection), the tagine icon (heritage &amp; gathering), rising steam (warmth &amp; life) and the floral star (beauty &amp; tradition).</p></div>
-            </div>
-            <div class="nitem rev" style="--d:.35s">
-              <div class="nn">٣</div>
-              <div><h3>Color story <span>قصة الألوان</span></h3>
-              <p>Maroon for heritage and pride, green for nature and harmony, gold for warmth and luxury — drawn from Morocco's landscapes and tiles.</p></div>
-            </div>
-            <div class="nitem rev" style="--d:.45s">
-              <div class="nn">٤</div>
-              <div><h3>From thumbnail to identity <span>من الفكرة إلى الهوية</span></h3>
-              <p>Thumbnail → refinement → detailing → polish. The full evolution is documented on this presentation board — click it to explore.</p></div>
-            </div>
-          </div>
-        </div>
-        <div class="rev-r" style="--d:.3s">
-          <div class="arch" data-full="Sketch Draw 1.png" data-cap="Concept &amp; Sketch Presentation Board" data-capar="لوحة العرض للرسومات الأولية">
-            <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-            <img src="Sketch%20Draw%201.png" alt="Concept sketch presentation board" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 · EVOLUTION -->
-    <section class="slide" data-title="Design Evolution" data-ar="تطور التصميم">
-      <div class="split" style="grid-template-columns:.85fr 1.15fr">
-        <div class="rev-l" style="--d:.25s">
-          <div class="arch" data-full="Sketch Draw 2.png" data-cap="Logo Development — pencil to polished" data-capar="تطوير الشعار من الرصاص إلى النهائي">
-            <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-            <img src="Sketch%20Draw%202.png" alt="Logo development sheet" loading="lazy" style="max-height:56vh;object-fit:cover;object-position:top">
-          </div>
-        </div>
-        <div>
-          <div class="head rev">
-            <div class="eyebrow"><span class="num">٠٤ / 04</span>Design Evolution — Click each stage</div>
-            <h2>Disciplined steps, one refined mark</h2>
-            <span class="har">خطوات مدروسة لصناعة شعار متقن — اضغط على كل مرحلة</span>
-          </div>
-          <div class="numlist" id="evoList">
-            <div class="nitem rev on" style="--d:.15s">
-              <div class="nn">1</div>
-              <div><h3>Rough ideas &amp; geometric frame <span>الأفكار الأولية</span></h3>
-              <p>Nine thumbnail explorations, then a precise ogee frame constructed on 45° geometry.</p></div>
-            </div>
-            <div class="nitem rev" style="--d:.25s">
-              <div class="nn">2</div>
-              <div><h3>Central icon &amp; ornament <span>الأيقونة المركزية</span></h3>
-              <p>The tagine hero icon, star motifs, flower accents and lattice bands detailed by hand.</p></div>
-            </div>
-            <div class="nitem rev" style="--d:.35s">
-              <div class="nn">3</div>
-              <div><h3>Ink outlines &amp; typography <span>الحبر والخطوط</span></h3>
-              <p>Clean ink pass, then bilingual typography studies — Latin serif with Arabic naskh.</p></div>
-            </div>
-            <div class="nitem rev" style="--d:.45s">
-              <div class="nn">4</div>
-              <div><h3>Color &amp; final refinement <span>اللون والصقل النهائي</span></h3>
-              <p>Color exploration in the three brand inks, composed into the final refined logo.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 · ANATOMY -->
-    <section class="slide" data-title="Logo Anatomy" data-ar="تشريح الشعار">
-      <div class="split">
-        <div>
-          <div class="head rev">
-            <div class="eyebrow"><span class="num">٠٥ / 05</span>Interactive — tap the numbered points</div>
-            <h2>Every line has a meaning</h2>
-            <span class="har">كل خط في الشعار يحمل معنى — اضغط على النقاط</span>
-          </div>
-          <div class="anat-card rev" style="--d:.2s" id="anatCard">
-            <div class="ac-num" id="acNum">١</div>
-            <h3 id="acTitle">The Rising Steam</h3>
-            <span class="ac-ar" id="acAr">البخار المتصاعد</span>
-            <p id="acBody">Three hand-drawn curls of golden steam crown the mark — the universal promise of food served hot, alive and generous. It is the brand saying: the kitchen never sleeps.</p>
-            <div class="ac-mean" id="acTags"><span class="tagchip">Warmth</span><span class="tagchip">Aroma</span><span class="tagchip">Life</span></div>
-          </div>
-        </div>
-        <div class="rev-sc" style="--d:.25s">
-          <div class="anat-wrap">
-            <img src="Dar%20Albahja-Englsih%20and%20Arabic.jpg" alt="Dar Albahja logo anatomy">
-            <button class="hs on" style="left:50%;top:12%" data-i="0">1</button>
-            <button class="hs" style="left:50%;top:34%" data-i="1">2</button>
-            <button class="hs" style="left:24%;top:24%" data-i="2">3</button>
-            <button class="hs" style="left:76%;top:40%" data-i="3">4</button>
-            <button class="hs" style="left:50%;top:62%" data-i="4">5</button>
-            <button class="hs" style="left:50%;top:77%" data-i="5">6</button>
-            <button class="hs" style="left:50%;top:91%" data-i="6">7</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 07 · COLORS -->
-    <section class="slide" data-title="Color Story" data-ar="قصة الألوان">
-      <div class="ghost">لون</div>
-      <div class="head rev">
-        <div class="eyebrow"><span class="num">٠٦ / 06</span>Color Story — click a swatch to copy its HEX</div>
-        <h2>A palette carried from the souks of Marrakech</h2>
-        <span class="har">ألوان مستوحاة من أسواق مراكش وبلاطها — اضغط لنسخ اللون</span>
-      </div>
-      <div class="pal">
-        <button class="sw rev" style="--d:.12s" data-hex="#840522">
-          <div class="swc" style="background:#840522"></div>
-          <div class="swi"><div class="swn">Marrakech Burgundy</div><div class="swa">أحمر مراكش</div><div class="swh">HEX #840522 · CMYK 0/96/74/48 · PANTONE 1955&nbsp;C</div></div>
-        </button>
-        <button class="sw rev" style="--d:.2s" data-hex="#2C663A">
-          <div class="swc" style="background:#2C663A"></div>
-          <div class="swi"><div class="swn">Medina Green</div><div class="swa">أخضر المدينة</div><div class="swh">HEX #2C663A · CMYK 57/0/43/60 · PANTONE 7734&nbsp;C</div></div>
-        </button>
-        <button class="sw rev" style="--d:.28s" data-hex="#C69835">
-          <div class="swc" style="background:#C69835"></div>
-          <div class="swi"><div class="swn">Saffron Gold</div><div class="swa">ذهب الزعفران</div><div class="swh">HEX #C69835 · CMYK 0/23/73/22 · PANTONE 7555&nbsp;C</div></div>
-        </button>
-        <button class="sw rev" style="--d:.36s" data-hex="#F5F1E8">
-          <div class="swc" style="background:#F5F1E8;border-bottom:1px solid rgba(42,33,28,.12)"></div>
-          <div class="swi"><div class="swn">Ivory Sand</div><div class="swa">رمل عاجي</div><div class="swh">HEX #F5F1E8 · CMYK 0/2/6/4 · PANTONE 7499&nbsp;C</div></div>
-        </button>
-      </div>
-      <div class="rev" style="--d:.46s">
-        <div class="ratio">
-          <i style="width:40%;background:#F5F1E8" title="Ivory 40%"></i>
-          <i style="width:30%;background:#840522" title="Burgundy 30%"></i>
-          <i style="width:18%;background:#2C663A" title="Green 18%"></i>
-          <i style="width:12%;background:#C69835" title="Gold 12%"></i>
-        </div>
-        <p class="lead" style="margin-top:12px;font-size:.8rem">Usage ratio — Ivory 40% canvas · Burgundy 30% voice · Green 18% support · Gold 12% precious accents. <span class="ar-sub" style="font-size:.9rem">نسب استخدام الألوان في الهوية</span> — Full spec sheet: <u style="cursor:zoom-in" data-full="Color palette.png" data-cap="Official Brand Color Palette" data-capar="لوحة الألوان الرسمية">view the official palette board</u></p>
-      </div>
-    </section>
-
-    <!-- 08 · TYPOGRAPHY -->
-    <section class="slide" data-title="Typography" data-ar="الخطوط">
-      <div class="split">
-        <div>
-          <div class="head rev">
-            <div class="eyebrow"><span class="num">٠٧ / 07</span>Bilingual voice</div>
-            <h2>Two scripts, one dignity</h2>
-            <span class="har">حرف لاتيني وحرف عربي بكرامة واحدة</span>
-          </div>
-          <div class="type-spec rev" style="--d:.15s">
-            <div class="ts-label">Primary · Display Serif</div>
-            <div class="ts-demo serif">Dar Albahja — Aa Bb Gg 0123</div>
-            <div class="ts-sub">High-contrast heritage serif for the wordmark &amp; headlines — timeless strength.</div>
-          </div>
-          <div class="type-spec rev" style="--d:.25s">
-            <div class="ts-label">Arabic · Naskh Calligraphic</div>
-            <div class="ts-demo arab">دار البهجة مراكش — أهلاً وسهلاً</div>
-            <div class="ts-sub">Balanced naskh with generous curves — identity, pride, authenticity.</div>
-          </div>
-          <div class="type-spec rev" style="--d:.35s">
-            <div class="ts-label">Support · Geometric Sans</div>
-            <div class="ts-demo sans">AUTHENTIC MOROCCAN CUISINE</div>
-            <div class="ts-sub">Wide-tracked caps for taglines, menus, signage and wayfinding.</div>
-          </div>
-        </div>
-        <div class="rev-r" style="--d:.3s">
-          <div class="arch" data-full="Dar Albahja-Englsih-01.jpg" data-cap="English wordmark lockup" data-capar="الشعار بالحروف اللاتينية">
-            <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-            <img src="Dar%20Albahja-Englsih-01.jpg" alt="English wordmark" loading="lazy" style="max-height:26vh;object-fit:contain;background:#fff">
-          </div>
-          <div style="height:42px"></div>
-          <div class="arch" data-full="Dar Albahja-Arabic.jpg" data-cap="Arabic wordmark lockup" data-capar="الشعار بالخط العربي">
-            <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-            <img src="Dar%20Albahja-Arabic.jpg" alt="Arabic wordmark" loading="lazy" style="max-height:22vh;object-fit:contain;background:#fff">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 09 · VARIATIONS -->
-    <section class="slide" data-title="Logo Variations" data-ar="نسخ الشعار">
-      <div class="head rev">
-        <div class="eyebrow"><span class="num">٠٨ / 08</span>One identity, every surface — switch the mode</div>
-        <h2>Light &amp; dark, always itself</h2>
-        <span class="har">نسخة فاتحة ونسخة داكنة — هوية واحدة على كل الأسطح</span>
-      </div>
-      <div class="vtabs rev" style="--d:.15s">
-        <button class="vtab on" id="tabLight">Light Mode <span class="ar">النسخة الفاتحة</span></button>
-        <button class="vtab" id="tabDark">Dark Mode <span class="ar">النسخة الداكنة</span></button>
-      </div>
-      <div class="varstage rev" style="--d:.25s" id="varStage">
-        <figure data-full="Logo Variation -Light- A1.jpg" data-cap="Primary logo — Variation A1" data-capar="الشعار الرئيسي أ١"><img id="varImg1" src="Logo%20Variation%20-Light-%20A1.jpg" alt="Logo variation 1" loading="lazy"></figure>
-        <figure data-full="Logo Variation -Light- A2.jpg" data-cap="Primary logo — Variation A2" data-capar="الشعار الرئيسي أ٢"><img id="varImg2" src="Logo%20Variation%20-Light-%20A2.jpg" alt="Logo variation 2" loading="lazy"></figure>
-      </div>
-      <div class="varthumbs rev" style="--d:.35s" id="lightThumbs">
-        <figure data-full="Light logo-01.jpg" data-cap="Light lockup 01" data-capar="نسخة فاتحة ٠١"><img src="Light%20logo-01.jpg" alt="Light lockup 1" loading="lazy"></figure>
-        <figure data-full="Light logo-02.jpg" data-cap="Light lockup 02" data-capar="نسخة فاتحة ٠٢"><img src="Light%20logo-02.jpg" alt="Light lockup 2" loading="lazy"></figure>
-        <figure data-full="Light logo-03.jpg" data-cap="Light lockup 03" data-capar="نسخة فاتحة ٠٣"><img src="Light%20logo-03.jpg" alt="Light lockup 3" loading="lazy"></figure>
-      </div>
-    </section>
-
-    <!-- 10 · MOODBOARDS -->
-    <section class="slide" data-title="Mood Boards" data-ar="لوحات الإلهام">
-      <div class="head rev">
-        <div class="eyebrow"><span class="num">٠٩ / 09</span>The world the brand lives in — click to immerse</div>
-        <h2>Mood &amp; atmosphere</h2>
-        <span class="har">الأجواء التي تعيش فيها العلامة — اضغط للاستكشاف</span>
-      </div>
-      <div class="moodgrid">
-        <div class="mood rev" style="--d:.12s" data-full="mood baord A.png" data-cap="Craft &amp; Ingredients — zellige, mint, saffron" data-capar="الحِرفة والمكوّنات — زليج ونعناع وزعفران">
-          <span class="mtag">A</span><img src="mood%20baord%20A.png" alt="Mood board A" loading="lazy">
-          <div class="mcap"><b>Craft &amp; Ingredients<small>Zellige · Mint · Saffron</small></b><span class="ar">الحِرفة والمكوّنات</span></div>
-        </div>
-        <div class="mood rev" style="--d:.2s" data-full="mood baord B.png" data-cap="The Riad Experience — lanterns, arches, gathering" data-capar="تجربة الرياض — فوانيس وأقواس وضيافة">
-          <span class="mtag">B</span><img src="mood%20baord%20B.png" alt="Mood board B" loading="lazy">
-          <div class="mcap"><b>The Riad Experience<small>Lanterns · Arches · Gathering</small></b><span class="ar">تجربة الرياض</span></div>
-        </div>
-        <div class="mood rev" style="--d:.28s" data-full="mood baordC.png" data-cap="The Hero Dish — steam, ceramic, generosity" data-capar="الطبق البطل — بخار وخزف وكرم">
-          <span class="mtag">C</span><img src="mood%20baordC.png" alt="Mood board C" loading="lazy">
-          <div class="mcap"><b>The Hero Dish<small>Steam · Ceramic · Generosity</small></b><span class="ar">الطبق البطل</span></div>
-        </div>
-        <div class="mood rev" style="--d:.36s" data-full="mood baord D.png" data-cap="The Ritual — mint tea, brass, hospitality" data-capar="الطقوس — شاي بالنعناع ونحاس وضيافة">
-          <span class="mtag">D</span><img src="mood%20baord%20D.png" alt="Mood board D" loading="lazy">
-          <div class="mcap"><b>The Ritual<small>Mint Tea · Brass · Hospitality</small></b><span class="ar">طقوس الشاي</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11 · APPLICATIONS -->
-    <section class="slide" data-title="Applications" data-ar="تطبيقات الهوية">
-      <div class="head rev">
-        <div class="eyebrow"><span class="num">١٠ / 10</span>Brand in the real world — click any mockup</div>
-        <h2>From letterhead to storefront</h2>
-        <span class="har">من الورق الرسمي إلى واجهة المطعم — اضغط على أي نموذج</span>
-      </div>
-      <div class="appgrid">
-        <div class="appit rev" style="--d:.08s" data-full="signage.png" data-cap="Storefront Signage" data-capar="لوحة الواجهة"><img src="signage.png" alt="Signage" loading="lazy"><div class="acap"><b>Signage</b><span class="ar">اللافتة</span></div></div>
-        <div class="appit rev" style="--d:.14s" data-full="Reception.png" data-cap="Reception &amp; Interior" data-capar="الاستقبال والديكور"><img src="Reception.png" alt="Reception" loading="lazy"><div class="acap"><b>Reception</b><span class="ar">الاستقبال</span></div></div>
-        <div class="appit rev" style="--d:.2s" data-full="Uniform.png" data-cap="Staff Uniform" data-capar="زيّ فريق العمل"><img src="Uniform.png" alt="Uniform" loading="lazy"><div class="acap"><b>Uniform</b><span class="ar">الزيّ</span></div></div>
-        <div class="appit rev" style="--d:.26s" data-full="Packaging.png" data-cap="Takeaway Packaging" data-capar="عبوات الطلبات الخارجية"><img src="Packaging.png" alt="Packaging" loading="lazy"><div class="acap"><b>Packaging</b><span class="ar">التغليف</span></div></div>
-        <div class="appit rev" style="--d:.32s" data-full="wrapper.png" data-cap="Food Wrapper" data-capar="ورق التغليف"><img src="wrapper.png" alt="Wrapper" loading="lazy"><div class="acap"><b>Wrapper</b><span class="ar">الغلاف</span></div></div>
-        <div class="appit rev" style="--d:.38s" data-full="Driver.jpg" data-cap="Delivery Fleet" data-capar="أسطول التوصيل"><img src="Driver.jpg" alt="Delivery driver" loading="lazy"><div class="acap"><b>Delivery</b><span class="ar">التوصيل</span></div></div>
-        <div class="appit rev" style="--d:.44s" data-full="letter head.png" data-cap="Corporate Letterhead" data-capar="الورق الرسمي"><img src="letter%20head.png" alt="Letterhead" loading="lazy"><div class="acap"><b>Letterhead</b><span class="ar">الورق الرسمي</span></div></div>
-        <div class="appit rev" style="--d:.5s" data-full="Envelope.png" data-cap="Branded Envelope" data-capar="الظرف الرسمي"><img src="Envelope.png" alt="Envelope" loading="lazy"><div class="acap"><b>Envelope</b><span class="ar">الظرف</span></div></div>
-        <div class="appit rev" style="--d:.56s" data-full="Rollup.png" data-cap="Event Roll-up Banner" data-capar="لوحة العرض"><img src="Rollup.png" alt="Rollup banner" loading="lazy"><div class="acap"><b>Roll-up</b><span class="ar">الرول أب</span></div></div>
-      </div>
-    </section>
-
-    <!-- 12 · CLOSING -->
-    <section class="slide closing" data-title="Thank You" data-ar="شكراً">
-      <div class="floating-star" style="width:22px;height:22px;top:18%;right:14%"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
-      <div class="floating-star" style="width:16px;height:16px;bottom:24%;left:14%;animation-delay:2s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
-      <div class="rev-sc" style="width:min(170px,36vw)">
-        <img src="Logo%20Variation%20-Light-%20A1.jpg" alt="Dar Albahja emblem" style="mix-blend-mode:multiply">
-      </div>
-      <h2 class="rev" style="--d:.2s">Shukran. Thank you.</h2>
-      <div class="cl-ar rev" style="--d:.32s">شكراً جزيلاً — دار البهجة في انتظار موافقتكم</div>
-      <p class="lead rev" style="--d:.42s;max-width:600px">More than a name — an experience, ready to be approved and brought to life.</p>
-      <div class="sig">
-        <div class="sitem rev" style="--d:.5s"><div class="sk">Deliverables</div><div class="sv">Logo Suite · Guidelines · Stationery · Signage</div></div>
-        <div class="sitem rev" style="--d:.58s"><div class="sk">Formats</div><div class="sv">AI · EPS · SVG · PDF · PNG</div></div>
-        <div class="sitem rev" style="--d:.66s"><div class="sk">Status</div><div class="sv">Awaiting your blessing ✦</div></div>
-      </div>
-      <button class="enterbtn rev" style="--d:.78s;margin-top:30px" data-goto="0">
-        Replay presentation · إعادة العرض
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
+      <button class="sw rev" style="--d:.2s" data-hex="#2C663A">
+        <div class="swc" style="background:#2C663A"></div>
+        <div class="swi"><div class="swn">Medina Green</div><div class="swa">أخضر المدينة</div><div class="swh">HEX #2C663A · CMYK 57/0/43/60 · PANTONE 7734&nbsp;C<br>Nature · harmony · growth</div></div>
       </button>
-    </section>
-  </div>
+      <button class="sw rev" style="--d:.28s" data-hex="#C69835">
+        <div class="swc" style="background:#C69835"></div>
+        <div class="swi"><div class="swn">Saffron Gold</div><div class="swa">ذهب الزعفران</div><div class="swh">HEX #C69835 · CMYK 0/23/73/22 · PANTONE 7555&nbsp;C<br>Warmth · luxury · tradition</div></div>
+      </button>
+      <button class="sw rev" style="--d:.36s" data-hex="#F5F1E8">
+        <div class="swc" style="background:#F5F1E8;border-bottom:1px solid rgba(42,33,28,.12)"></div>
+        <div class="swi"><div class="swn">Ivory Sand</div><div class="swa">رمل عاجي</div><div class="swh">HEX #F5F1E8 · CMYK 0/2/6/4 · PANTONE 7499&nbsp;C<br>Calm · space · light</div></div>
+      </button>
+    </div>
+  </section>
 
-  <!-- bottom bar -->
-  <div class="kbd-hint">Use ← → arrow keys, click, or swipe · استخدم الأسهم للتنقل</div>
+  <!-- ============ PAGE 30 · COLOR PROPORTIONS ============ -->
+  <section class="slide" data-title="Color Balance" data-ar="توازن الألوان" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="ghost">توازن</div>
+    <div class="head rev">
+      <div class="eyebrow">Part V · System — How the colors live together</div>
+      <h2>The 40 · 30 · 18 · 12 rule</h2>
+      <span class="har">قاعدة توزيع الألوان في كل تطبيق</span>
+    </div>
+    <div class="rev" style="--d:.2s">
+      <div class="ratio">
+        <i style="width:40%;background:#F5F1E8;color:#5c5049">IVORY 40%</i>
+        <i style="width:30%;background:#840522">BURGUNDY 30%</i>
+        <i style="width:18%;background:#2C663A">GREEN 18%</i>
+        <i style="width:12%;background:#C69835">GOLD 12%</i>
+      </div>
+    </div>
+    <div class="numlist" style="max-width:820px">
+      <div class="nitem rev" style="--d:.3s"><div class="nn">١</div>
+        <div><h3>Ivory is the canvas <span>العاجي هو الأساس</span></h3><p>40% — menus, walls, packaging fields breathe in Ivory Sand; the identity never feels crowded.</p></div></div>
+      <div class="nitem rev" style="--d:.4s"><div class="nn">٢</div>
+        <div><h3>Burgundy is the voice <span>العنابي هو الصوت</span></h3><p>30% — headlines, the wordmark, seals and key surfaces speak in Marrakech Burgundy.</p></div></div>
+      <div class="nitem rev" style="--d:.5s"><div class="nn">٣</div>
+        <div><h3>Green is the support <span>الأخضر هو السند</span></h3><p>18% — wreaths, dividers and secondary text carry Medina Green quietly underneath.</p></div></div>
+      <div class="nitem rev" style="--d:.6s"><div class="nn">٤</div>
+        <div><h3>Gold is the treasure <span>الذهبي هو الكنز</span></h3><p>12% — steam, stars and MARRAKECH glint in Saffron Gold. Rare on purpose: scarcity is luxury.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 31 · TYPOGRAPHY EN ============ -->
+  <section class="slide" data-title="English Wordmark" data-ar="الاسم اللاتيني" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part V · System — Typography, script one</div>
+          <h2>The English voice</h2>
+          <span class="har">الصوت اللاتيني — وقار عالمي</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="type-spec rev" style="--d:.25s">
+          <div class="ts-label">Primary · Heritage Display Serif</div>
+          <div class="ts-demo serif">Dar Albahja — Aa Bb Gg 0123</div>
+          <div class="ts-sub">High-contrast serif capitals with calligraphic roots — international dignity for the wordmark and headlines. Chosen in stage 6 of the sketch, from three hand-tested candidates.</div>
+        </div>
+        <div class="type-spec rev" style="--d:.4s">
+          <div class="ts-label">Support · Geometric Sans</div>
+          <div class="ts-demo sans">AUTHENTIC MOROCCAN CUISINE · MENU · MARRAKECH</div>
+          <div class="ts-sub">Wide-tracked caps for taglines, menus, wayfinding and small print — modern clarity that never competes with the serif.</div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="arch" data-full="Dar Albahja-Englsih-01.jpg" data-cap="English wordmark lockup" data-capar="الشعار بالحروف اللاتينية">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <img src="Dar%20Albahja-Englsih-01.jpg" alt="English wordmark" loading="lazy" style="max-height:52vh;object-fit:contain;background:#fff">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 32 · TYPOGRAPHY AR ============ -->
+  <section class="slide" data-title="Arabic Wordmark" data-ar="الاسم العربي" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="split flip">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part V · System — Typography, script two</div>
+          <h2>The Arabic soul</h2>
+          <span class="har">الروح العربية — الخط أصل الاسم</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="type-spec rev" style="--d:.25s">
+          <div class="ts-label">Arabic · Naskh Calligraphic</div>
+          <div class="ts-demo arab">دار البهجة مراكش — أهلاً وسهلاً بكم</div>
+          <div class="ts-sub">Balanced naskh with generous bowls and confident terminals. Arabic here is not a translation — it is the origin of the name, and it reads first for every Arabic-speaking guest.</div>
+        </div>
+        <p class="lead rev" style="--d:.4s">In the lockup, the naskh line sits directly beneath the serif line at a
+        matched optical weight — <b>two scripts, one dignity</b>, neither subordinate to the other.
+        <span class="ar-sub">حرفان بكرامة واحدة</span></p>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="arch" data-full="Dar Albahja-Arabic.jpg" data-cap="Arabic wordmark lockup — naskh calligraphy" data-capar="الشعار بالخط العربي">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <img src="Dar%20Albahja-Arabic.jpg" alt="Arabic wordmark" loading="lazy" style="max-height:52vh;object-fit:contain;background:#fff">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 33 · VARIATIONS LIGHT ============ -->
+  <section class="slide" data-title="Light Variations" data-ar="النسخ الفاتحة" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="head rev">
+      <div class="eyebrow">Part V · System — For ivory &amp; bright surfaces</div>
+      <h2>Variations · Light</h2>
+      <span class="har">النسخ الفاتحة — للأسطح المضيئة</span>
+    </div>
+    <div class="varstage rev" style="--d:.2s;margin-top:22px">
+      <figure data-full="Logo Variation -Light- A1.jpg" data-cap="Light variation A1 — emblem-forward lockup" data-capar="النسخة الفاتحة أ١">
+        <img src="Logo%20Variation%20-Light-%20A1.jpg" alt="Light logo variation A1" loading="lazy"></figure>
+      <figure data-full="Logo Variation -Light- A2.jpg" data-cap="Light variation A2 — alternate composition" data-capar="النسخة الفاتحة أ٢">
+        <img src="Logo%20Variation%20-Light-%20A2.jpg" alt="Light logo variation A2" loading="lazy"></figure>
+    </div>
+    <p class="lead rev" style="--d:.35s;font-size:.82rem;margin-top:32px">Use on Ivory Sand, white paper, bright walls and daylight photography.
+    Full color always; never place the light version on dark or busy grounds. <span class="ar-sub" style="font-size:.9rem">للاستخدام على الخلفيات الفاتحة فقط</span></p>
+  </section>
+
+  <!-- ============ PAGE 34 · VARIATIONS DARK ============ -->
+  <section class="slide" data-title="Dark Variations" data-ar="النسخ الداكنة" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="head rev">
+      <div class="eyebrow">Part V · System — For night, luxury &amp; signage</div>
+      <h2>Variations · Dark</h2>
+      <span class="har">النسخ الداكنة — لليل والفخامة</span>
+    </div>
+    <div class="varstage dark rev" style="--d:.2s;margin-top:22px">
+      <figure data-full="Logo Variation -Dark- A1.jpg" data-cap="Dark variation A1 — ivory &amp; gold on charcoal" data-capar="النسخة الداكنة أ١">
+        <img src="Logo%20Variation%20-Dark-%20A1.jpg" alt="Dark logo variation A1" loading="lazy"></figure>
+      <figure data-full="Logo Variation -Dark- A2.jpg" data-cap="Dark variation A2 — full color on charcoal" data-capar="النسخة الداكنة أ٢">
+        <img src="Logo%20Variation%20-Dark-%20A2.jpg" alt="Dark logo variation A2" loading="lazy"></figure>
+    </div>
+    <p class="lead rev" style="--d:.35s;font-size:.82rem;margin-top:32px">Two night voices: an ivory-and-gold engraving for windows, menus and wax seals —
+    and a full-color jewel for illuminated signage and evening interiors. <span class="ar-sub" style="font-size:.9rem">للاستخدام على الخلفيات الداكنة</span></p>
+  </section>
+
+  <!-- ============ PAGE 35 · LOCKUPS ============ -->
+  <section class="slide" data-title="Lockups" data-ar="التكوينات" data-part="Part V — Identity System" data-partar="النظام">
+    <div class="head rev">
+      <div class="eyebrow">Part V · System — One mark, three formats</div>
+      <h2>Lockups for every space</h2>
+      <span class="har">تكوينات الشعار لكل مساحة — اضغط للتكبير</span>
+    </div>
+    <div class="lockrow">
+      <figure class="rev" style="--d:.15s" data-full="Light logo-01.jpg" data-cap="Lockup 01 — primary vertical" data-capar="التكوين الرأسي الأساسي">
+        <img src="Light%20logo-01.jpg" alt="Lockup 01" loading="lazy"><figcaption>01 · Vertical<span class="ar">رأسي</span></figcaption></figure>
+      <figure class="rev" style="--d:.27s" data-full="Light logo-02.jpg" data-cap="Lockup 02 — compact emblem" data-capar="التكوين المدمج">
+        <img src="Light%20logo-02.jpg" alt="Lockup 02" loading="lazy"><figcaption>02 · Compact<span class="ar">مدمج</span></figcaption></figure>
+      <figure class="rev" style="--d:.39s" data-full="Light logo-03.jpg" data-cap="Lockup 03 — extended composition" data-capar="التكوين الممتد">
+        <img src="Light%20logo-03.jpg" alt="Lockup 03" loading="lazy"><figcaption>03 · Extended<span class="ar">ممتد</span></figcaption></figure>
+    </div>
+    <p class="lead rev" style="--d:.5s;font-size:.82rem;margin-top:26px">Vertical for facades and covers · compact for stamps, avatars and app icons ·
+    extended for letterheads and website headers. <span class="ar-sub" style="font-size:.9rem">لكل استخدام تكوينه الصحيح</span></p>
+  </section>
+
+  <!-- ============ PAGE 36 · DIVIDER VI ============ -->
+  <section class="slide divider" data-title="Part VI" data-ar="الجزء السادس" data-part="Part VI — The Mood" data-partar="الأجواء">
+    <div class="ghost">٦</div>
+    <div class="dv-num rev">06</div>
+    <h2 class="rev" style="--d:.15s">The Mood</h2>
+    <div class="dv-ar rev" style="--d:.28s">الأجواء — العالم الذي تعيش فيه العلامة</div>
+    <div class="dv-sub rev" style="--d:.4s">Four full-frame atmospheres · click any to immerse</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 37-40 · MOOD FULL PAGES ============ -->
+  <section class="slide full" data-title="Mood · Craft" data-ar="الحِرفة" data-part="Part VI — The Mood" data-partar="الأجواء">
+    <div class="fbg" data-full="mood baord A.png" data-cap="Mood I — Craft &amp; ingredients: zellige, mint, saffron" data-capar="الحِرفة والمكوّنات"><img src="mood%20baord%20A.png" alt="Mood board A — craft and ingredients" loading="lazy"></div>
+    <div class="fcap rev">
+      <div class="eyebrow">Mood I of IV — Craft &amp; Ingredients</div>
+      <h2>Zellige, mint &amp; saffron</h2>
+      <span class="har">زليج ونعناع وزعفران</span>
+      <p>The identity photographed in its raw materials — carved tile, fresh mint, a brass bowl of saffron threads. This is the brand's tabletop truth: real craft, real ingredients.</p>
+    </div>
+  </section>
+  <section class="slide full" data-title="Mood · Riad" data-ar="الرياض" data-part="Part VI — The Mood" data-partar="الأجواء">
+    <div class="fbg" data-full="mood baord B.png" data-cap="Mood II — The riad experience: lanterns, arches, gathering" data-capar="تجربة الرياض"><img src="mood%20baord%20B.png" alt="Mood board B — riad interior" loading="lazy"></div>
+    <div class="fcap rev">
+      <div class="eyebrow">Mood II of IV — The Riad Experience</div>
+      <h2>Lanterns over long tables</h2>
+      <span class="har">فوانيس فوق موائد طويلة</span>
+      <p>Brass lanterns, horseshoe arches, velvet banquettes — the architectural warmth the interior design will inherit. The logo's ogee frame lives here in full scale.</p>
+    </div>
+  </section>
+  <section class="slide full" data-title="Mood · The Dish" data-ar="الطبق" data-part="Part VI — The Mood" data-partar="الأجواء">
+    <div class="fbg" data-full="mood baordC.png" data-cap="Mood III — The hero dish: steam, ceramic, generosity" data-capar="الطبق البطل"><img src="mood%20baordC.png" alt="Mood board C — steaming tagine" loading="lazy"></div>
+    <div class="fcap rev">
+      <div class="eyebrow">Mood III of IV — The Hero Dish</div>
+      <h2>Steam rising from clay</h2>
+      <span class="har">بخار يتصاعد من الطين</span>
+      <p>The painted tagine, lid lifted, steam curling exactly as the logo draws it. Photography direction: warm side-light, patterned ceramic, saffron threads scattered on linen.</p>
+    </div>
+  </section>
+  <section class="slide full" data-title="Mood · The Ritual" data-ar="الطقوس" data-part="Part VI — The Mood" data-partar="الأجواء">
+    <div class="fbg" data-full="mood baord D.png" data-cap="Mood IV — The ritual: mint tea, brass, hospitality" data-capar="طقوس الشاي"><img src="mood%20baord%20D.png" alt="Mood board D — mint tea pour" loading="lazy"></div>
+    <div class="fcap rev">
+      <div class="eyebrow">Mood IV of IV — The Ritual</div>
+      <h2>The golden pour</h2>
+      <span class="har">صبّة الشاي الذهبية</span>
+      <p>Mint tea poured high from engraved brass — Morocco's signature of welcome. Every Dar Albahja meal ends with this gesture; the brand's gold was measured against this light.</p>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 41 · DIVIDER VII ============ -->
+  <section class="slide divider" data-title="Part VII" data-ar="الجزء السابع" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="ghost">٧</div>
+    <div class="dv-num rev">07</div>
+    <h2 class="rev" style="--d:.15s">Applications</h2>
+    <div class="dv-ar rev" style="--d:.28s">التطبيقات — الهوية في العالم الحقيقي</div>
+    <div class="dv-sub rev" style="--d:.4s">Nine touchpoints · one page each · from facade to envelope</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 42 · SIGNAGE ============ -->
+  <section class="slide" data-title="Signage" data-ar="اللافتة" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 1 of 9 — The first impression</div>
+          <h2>Storefront signage</h2>
+          <span class="har">لافتة الواجهة — أول انطباع</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Illuminated emblem in gold over burgundy — visible down the whole street at night <span class="ar">— واجهة مضيئة</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Arch of the facade repeats the logo's ogee frame — architecture and mark in one language <span class="ar">— القوس يعانق الشعار</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Lanterns flanking the entrance carry the khatam star pattern <span class="ar">— فوانيس النجمة</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="appimg" data-full="signage.png" data-cap="Storefront signage — the illuminated facade" data-capar="لافتة الواجهة المضيئة">
+          <img src="signage.png" alt="Storefront signage mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 43 · RECEPTION ============ -->
+  <section class="slide" data-title="Reception" data-ar="الاستقبال" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 2 of 9 — The welcome</div>
+          <h2>Reception &amp; interior</h2>
+          <span class="har">الاستقبال — قلب الدار</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Backlit emblem floats on the zellige feature wall behind the host desk <span class="ar">— شعار مضيء</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Staff greet under the arch — every welcome framed by the brand <span class="ar">— ترحيب تحت القوس</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Burgundy uniforms against ivory stone — the 30/40 color rule in real space <span class="ar">— قاعدة الألوان حية</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="appimg" data-full="Reception.png" data-cap="Reception — the welcome under the emblem" data-capar="الاستقبال تحت الشعار">
+          <img src="Reception.png" alt="Reception interior mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 44 · UNIFORM ============ -->
+  <section class="slide" data-title="Uniform" data-ar="الزيّ" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 3 of 9 — The people</div>
+          <h2>Staff uniform</h2>
+          <span class="har">زيّ فريق العمل</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Burgundy apron with the embroidered emblem — the symmetrical construction makes stitching flawless <span class="ar">— تطريز متقن</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Ivory shirts keep staff cool and the palette honest <span class="ar">— قمصان عاجية</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Mint-tea service tray in brass completes the picture <span class="ar">— صينية الشاي</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="appimg" data-full="Uniform.png" data-cap="Staff uniform — embroidered emblem on burgundy" data-capar="زيّ الفريق بالشعار المطرز">
+          <img src="Uniform.png" alt="Staff uniform mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 45 · PACKAGING ============ -->
+  <section class="slide" data-title="Packaging" data-ar="التغليف" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 4 of 9 — The takeaway</div>
+          <h2>Packaging family</h2>
+          <span class="har">عائلة التغليف</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Kraft boxes, cups and bags — the emblem stamps every size from espresso cup to family box <span class="ar">— عائلة كاملة</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Green interior lining surprises on opening — joy engineered into cardboard <span class="ar">— بهجة داخل العلبة</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>A ceramic-white tagine pot crowns the takeaway line <span class="ar">— طاجين للمنزل</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="appimg" data-full="Packaging.png" data-cap="Takeaway packaging family — boxes, cups, bags" data-capar="عائلة عبوات الطلبات">
+          <img src="Packaging.png" alt="Packaging family mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 46 · WRAPPER ============ -->
+  <section class="slide" data-title="Wrapper" data-ar="الغلاف" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 5 of 9 — The street food voice</div>
+          <h2>Food wrapper</h2>
+          <span class="har">ورق التغليف</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Food-safe ivory paper with the burgundy seal repeating in a zellige rhythm <span class="ar">— ختم متكرر</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Even a wrapped shawarma carries the full identity — no touchpoint too small <span class="ar">— لا تفصيل صغير</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Sealed with a sticker of the compact lockup <span class="ar">— ملصق الإغلاق</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="appimg" data-full="wrapper.png" data-cap="Food wrapper — branded paper with seal sticker" data-capar="ورق التغليف بالختم">
+          <img src="wrapper.png" alt="Food wrapper mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 47 · DELIVERY ============ -->
+  <section class="slide" data-title="Delivery" data-ar="التوصيل" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 6 of 9 — The moving billboard</div>
+          <h2>Delivery fleet</h2>
+          <span class="har">أسطول التوصيل</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Burgundy rider jacket and thermal box — the emblem travels the whole city daily <span class="ar">— إعلان متحرك</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Gold emblem on the box reads clearly at traffic distance <span class="ar">— وضوح من بعيد</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>The dark variation proves itself in real streetlight <span class="ar">— النسخة الداكنة عملياً</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="appimg" data-full="Driver.jpg" data-cap="Delivery fleet — rider jacket and thermal box" data-capar="سترة وصندوق التوصيل">
+          <img src="Driver.jpg" alt="Delivery rider mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 48 · LETTERHEAD ============ -->
+  <section class="slide" data-title="Letterhead" data-ar="الورق الرسمي" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 7 of 9 — The corporate hand</div>
+          <h2>Letterhead</h2>
+          <span class="har">الورق الرسمي</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Emblem header, arabesque border in burgundy foil — contracts that feel like invitations <span class="ar">— رسمية بروح</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Ivory stock, saffron threads on the desk — the brand photographs itself <span class="ar">— ورق عاجي</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Typography hierarchy straight from the system pages <span class="ar">— تسلسل الخطوط</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="appimg" data-full="letter head.png" data-cap="Corporate letterhead — emblem and arabesque border" data-capar="الورق الرسمي بالشعار">
+          <img src="letter%20head.png" alt="Letterhead mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 49 · ENVELOPE ============ -->
+  <section class="slide" data-title="Envelope" data-ar="الظرف" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 8 of 9 — The sealed invitation</div>
+          <h2>Envelope &amp; wax seal</h2>
+          <span class="har">الظرف وختم الشمع</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Medina Green interior flash inside an ivory envelope — the joy is in the opening <span class="ar">— مفاجأة خضراء</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Gold wax seal pressed with the compact emblem — the geometry survives at 20&nbsp;mm <span class="ar">— ختم ذهبي</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>VIP invitations, gift cards and press kits share this format <span class="ar">— للدعوات الخاصة</span></span></div>
+        </div>
+      </div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="appimg" data-full="Envelope.png" data-cap="Branded envelope with gold wax seal" data-capar="الظرف بختم الشمع الذهبي">
+          <img src="Envelope.png" alt="Envelope mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 50 · ROLLUP ============ -->
+  <section class="slide" data-title="Roll-up" data-ar="الرول أب" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="split" style="grid-template-columns:.8fr 1.2fr">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Application 9 of 9 — Events &amp; openings</div>
+          <h2>Event roll-up</h2>
+          <span class="har">لوحة العرض للفعاليات</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <div class="checkrow">
+          <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Hero dish photography above, emblem and tagline below — the full brand in two metres <span class="ar">— العلامة كاملة</span></span></div>
+          <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Stands beside the reception or travels to food festivals and openings <span class="ar">— جاهزة للمهرجانات</span></span></div>
+          <div class="chk rev" style="--d:.45s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Layout grid reusable for posters, menus boards and social <span class="ar">— شبكة قابلة لإعادة الاستخدام</span></span></div>
+        </div>
+      </div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="appimg" data-full="Rollup.png" data-cap="Event roll-up banner in the restaurant interior" data-capar="لوحة العرض داخل المطعم">
+          <img src="Rollup.png" alt="Roll-up banner mockup" loading="lazy"><span class="ai-zoom">⌕ ENLARGE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 51 · DIVIDER VIII ============ -->
+  <section class="slide divider" data-title="Part VIII" data-ar="الجزء الثامن" data-part="Part VIII — The Close" data-partar="الختام">
+    <div class="ghost">٨</div>
+    <div class="dv-num rev">08</div>
+    <h2 class="rev" style="--d:.15s">The Close</h2>
+    <div class="dv-ar rev" style="--d:.28s">الختام — ما الذي تتسلمونه وماذا بعد</div>
+    <div class="dv-sub rev" style="--d:.4s">Deliverables · formats · the next step</div>
+    <div class="dv-line rev" style="--d:.5s"></div>
+  </section>
+
+  <!-- ============ PAGE 52 · DELIVERABLES ============ -->
+  <section class="slide" data-title="Deliverables" data-ar="التسليمات" data-part="Part VIII — The Close" data-partar="الختام">
+    <div class="ghost">تسليم</div>
+    <div class="head rev">
+      <div class="eyebrow">Part VIII · The Close — What you receive on approval</div>
+      <h2>The complete handover</h2>
+      <span class="har">حزمة التسليم الكاملة عند الموافقة</span>
+    </div>
+    <div class="numlist" style="max-width:860px">
+      <div class="nitem rev" style="--d:.15s"><div class="nn">١</div>
+        <div><h3>Master logo suite <span>حزمة الشعار</span></h3><p>Full lockup, compact, extended, light &amp; dark variations — AI · EPS · SVG · PDF · PNG, print and screen profiles.</p></div></div>
+      <div class="nitem rev" style="--d:.27s"><div class="nn">٢</div>
+        <div><h3>Brand guidelines document <span>دليل الهوية</span></h3><p>Construction grid, clear space, color codes (HEX/CMYK/PANTONE), bilingual typography rules, do's &amp; don'ts.</p></div></div>
+      <div class="nitem rev" style="--d:.39s"><div class="nn">٣</div>
+        <div><h3>Stationery &amp; packaging artwork <span>ملفات المطبوعات</span></h3><p>Letterhead, envelope, wrapper, packaging dielines and the roll-up layout — production-ready files.</p></div></div>
+      <div class="nitem rev" style="--d:.51s"><div class="nn">٤</div>
+        <div><h3>Signage &amp; uniform specifications <span>مواصفات التنفيذ</span></h3><p>Facade sign drawings, interior emblem specs, embroidery files and fleet livery templates.</p></div></div>
+      <div class="nitem rev" style="--d:.63s"><div class="nn">٥</div>
+        <div><h3>This presentation <span>هذا العرض</span></h3><p>The interactive proposal itself, password-protected, for internal sharing with your partners.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 53 · THANK YOU ============ -->
+  <section class="slide closing" data-title="Thank You" data-ar="شكراً" data-part="Part VIII — The Close" data-partar="الختام">
+    <div class="floating-star" style="width:22px;height:22px;top:18%;right:14%"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
+    <div class="floating-star" style="width:16px;height:16px;bottom:24%;left:14%;animation-delay:2s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
+    <div class="rev-sc" style="width:min(180px,36vw)">
+      <img src="Logo%20Variation%20-Light-%20A1.jpg" alt="Dar Albahja emblem" style="mix-blend-mode:multiply">
+    </div>
+    <h2 class="rev" style="--d:.2s">Shukran. Thank you.</h2>
+    <div class="cl-ar rev" style="--d:.32s">شكراً جزيلاً — دار البهجة في انتظار موافقتكم</div>
+    <p class="lead rev" style="--d:.42s;max-width:620px;text-align:center">You began this presentation with a sealed logo —
+    and assembled it with your own hands. Now it is ready to open its doors.</p>
+    <div class="sig">
+      <div class="sitem rev" style="--d:.5s"><div class="sk">Pages</div><div class="sv">53 · from pencil to storefront</div></div>
+      <div class="sitem rev" style="--d:.58s"><div class="sk">Formats</div><div class="sv">AI · EPS · SVG · PDF · PNG</div></div>
+      <div class="sitem rev" style="--d:.66s"><div class="sk">Status</div><div class="sv">Awaiting your blessing ✦</div></div>
+    </div>
+    <button class="enterbtn rev" style="--d:.78s;margin-top:30px" data-goto="0">
+      Replay the story · إعادة العرض
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
+    </button>
+  </section>
+
+  </div><!-- /stage -->
+
+  <div class="kbd-hint">← → keys · click · swipe · اضغط الأسهم للتنقل</div>
   <div class="botbar">
-    <div class="counter"><b id="curNum">01</b><i>/</i><span id="totNum">12</span></div>
+    <div class="counter"><b id="curNum">01</b><i>/</i><span id="totNum">53</span></div>
     <div class="slidetitle"><span id="stEn">Cover</span><span class="ar" id="stAr">الغلاف</span></div>
     <div class="navbtns">
       <button class="nbtn" id="prevBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6 6-6-6 6-6"/></svg>Prev</button>
       <button class="nbtn primary" id="nextBtn">Next<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
     </div>
   </div>
-</div>
+</div><!-- /app -->
 
-<!-- ================= MENU ================= -->
 <div id="menu">
   <button id="menuClose">✕</button>
-  <div class="menu-grid" id="menuGrid"></div>
+  <div class="menu-inner" id="menuInner"></div>
 </div>
 
-<!-- ================= LIGHTBOX ================= -->
 <div id="lb">
   <button id="lbClose">✕</button>
   <button class="lbnav" id="lbPrev">←</button>
@@ -938,16 +1712,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 </div>
 
 <script>
-/* ============================================================
-   SOUND ENGINE — synthesized with WebAudio, no external files
-   ============================================================ */
+/* ============ SOUND ENGINE (WebAudio, no files) ============ */
 const FX = {
   ctx:null, enabled:true,
   ensure(){
-    if(!this.ctx){
-      try{ this.ctx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ this.ctx=null; }
-    }
-    if(this.ctx && this.ctx.state==='suspended') this.ctx.resume();
+    if(!this.ctx){ try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ this.ctx=null; } }
+    if(this.ctx&&this.ctx.state==='suspended') this.ctx.resume();
     return !!this.ctx;
   },
   env(g,t0,a,peak,d){
@@ -957,140 +1727,120 @@ const FX = {
   },
   tone(freq,dur,type,peak,when=0,slide=null){
     if(!this.enabled||!this.ensure())return;
-    const t0=this.ctx.currentTime+when, o=this.ctx.createOscillator(), g=this.ctx.createGain();
-    o.type=type; o.frequency.setValueAtTime(freq,t0);
-    if(slide) o.frequency.exponentialRampToValueAtTime(slide,t0+dur);
+    const t0=this.ctx.currentTime+when,o=this.ctx.createOscillator(),g=this.ctx.createGain();
+    o.type=type;o.frequency.setValueAtTime(freq,t0);
+    if(slide)o.frequency.exponentialRampToValueAtTime(slide,t0+dur);
     this.env(g,t0,0.008,peak,dur);
     o.connect(g).connect(this.ctx.destination);
-    o.start(t0); o.stop(t0+dur+0.1);
+    o.start(t0);o.stop(t0+dur+0.1);
   },
   noise(dur,f1,f2,peak,when=0){
     if(!this.enabled||!this.ensure())return;
-    const t0=this.ctx.currentTime+when, len=Math.floor(this.ctx.sampleRate*dur);
-    const buf=this.ctx.createBuffer(1,len,this.ctx.sampleRate), d=buf.getChannelData(0);
-    for(let i=0;i<len;i++) d[i]=Math.random()*2-1;
-    const src=this.ctx.createBufferSource(); src.buffer=buf;
-    const bp=this.ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=1.1;
-    bp.frequency.setValueAtTime(f1,t0); bp.frequency.exponentialRampToValueAtTime(f2,t0+dur);
-    const g=this.ctx.createGain(); this.env(g,t0,0.02,peak,dur-0.02);
-    src.connect(bp).connect(g).connect(this.ctx.destination);
-    src.start(t0);
+    const t0=this.ctx.currentTime+when,len=Math.floor(this.ctx.sampleRate*dur);
+    const buf=this.ctx.createBuffer(1,len,this.ctx.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+    const src=this.ctx.createBufferSource();src.buffer=buf;
+    const bp=this.ctx.createBiquadFilter();bp.type='bandpass';bp.Q.value=1.1;
+    bp.frequency.setValueAtTime(f1,t0);bp.frequency.exponentialRampToValueAtTime(f2,t0+dur);
+    const g=this.ctx.createGain();this.env(g,t0,0.02,peak,dur-0.02);
+    src.connect(bp).connect(g).connect(this.ctx.destination);src.start(t0);
   },
-  click(){ this.tone(1250,0.06,'sine',0.06,0,700); },
-  hover(){ this.tone(1800,0.03,'sine',0.018); },
-  whoosh(){ this.noise(0.4,320,1500,0.09); },
-  back(){ this.noise(0.4,1500,320,0.09); },
-  chime(){ [523.25,659.25,783.99,1046.5].forEach((f,i)=>this.tone(f,0.5,'sine',0.07,i*0.09)); },
-  copy(){ this.tone(880,0.12,'triangle',0.07); this.tone(1318.5,0.25,'sine',0.06,0.09); },
-  deny(){ this.tone(150,0.22,'square',0.05); this.tone(110,0.3,'square',0.05,0.12); },
-  open(){ this.noise(0.3,250,2000,0.06); this.tone(660,0.3,'sine',0.045,0.05); }
+  click(){this.tone(1250,0.06,'sine',0.06,0,700);},
+  hover(){this.tone(1800,0.03,'sine',0.018);},
+  whoosh(){this.noise(0.4,320,1500,0.09);},
+  back(){this.noise(0.4,1500,320,0.09);},
+  chime(){[523.25,659.25,783.99,1046.5].forEach((f,i)=>this.tone(f,0.5,'sine',0.07,i*0.09));},
+  copy(){this.tone(880,0.12,'triangle',0.07);this.tone(1318.5,0.25,'sine',0.06,0.09);},
+  deny(){this.tone(150,0.22,'square',0.05);this.tone(110,0.3,'square',0.05,0.12);},
+  open(){this.noise(0.3,250,2000,0.06);this.tone(660,0.3,'sine',0.045,0.05);},
+  note(i){const p=[523.25,587.33,659.25,783.99,880,1046.5];this.tone(p[i%6],0.4,'sine',0.08);this.tone(p[i%6]*2,0.25,'sine',0.03,0.02);},
+  reveal(){
+    this.noise(1.1,200,2600,0.1);
+    [523.25,659.25,783.99].forEach(f=>this.tone(f,1.3,'sine',0.06,0.35));
+    this.tone(1046.5,1.6,'sine',0.07,0.55);this.tone(1568,1.2,'sine',0.035,0.75);
+  }
 };
 
-/* ============================================================
-   LOADER → GATE FLOW
-   ============================================================ */
+/* ============ LOADER → GATE ============ */
 const PASS='dena';
-const loader=document.getElementById('loader'),
-      gate=document.getElementById('gate'),
-      app=document.getElementById('app'),
-      fill=document.getElementById('loadFill'),
-      pct=document.getElementById('loadPct');
-
-const critical=[
-  'Dar Albahja-Englsih and Arabic.jpg','Sketch Draw 1.png','Sketch Draw 2.png',
-  'Color palette.png','Logo Variation -Light- A1.jpg'
-];
-let loaded=0, minTimeDone=false, assetsDone=false, finished=false, fakeP=0;
-function setP(p){
-  p=Math.min(100,Math.round(p));
-  fill.style.transform=`scaleX(${p/100})`;
-  pct.textContent=`PREPARING · جاري التحميل ${p}%`;
-}
-const fakeTimer=setInterval(()=>{ fakeP=Math.min(fakeP+Math.random()*7,96); paint(); },140);
-function paint(){
-  const real=(loaded/critical.length)*100;
-  setP(Math.min(fakeP,Math.max(real,fakeP*0.9)));
-}
-function assetTick(){ loaded++; if(loaded>=critical.length){assetsDone=true; tryFinish();} }
-critical.forEach(src=>{ const im=new Image(); im.onload=assetTick; im.onerror=assetTick; im.src=encodeURI(src); });
-setTimeout(()=>{ minTimeDone=true; tryFinish(); },2400);
-setTimeout(()=>{ assetsDone=true; tryFinish(); },9000); /* safety net */
+const loader=document.getElementById('loader'),gate=document.getElementById('gate'),app=document.getElementById('app'),
+      fill=document.getElementById('loadFill'),pct=document.getElementById('loadPct');
+const critical=['Sketch Draw 1.png','Sketch Draw 2.png','Dar Albahja-Englsih and Arabic.jpg','Color palette.png'];
+let loaded=0,minTimeDone=false,assetsDone=false,finished=false,fakeP=0;
+function setP(p){p=Math.min(100,Math.round(p));fill.style.transform=`scaleX(${p/100})`;
+  pct.textContent=`PREPARING · جاري التحميل ${p}%`;}
+const fakeTimer=setInterval(()=>{fakeP=Math.min(fakeP+Math.random()*7,96);
+  setP(Math.min(fakeP,Math.max((loaded/critical.length)*100,fakeP*0.9)));},140);
+function assetTick(){loaded++;if(loaded>=critical.length){assetsDone=true;tryFinish();}}
+critical.forEach(src=>{const im=new Image();im.onload=assetTick;im.onerror=assetTick;im.src=encodeURI(src);});
+setTimeout(()=>{minTimeDone=true;tryFinish();},2400);
+setTimeout(()=>{assetsDone=true;tryFinish();},9000);
 function tryFinish(){
   if(finished||!(minTimeDone&&assetsDone))return;
-  finished=true;
-  clearInterval(fakeTimer); setP(100);
-  setTimeout(()=>{ loader.classList.add('hidden'); gate.classList.remove('hidden'); gate.removeAttribute('aria-hidden');
-    setTimeout(()=>document.getElementById('gateInput').focus(),400);
-  },500);
+  finished=true;clearInterval(fakeTimer);setP(100);
+  setTimeout(()=>{loader.classList.add('hidden');gate.classList.remove('hidden');gate.removeAttribute('aria-hidden');
+    setTimeout(()=>document.getElementById('gateInput').focus(),400);},500);
 }
-
-const gateInput=document.getElementById('gateInput'),
-      gateBtn=document.getElementById('gateBtn'),
-      gateErr=document.getElementById('gateErr'),
-      gateCard=document.getElementById('gateCard');
+const gateInput=document.getElementById('gateInput'),gateBtn=document.getElementById('gateBtn'),
+      gateErr=document.getElementById('gateErr'),gateCard=document.getElementById('gateCard');
 function tryUnlock(){
   FX.ensure();
   if(gateInput.value.trim().toLowerCase()===PASS){
-    FX.chime();
-    gate.classList.add('hidden');
-    app.classList.add('on');
-    setTimeout(()=>go(0,true),150);
+    FX.chime();gate.classList.add('hidden');app.classList.add('on');setTimeout(()=>go(0,true),150);
   }else{
-    FX.deny();
-    gateErr.classList.add('show');
-    gateCard.classList.add('shake');
-    setTimeout(()=>gateCard.classList.remove('shake'),550);
-    gateInput.select();
+    FX.deny();gateErr.classList.add('show');gateCard.classList.add('shake');
+    setTimeout(()=>gateCard.classList.remove('shake'),550);gateInput.select();
   }
 }
 gateBtn.addEventListener('click',tryUnlock);
-gateInput.addEventListener('keydown',e=>{ if(e.key==='Enter')tryUnlock(); });
+gateInput.addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
 gateInput.addEventListener('input',()=>gateErr.classList.remove('show'));
 
-/* ============================================================
-   DECK
-   ============================================================ */
+/* ============ DECK ============ */
 const slides=[...document.querySelectorAll('.slide')];
-const rail=document.getElementById('rail');
-const menuGrid=document.getElementById('menuGrid');
-const curNum=document.getElementById('curNum'), totNum=document.getElementById('totNum');
-const stEn=document.getElementById('stEn'), stAr=document.getElementById('stAr');
+const pbarFill=document.querySelector('#pbar i');
+const curNum=document.getElementById('curNum'),totNum=document.getElementById('totNum');
+const stEn=document.getElementById('stEn'),stAr=document.getElementById('stAr');
+const menu=document.getElementById('menu'),lb=document.getElementById('lb');
 let cur=-1;
 totNum.textContent=String(slides.length).padStart(2,'0');
 
+/* chapter navigator grouped by part */
+const menuInner=document.getElementById('menuInner');
+let lastPart=null;let rowEl=null;
 slides.forEach((s,i)=>{
-  const d=document.createElement('button');
-  d.className='dot'; d.setAttribute('aria-label',s.dataset.title);
-  d.innerHTML=`<span class="tip"><b>${s.dataset.ar}</b>${s.dataset.title}</span>`;
-  d.addEventListener('click',()=>{FX.click();go(i);});
-  rail.appendChild(d);
-  const m=document.createElement('button');
-  m.className='mitem'; m.style.transitionDelay=(i*0.04)+'s';
-  m.innerHTML=`<div class="mnum">${String(i+1).padStart(2,'0')}</div><div class="mtt">${s.dataset.title}</div><div class="mar">${s.dataset.ar}</div>`;
+  if(s.dataset.part!==lastPart){
+    lastPart=s.dataset.part;
+    const h=document.createElement('div');h.className='menu-part';
+    h.innerHTML=`${s.dataset.part}<span class="ar">${s.dataset.partar}</span>`;
+    menuInner.appendChild(h);
+    rowEl=document.createElement('div');rowEl.className='menu-row';menuInner.appendChild(rowEl);
+  }
+  const m=document.createElement('button');m.className='mitem';m.dataset.idx=i;
+  m.innerHTML=`<b>${String(i+1).padStart(2,'0')}</b>${s.dataset.title}`;
   m.addEventListener('click',()=>{FX.click();closeMenu();go(i);});
-  menuGrid.appendChild(m);
+  rowEl.appendChild(m);
 });
-const dots=[...rail.children];
+const mitems=[...document.querySelectorAll('.mitem')];
 
 function go(i,silent){
   if(i<0||i>=slides.length||i===cur)return;
   const dir=i>cur;
-  if(!silent) (dir?FX.whoosh():FX.back());
-  if(cur>=0) slides[cur].classList.remove('active');
+  if(!silent)(dir?FX.whoosh():FX.back());
+  if(cur>=0)slides[cur].classList.remove('active');
   cur=i;
   slides[cur].classList.add('active');
-  dots.forEach((d,k)=>d.classList.toggle('active',k===cur));
   curNum.textContent=String(cur+1).padStart(2,'0');
   stEn.textContent=slides[cur].dataset.title;
   stAr.textContent=slides[cur].dataset.ar;
+  pbarFill.style.width=((cur)/(slides.length-1)*100)+'%';
+  mitems.forEach((m,k)=>m.classList.toggle('here',k===cur));
 }
 document.getElementById('nextBtn').addEventListener('click',()=>go(cur+1));
 document.getElementById('prevBtn').addEventListener('click',()=>go(cur-1));
 document.querySelectorAll('[data-goto]').forEach(b=>{
   b.addEventListener('click',()=>{FX.click();go(+b.dataset.goto);});
 });
-const menu=document.getElementById('menu');
-const lb=document.getElementById('lb');
 document.addEventListener('keydown',e=>{
   if(!gate.classList.contains('hidden'))return;
   if(lb.classList.contains('open')){
@@ -1099,53 +1849,112 @@ document.addEventListener('keydown',e=>{
     if(e.key==='ArrowLeft')lbStep(-1);
     return;
   }
-  if(menu.classList.contains('open')){ if(e.key==='Escape')closeMenu(); return; }
+  if(menu.classList.contains('open')){if(e.key==='Escape')closeMenu();return;}
   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(cur+1);
   if(e.key==='ArrowLeft'||e.key==='PageUp')go(cur-1);
   if(e.key==='Home')go(0);
   if(e.key==='End')go(slides.length-1);
 });
-/* swipe */
 let tx=null,ty=null;
 document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
 document.addEventListener('touchend',e=>{
   if(tx===null)return;
-  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
-  if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4){ dx<0?go(cur+1):go(cur-1); }
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4){dx<0?go(cur+1):go(cur-1);}
   tx=ty=null;
 },{passive:true});
-
-/* hover ticks on interactive elements */
-document.querySelectorAll('.jcard,.nbtn,.vtab,.sw,.appit,.mood,.pill,.dot,.ctl,.hs').forEach(el=>{
+document.querySelectorAll('.nbtn,.ctl,.pill,.sw,.el-card,.hs,.crop,.arch,.appimg,.mitem,.nitem,figure[data-full]').forEach(el=>{
   el.addEventListener('mouseenter',()=>FX.hover());
 });
 
-/* ============================================================
-   MENU
-   ============================================================ */
+/* ============ MENU / SOUND / FULLSCREEN / AUTOPLAY ============ */
 document.getElementById('menuBtn').addEventListener('click',()=>{FX.open();menu.classList.add('open');});
 function closeMenu(){menu.classList.remove('open');}
 document.getElementById('menuClose').addEventListener('click',()=>{FX.click();closeMenu();});
-menu.addEventListener('click',e=>{ if(e.target===menu)closeMenu(); });
-
-/* ============================================================
-   SOUND + FULLSCREEN TOGGLES
-   ============================================================ */
+menu.addEventListener('click',e=>{if(e.target===menu)closeMenu();});
 const sndBtn=document.getElementById('sndBtn');
 sndBtn.addEventListener('click',()=>{
-  FX.enabled=!FX.enabled;
-  sndBtn.classList.toggle('mute',!FX.enabled);
+  FX.enabled=!FX.enabled;sndBtn.classList.toggle('mute',!FX.enabled);
   if(FX.enabled)FX.chime();
 });
 document.getElementById('fsBtn').addEventListener('click',()=>{
   FX.click();
-  if(!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+  if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();
   else document.exitFullscreen?.();
 });
+const playBtn=document.getElementById('playBtn');
+let playTimer=null;
+playBtn.addEventListener('click',()=>{
+  FX.click();
+  if(playTimer){clearInterval(playTimer);playTimer=null;playBtn.classList.remove('playing');return;}
+  playBtn.classList.add('playing');
+  playTimer=setInterval(()=>{
+    if(cur>=slides.length-1){clearInterval(playTimer);playTimer=null;playBtn.classList.remove('playing');return;}
+    go(cur+1);
+  },7000);
+});
 
-/* ============================================================
-   ANATOMY HOTSPOTS
-   ============================================================ */
+/* ============ PILLARS ============ */
+const PILLARS=[
+  {t:'Heritage — التراث',b:'Centuries of Moroccan craft — zellige tilework, carved cedar, hammered brass — translated into a logo built from the same geometric grammar. Heritage is why the mark uses real construction geometry, not decoration.'},
+  {t:'Authenticity — الأصالة',b:'The tagine at the center is not a mascot; it is the actual vessel on the actual table. Every ornament in the identity exists in real Moroccan craft. Nothing is invented, everything is inherited.'},
+  {t:'Hospitality — الضيافة',b:'The ogee frame is a doorway held open. Ivory space keeps every layout calm and generous. Even the envelope opens with a flash of green — hospitality designed into paper.'},
+  {t:'Joy — البهجة',b:'Albahja is the promise in the name. Saffron gold appears exactly where delight appears — the steam, the stars, the word MARRAKECH — so the eye learns: gold means joy.'}
+];
+const plTitle=document.getElementById('plTitle'),plBody=document.getElementById('plBody'),pillarCard=document.getElementById('pillarCard');
+document.querySelectorAll('.pill[data-pillar]').forEach(p=>{
+  p.addEventListener('click',()=>{
+    FX.copy();
+    document.querySelectorAll('.pill[data-pillar]').forEach(x=>x.classList.remove('on'));
+    p.classList.add('on');
+    const d=PILLARS[+p.dataset.pillar];
+    pillarCard.style.opacity=0;
+    setTimeout(()=>{plTitle.textContent=d.t;plBody.textContent=d.b;
+      pillarCard.style.transition='opacity .4s';pillarCard.style.opacity=1;},180);
+  });
+});
+
+/* ============ ASSEMBLY GAME ============ */
+const asm=document.getElementById('asm'),asmSlots=document.getElementById('asmSlots'),
+      asmCount=document.getElementById('asmCount'),asmHint=document.getElementById('asmHint'),
+      asmQ=document.getElementById('asmQ'),mergeBtn=document.getElementById('mergeBtn');
+const slotEls=[];
+for(let k=0;k<6;k++){
+  const a=(-90+k*60)*Math.PI/180;
+  const s=document.createElement('span');s.className='asm-slot';
+  s.style.left=(50+44*Math.cos(a))+'%';s.style.top=(50+44*Math.sin(a))+'%';
+  asmSlots.appendChild(s);slotEls.push(s);
+}
+let gathered=0,merged=false;
+document.querySelectorAll('.el-card').forEach(c=>{
+  c.addEventListener('click',()=>{
+    if(c.classList.contains('done')||merged)return;
+    c.classList.add('done');
+    const i=+c.dataset.el;
+    FX.note(gathered);
+    slotEls[gathered].classList.add('lit');
+    gathered++;
+    asmCount.textContent=gathered+' / 6 elements gathered';
+    asmQ.style.transform=`scale(${1+gathered*0.06}) rotate(${gathered*3}deg)`;
+    if(gathered===6){
+      FX.chime();
+      asmCount.textContent='All six elements ready · العناصر جاهزة';
+      asmHint.innerHTML='Now merge them into one mark <span class="ar">الآن ادمجها في شعار واحد</span>';
+      mergeBtn.classList.add('show');
+    }
+  });
+});
+mergeBtn.addEventListener('click',()=>{
+  if(merged)return;
+  merged=true;
+  FX.reveal();
+  mergeBtn.classList.remove('show');
+  asm.classList.add('done','merged');
+  asmCount.textContent='Dar Albahja — assembled · دار البهجة';
+  asmHint.innerHTML='The elements became one <span class="ar">أصبحت العناصر واحداً</span>';
+});
+
+/* ============ ANATOMY HOTSPOTS ============ */
 const ANAT=[
   {n:'١',t:'The Rising Steam',a:'البخار المتصاعد',
    b:'Three hand-drawn curls of golden steam crown the mark — the universal promise of food served hot, alive and generous. It is the brand saying: the kitchen never sleeps.',
@@ -1154,7 +1963,7 @@ const ANAT=[
    b:'The heart of the identity. The tagine is Morocco\'s most beloved vessel — heritage, flavor and gathering in one silhouette, patterned with zellige florals in the three brand inks.',
    tags:['Heritage','Flavor','Gathering']},
   {n:'٣',t:'The Ogee Arch Frame',a:'إطار القوس المغربي',
-   b:'An eight-lobed ornamental frame built on precise 45° geometry, echoing riad doorways and mihrab arches. It shelters the tagine the way a dar shelters its guests — symmetry, protection, elegance.',
+   b:'An eight-lobed ornamental frame built on precise 45° geometry, echoing riad doorways and mihrab arches. It shelters the tagine the way a dar shelters its guests.',
    tags:['Symmetry','Protection','Elegance']},
   {n:'٤',t:'Eight-Point Star Motifs',a:'النجمة الثمانية',
    b:'Khatam stars from classical zellige tilework punctuate the wreath in saffron gold — beauty, balance and the mathematical soul of Moroccan craft.',
@@ -1174,88 +1983,41 @@ const acNum=document.getElementById('acNum'),acTitle=document.getElementById('ac
       acTags=document.getElementById('acTags'),anatCard=document.getElementById('anatCard');
 document.querySelectorAll('.hs').forEach(h=>{
   h.addEventListener('click',e=>{
-    e.stopPropagation();
-    FX.copy();
+    e.stopPropagation();FX.copy();
     document.querySelectorAll('.hs').forEach(x=>x.classList.remove('on'));
     h.classList.add('on');
     const d=ANAT[+h.dataset.i];
-    anatCard.style.opacity=0; anatCard.style.transform='translateY(10px)';
+    anatCard.style.opacity=0;anatCard.style.transform='translateY(10px)';
     setTimeout(()=>{
-      acNum.textContent=d.n; acTitle.textContent=d.t; acAr.textContent=d.a; acBody.textContent=d.b;
+      acNum.textContent=d.n;acTitle.textContent=d.t;acAr.textContent=d.a;acBody.textContent=d.b;
       acTags.innerHTML=d.tags.map(t=>`<span class="tagchip">${t}</span>`).join('');
       anatCard.style.transition='opacity .4s, transform .4s';
-      anatCard.style.opacity=1; anatCard.style.transform='none';
+      anatCard.style.opacity=1;anatCard.style.transform='none';
     },180);
   });
 });
 
-/* ============================================================
-   EVOLUTION LIST interaction
-   ============================================================ */
-document.querySelectorAll('#evoList .nitem').forEach(it=>{
-  it.addEventListener('click',()=>{
-    FX.click();
-    document.querySelectorAll('#evoList .nitem').forEach(x=>x.classList.remove('on'));
-    it.classList.add('on');
-  });
-});
-
-/* ============================================================
-   COLOR SWATCHES — copy hex
-   ============================================================ */
+/* ============ SWATCHES ============ */
 document.querySelectorAll('.sw').forEach(sw=>{
   sw.addEventListener('click',()=>{
     FX.copy();
-    const hex=sw.dataset.hex;
-    if(navigator.clipboard) navigator.clipboard.writeText(hex).catch(()=>{});
+    if(navigator.clipboard)navigator.clipboard.writeText(sw.dataset.hex).catch(()=>{});
     sw.classList.add('copied');
     setTimeout(()=>sw.classList.remove('copied'),1400);
   });
 });
 
-/* ============================================================
-   VARIATION TABS
-   ============================================================ */
-const varStage=document.getElementById('varStage'),
-      v1=document.getElementById('varImg1'), v2=document.getElementById('varImg2'),
-      tabLight=document.getElementById('tabLight'), tabDark=document.getElementById('tabDark'),
-      lightThumbs=document.getElementById('lightThumbs');
-function setVar(dark){
-  FX.whoosh();
-  tabLight.classList.toggle('on',!dark);
-  tabDark.classList.toggle('on',dark);
-  varStage.classList.toggle('dark',dark);
-  lightThumbs.style.display=dark?'none':'flex';
-  const f1=dark?'Logo Variation -Dark- A1.jpg':'Logo Variation -Light- A1.jpg';
-  const f2=dark?'Logo Variation -Dark- A2.jpg':'Logo Variation -Light- A2.jpg';
-  v1.style.opacity=0; v2.style.opacity=0;
-  setTimeout(()=>{
-    v1.src=encodeURI(f1); v2.src=encodeURI(f2);
-    v1.parentElement.dataset.full=f1; v2.parentElement.dataset.full=f2;
-    v1.parentElement.dataset.cap=dark?'Dark mode — Variation A1':'Primary logo — Variation A1';
-    v2.parentElement.dataset.cap=dark?'Dark mode — Variation A2':'Primary logo — Variation A2';
-    v1.style.transition='opacity .5s'; v2.style.transition='opacity .5s';
-    v1.style.opacity=1; v2.style.opacity=1;
-  },260);
-}
-tabLight.addEventListener('click',()=>setVar(false));
-tabDark.addEventListener('click',()=>setVar(true));
-
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
-const lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
-let lbList=[], lbIdx=0;
-function collect(){ return [...document.querySelectorAll('.slide.active [data-full]')]; }
+/* ============ LIGHTBOX ============ */
+const lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+let lbList=[],lbIdx=0;
 function openLb(el){
   FX.open();
-  lbList=collect(); lbIdx=Math.max(0,lbList.indexOf(el));
-  showLb();
-  lb.classList.add('open');
+  lbList=[...document.querySelectorAll('.slide.active [data-full]')];
+  lbIdx=Math.max(0,lbList.indexOf(el));
+  showLb();lb.classList.add('open');
 }
 function showLb(){
-  const el=lbList[lbIdx];
-  if(!el)return;
+  const el=lbList[lbIdx];if(!el)return;
   lbImg.src=encodeURI(el.dataset.full);
   lbCap.innerHTML=`${el.dataset.cap||''}<span class="ar">${el.dataset.capar||''}</span>`;
 }
@@ -1264,17 +2026,17 @@ function lbStep(d){
   FX.click();
   lbIdx=(lbIdx+d+lbList.length)%lbList.length;
   lbImg.style.opacity=0;
-  setTimeout(()=>{ showLb(); lbImg.style.transition='opacity .4s'; lbImg.style.opacity=1; },200);
+  setTimeout(()=>{showLb();lbImg.style.transition='opacity .4s';lbImg.style.opacity=1;},200);
 }
-function closeLb(){ FX.back(); lb.classList.remove('open'); }
+function closeLb(){FX.back();lb.classList.remove('open');}
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-full]');
-  if(t && !lb.classList.contains('open')) openLb(t);
+  if(t&&!lb.classList.contains('open'))openLb(t);
 });
 document.getElementById('lbClose').addEventListener('click',e=>{e.stopPropagation();closeLb();});
 document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();lbStep(-1);});
 document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();lbStep(1);});
-lb.addEventListener('click',e=>{ if(e.target===lb)closeLb(); });
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
 </script>
 </body>
 </html>
