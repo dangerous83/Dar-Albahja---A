@@ -93,7 +93,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .loader-pct{color:rgba(245,241,232,.5);font-size:.68rem;letter-spacing:.4em;margin-top:14px}
 
 /* ============ F11 FULLSCREEN START GATE ============ */
-#fsGate{position:fixed;inset:0;z-index:850;display:flex;align-items:center;justify-content:center;
+#fsGate{position:fixed;inset:0;z-index:950;display:flex;align-items:center;justify-content:center;
   background:radial-gradient(1100px 700px at 50% 15%, rgba(198,152,53,.14), transparent 60%),
     radial-gradient(900px 700px at 50% 110%, rgba(132,5,34,.25), transparent 55%), var(--charcoal);
   opacity:0;visibility:hidden;transition:opacity .8s var(--ease), visibility .8s}
@@ -131,6 +131,19 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .fsg-touch{display:block;margin:20px auto 0;background:none;border:1px solid rgba(198,152,53,.35);color:rgba(245,241,232,.55);
   font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:9px 20px;border-radius:20px;transition:.3s}
 .fsg-touch:hover{border-color:var(--gold);color:var(--gold)}
+.fsg-voice{display:none;align-items:center;justify-content:center;gap:8px;margin-top:16px;color:var(--gold);
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;animation:voPulse 1.6s ease-in-out infinite}
+.fsg-voice.show{display:flex}
+.fsg-voice svg{width:14px;height:14px;flex:none}
+@keyframes voPulse{0%,100%{opacity:.5}50%{opacity:1}}
+.fsg-warn{display:none;margin-top:26px;color:#eab6c0;font-size:.82rem;letter-spacing:.12em;line-height:1.9;text-transform:uppercase}
+.fsg-warn b{color:var(--gold)}
+.fsg-warn span{display:block;font-size:.6rem;color:rgba(245,241,232,.5);letter-spacing:.24em;margin-top:6px}
+.fsg-warn .ar{font-family:var(--arabic);font-size:1.05rem;color:var(--gold-soft);text-transform:none;letter-spacing:0}
+#fsGate.relock .fsg-text,#fsGate.relock .fsg-sub{display:none}
+#fsGate.relock .fsg-warn{display:block}
+#fsGate.relock .fsg-frame{border-color:rgba(234,182,192,.45)}
+#fsGate.relock .fsg-key{animation-duration:1.2s}
 
 /* ============ DECK CHROME ============ */
 #app{position:fixed;inset:0;z-index:10;opacity:0;transition:opacity 1s var(--ease)}
@@ -826,9 +839,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="fsg-title">Dar Albahja<small>An Immersive Experience</small></div>
     <div class="fsg-ar">تجربة غامرة — دار البهجة</div>
     <p class="fsg-text">This journey is crafted for the full screen</p>
+    <p class="fsg-warn">⚠ Please press <b>F11</b> to proceed your journey
+      <span>Full screen was exited — the presentation is locked</span>
+      <span class="ar">من فضلك اضغط F11 لمتابعة رحلتك — العرض مقفل</span></p>
     <div class="fsg-key" id="fsgKey">F11</div>
     <div class="fsg-sub">Press <b>F11</b> to enter full screen &amp; begin
       <span class="ar">اضغط F11 لملء الشاشة وبدء التجربة</span></div>
+    <div class="fsg-voice" id="fsgVoice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M18.5 6.5a8 8 0 0 1 0 11"/></svg>
+      Tap anywhere to hear the voice guide · اضغط لسماع الدليل الصوتي
+    </div>
     <button class="fsg-touch" id="fsgTouch" type="button">No F11 key? Tap here for full screen · شاشة لمس؟ اضغط هنا</button>
     <div class="fsg-lock">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10.5" width="14" height="9" rx="1.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
@@ -2518,59 +2538,79 @@ function tryFinish(){
   setTimeout(()=>{loader.classList.add('hidden');showFsGate();},500);
 }
 
-/* ============ F11 FULLSCREEN START GATE + VOICEOVERS ============ */
-const fsGate=document.getElementById('fsGate'),fsgKey=document.getElementById('fsgKey');
-const voStart=new Audio('Starting%20F11.mp3');      /* "press F11" voiceover on load   */
-const voEnd=new Audio('ending.mp3');                 /* professional close on download  */
-let fsUnlocked=false,voStartDone=false;
+/* ============ F11 FULLSCREEN GATE + VOICEOVERS ============ */
+const fsGate=document.getElementById('fsGate'),fsgKey=document.getElementById('fsgKey'),
+      fsgVoice=document.getElementById('fsgVoice');
+const voStart=new Audio('Starting%20F11.mp3');       /* guidance voiceover — explains the F11 step */
+const voEnd=new Audio('ending.mp3');                 /* professional close on download             */
+let fsUnlocked=false,relockArmed=false,relocked=false,voPlayedThisLock=false;
 function playStartVO(){
-  if(voStartDone||fsUnlocked)return;
-  voStart.play().then(()=>{voStartDone=true;}).catch(()=>{});  /* autoplay may be blocked — retried on first gesture */
+  if(voPlayedThisLock)return;                        /* speak once per lock, not on every keypress */
+  try{voStart.currentTime=0;}catch(e){}
+  voStart.play()
+    .then(()=>{voPlayedThisLock=true;fsgVoice.classList.remove('show');})
+    .catch(()=>{fsgVoice.classList.add('show');});   /* autoplay blocked — invite a tap, retry then */
 }
 function isFullscreenNow(){
   return !!document.fullscreenElement||
     (window.innerHeight>=screen.height-2&&window.innerWidth>=screen.width-2);
 }
+function gateShown(){return fsGate.classList.contains('show');}
 function showFsGate(){
   if(window.__blocked)return;                        /* phones see the device block instead */
-  if(fsUnlocked||isFullscreenNow()){unlockFs();return;}
+  if(fsUnlocked||isFullscreenNow()){proceed();return;}
+  voPlayedThisLock=false;
   fsGate.classList.add('show');fsGate.removeAttribute('aria-hidden');
   playStartVO();
 }
-function unlockFs(){
-  if(fsUnlocked){startIntro();return;}
-  fsUnlocked=true;
+function hideGate(){
   try{voStart.pause();voStart.currentTime=0;}catch(e){}
   FX.chime();
   fsGate.classList.add('leaving');
-  setTimeout(()=>{fsGate.classList.remove('show','leaving');fsGate.setAttribute('aria-hidden','true');startIntro();},750);
+  setTimeout(()=>{if(relocked)return;               /* re-locked mid-fade — keep the gate up */
+    fsGate.classList.remove('show','leaving','relock');fsGate.setAttribute('aria-hidden','true');},750);
+}
+function proceed(){                                  /* gate satisfied — begin or resume the journey */
+  if(isFullscreenNow())relockArmed=true;             /* watch for fullscreen exit only once truly engaged */
+  if(relocked){relocked=false;hideGate();return;}    /* resume exactly where they left off */
+  if(fsUnlocked){startIntro();return;}
+  fsUnlocked=true;hideGate();
+  setTimeout(startIntro,760);
+}
+function relock(){                                   /* fullscreen abandoned mid-journey — lock & warn */
+  if(relocked||!relockArmed||window.__blocked)return;
+  relocked=true;voPlayedThisLock=false;
+  FX.deny();
+  fsGate.classList.remove('leaving');
+  fsGate.classList.add('show','relock');fsGate.removeAttribute('aria-hidden');
+  playStartVO();                                     /* the guide speaks again */
+}
+function requestFs(){
+  const req=document.documentElement.requestFullscreen?.();
+  if(req&&req.catch)req.catch(()=>proceed());        /* never trap the guest if fullscreen is refused */
+  else if(!req)proceed();                            /* no Fullscreen API — let them through */
 }
 /* capture phase so the deck never sees keys while the journey is locked */
 window.addEventListener('keydown',e=>{
-  if(!fsGate.classList.contains('show')||fsUnlocked)return;
+  if(!gateShown())return;
   e.preventDefault();e.stopPropagation();
   playStartVO();                                     /* a keypress is a gesture — voiceover can start now */
-  if(e.key==='F11'){
-    const req=document.documentElement.requestFullscreen?.();
-    if(req&&req.catch)req.catch(()=>unlockFs());     /* never trap the guest if fullscreen is refused */
-    else if(!req)unlockFs();                         /* no Fullscreen API — let them through */
-  }else{
+  if(e.key==='F11')requestFs();
+  else{
     FX.deny();
     fsgKey.classList.remove('deny');void fsgKey.offsetWidth;fsgKey.classList.add('deny');
   }
 },true);
 document.addEventListener('fullscreenchange',()=>{
-  if(document.fullscreenElement&&fsGate.classList.contains('show'))unlockFs();
+  if(document.fullscreenElement){relockArmed=true;if(gateShown())proceed();}
+  else if(fsUnlocked&&!gateShown())relock();         /* Esc / exit fullscreen → lock the presentation */
 });
 window.addEventListener('resize',()=>{               /* native F11 fires no fullscreenchange — catch it by size */
-  if(fsGate.classList.contains('show')&&!fsUnlocked&&isFullscreenNow())unlockFs();
+  if(gateShown()&&isFullscreenNow())proceed();
+  else if(fsUnlocked&&relockArmed&&!gateShown()&&!isFullscreenNow())relock();
 });
-document.getElementById('fsgTouch').addEventListener('click',()=>{
-  playStartVO();
-  const req=document.documentElement.requestFullscreen?.();
-  if(req&&req.catch)req.catch(()=>unlockFs());else unlockFs();
-});
-fsGate.addEventListener('pointerdown',()=>playStartVO());
+document.getElementById('fsgTouch').addEventListener('click',()=>{playStartVO();requestFs();});
+fsGate.addEventListener('pointerdown',()=>{if(gateShown())playStartVO();});
 const gateInput=document.getElementById('gateInput'),gateBtn=document.getElementById('gateBtn'),
       gateErr=document.getElementById('gateErr'),gateCard=document.getElementById('gateCard');
 function tryUnlock(){
