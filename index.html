@@ -533,8 +533,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 <div id="intro" aria-hidden="true">
   <div class="intro-scroll" id="introScroll">
     <div class="intro-stage">
-      <video id="introVideo" playsinline muted preload="auto" webkit-playsinline
-             src="Scroll%20Scrub%20Intro.mp4"></video>
+      <video id="introVideo" playsinline muted preload="auto" webkit-playsinline>
+        <source src="intro-scrub.mp4" type="video/mp4">
+        <source src="intro-scrub.webm" type="video/webm">
+      </video>
       <div class="intro-vig"></div>
       <div class="intro-loading" id="introLoading">Loading the reveal… · جارٍ تحميل المقدّمة</div>
       <div class="intro-enter" id="introEnter">
@@ -1921,26 +1923,38 @@ const intro=document.getElementById('intro'),introVideo=document.getElementById(
       introEnter=document.getElementById('introEnter'),introProg=document.getElementById('introProg'),
       introHint=document.getElementById('introHint'),introLoading=document.getElementById('introLoading');
 function c01(v){return v<0?0:v>1?1:v;}
-let introStarted=false,introEnterShown=false,introDur=0,seeking=false,seekQueued=null;
+let introStarted=false,introEnterShown=false,introDur=0,seeking=false,pendingT=null;
 introVideo.addEventListener('loadedmetadata',()=>{introDur=introVideo.duration||0;introUpdate();});
-introVideo.addEventListener('canplay',()=>{introLoading&&introLoading.classList.add('hide');});
+function introReadyUI(){introLoading&&introLoading.classList.add('hide');}
+introVideo.addEventListener('canplay',introReadyUI);
+introVideo.addEventListener('loadeddata',introReadyUI);
 introVideo.addEventListener('error',()=>{if(introLoading){introLoading.classList.remove('hide');introLoading.textContent='Video unavailable — scroll to the end, then Enter · تابع';}});
-introVideo.addEventListener('seeked',()=>{seeking=false;if(seekQueued!=null){const t=seekQueued;seekQueued=null;doSeek(t);}});
-function doSeek(t){if(seeking){seekQueued=t;return;}seeking=true;try{if(introVideo.fastSeek)introVideo.fastSeek(t);else introVideo.currentTime=t;}catch(e){seeking=false;}}
+/* Coalesced seeking: jump straight to the scroll target, and only issue the next
+   seek once the current one lands (with a watchdog so a stalled seek never freezes it).
+   The all-intra encode means each seek resolves on its exact frame -> smooth scrub. */
+function releaseSeek(){seeking=false;if(pendingT!=null){const t=pendingT;pendingT=null;applySeek(t);}}
+introVideo.addEventListener('seeked',()=>{clearTimeout(introVideo._wd);releaseSeek();});
+introVideo.addEventListener('seeking',()=>{clearTimeout(introVideo._wd);introVideo._wd=setTimeout(releaseSeek,350);});
+function applySeek(t){
+  if(introDur<=0)return;
+  if(seeking){pendingT=t;return;}
+  if(Math.abs(introVideo.currentTime-t)<0.02)return;
+  seeking=true;try{introVideo.currentTime=t;}catch(e){seeking=false;}
+}
 function introUpdate(){
   const max=intro.scrollHeight-intro.clientHeight;const p=max>0?c01(intro.scrollTop/max):0;
-  if(introDur>0)doSeek(c01(p)*Math.max(0,introDur-0.05));
+  applySeek(c01(p)*Math.max(0,introDur-0.04));
   introProg.style.width=(p*100)+'%';
   introHint.style.opacity=p>0.015?'0':'0.7';
   if(p>=0.985){if(!introEnterShown){introEnterShown=true;introEnter.classList.add('show');FX.chime();}}
   else if(introEnterShown){introEnterShown=false;introEnter.classList.remove('show');}
 }
 let introRAF=false;
-function kickVideo(){try{const pr=introVideo.play();if(pr&&pr.then)pr.then(()=>introVideo.pause()).catch(()=>{});else introVideo.pause();}catch(e){}}
 function startIntro(){
   intro.classList.add('on');intro.removeAttribute('aria-hidden');intro.scrollTop=0;
-  kickVideo();introUpdate();
-  intro.addEventListener('scroll',()=>{if(!introStarted){introStarted=true;FX.open();kickVideo();}
+  try{introVideo.pause();introVideo.load();}catch(e){}
+  introUpdate();
+  intro.addEventListener('scroll',()=>{if(!introStarted){introStarted=true;FX.open();}
     if(!introRAF){introRAF=true;requestAnimationFrame(()=>{introRAF=false;introUpdate();});}},{passive:true});
   window.addEventListener('resize',introUpdate);
 }
