@@ -391,6 +391,117 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .chk svg{flex:none;width:17px;height:17px;color:var(--green);margin-top:2px}
 .chk .ar{font-family:var(--arabic);color:var(--green)}
 
+/* ---------- WEB PROTOTYPE (Application 10 · the digital storefront) ---------- */
+.slide.webproto{overflow-y:auto}
+.webproto-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;margin:4px 0 6px}
+.dev-tabs{display:flex;gap:8px;background:rgba(132,5,34,.06);border:1px solid rgba(132,5,34,.18);padding:5px;border-radius:30px}
+.dtab{display:flex;align-items:center;gap:7px;padding:8px 18px;border-radius:24px;border:none;background:transparent;
+  color:var(--ink-soft);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:.3s}
+.dtab svg{width:15px;height:15px;flex:none}
+.dtab:hover{color:var(--burgundy)}
+.dtab.active{background:var(--burgundy);color:var(--ivory);box-shadow:0 10px 22px -10px rgba(132,5,34,.55)}
+
+.devframe{position:relative;background:#171310;border-radius:22px;box-shadow:0 40px 80px -30px rgba(22,17,15,.55);
+  overflow:hidden;transition:width .5s var(--ease),height .5s var(--ease),border-radius .5s var(--ease);
+  width:min(720px,90%);height:min(48vh,430px);border:6px solid #171310;flex:none}
+.devframe[data-device="tablet"]{width:min(380px,90%);height:min(56vh,480px);border-radius:28px;border-width:9px}
+.devframe[data-device="mobile"]{width:min(240px,90%);height:min(58vh,490px);border-radius:32px;border-width:10px}
+.dev-chrome{height:26px;background:#1c1712;display:flex;align-items:center;gap:6px;padding:0 12px;flex:none;position:relative}
+.devframe[data-device="tablet"] .dev-chrome,.devframe[data-device="mobile"] .dev-chrome{justify-content:center;padding:0}
+.dev-chrome .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.dev-chrome .dot.r{background:#e5645f}.dev-chrome .dot.y{background:#e5b84b}.dev-chrome .dot.g{background:#5fbf6b}
+.devframe[data-device="tablet"] .dot,.devframe[data-device="mobile"] .dot{display:none}
+.devframe[data-device="mobile"] .dev-chrome::after{content:"";position:absolute;top:7px;width:64px;height:11px;background:#1c1712;border-radius:0 0 9px 9px}
+.dev-url{flex:1;background:#2a2119;color:rgba(245,241,232,.6);font-size:.58rem;letter-spacing:.03em;border-radius:12px;
+  padding:4px 12px;text-align:center;overflow:hidden;white-space:nowrap}
+.devframe[data-device="tablet"] .dev-url,.devframe[data-device="mobile"] .dev-url{display:none}
+.dev-body{background:var(--ivory);height:calc(100% - 26px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+
+.dev-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;background:var(--ivory);
+  border-bottom:1px solid rgba(132,5,34,.12);flex:none;position:relative;z-index:3}
+.dev-brand{display:flex;align-items:center;gap:7px;min-width:0}
+.dev-brand img{width:22px;height:22px;object-fit:contain;flex:none}
+.dev-brand span{font-family:var(--serif);font-weight:700;color:var(--burgundy);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dev-links{display:flex;gap:16px}
+.dev-links a{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;cursor:default;white-space:nowrap}
+.dev-actions{display:flex;align-items:center;gap:9px;flex:none}
+.dev-burger{display:none;flex-direction:column;gap:4px;width:20px;background:none;border:none;padding:4px}
+.dev-burger span{display:block;height:2px;background:var(--burgundy);border-radius:2px;transition:.3s}
+.dev-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.dev-burger.open span:nth-child(2){opacity:0}
+.dev-burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.dev-cart{position:relative;background:none;border:1px solid rgba(132,5,34,.3);border-radius:50%;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;color:var(--burgundy);flex:none}
+.dev-cart svg{width:14px;height:14px}
+.cart-badge{position:absolute;top:-5px;right:-5px;background:var(--gold);color:#231a08;font-size:.52rem;font-weight:700;
+  width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cart-badge.pulse{animation:cbpulse .4s var(--ease)}
+@keyframes cbpulse{0%{transform:scale(1)}50%{transform:scale(1.55)}100%{transform:scale(1)}}
+.devframe[data-device="tablet"] .dev-links,.devframe[data-device="mobile"] .dev-links{display:none}
+.devframe[data-device="tablet"] .dev-burger,.devframe[data-device="mobile"] .dev-burger{display:flex}
+
+.dev-scrim{position:absolute;inset:0;background:rgba(0,0,0,0);opacity:0;visibility:hidden;transition:.3s;z-index:5}
+.dev-scrim.show{background:rgba(0,0,0,.42);opacity:1;visibility:visible}
+.dev-drawer{position:absolute;top:0;right:-100%;width:72%;height:100%;background:var(--charcoal);z-index:6;
+  padding:52px 20px 20px;display:flex;flex-direction:column;gap:15px;transition:right .35s var(--ease);box-shadow:-20px 0 40px rgba(0,0,0,.3)}
+.dev-drawer.open{right:0}
+.dev-drawer a{color:var(--ivory);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.dev-drawer-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--ivory);font-size:.95rem;line-height:1}
+.dev-drawer-cta{margin-top:auto;background:var(--gold);color:#231a08;text-align:center;padding:9px;border-radius:20px;
+  font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+
+.dev-screen{flex:1;overflow-y:auto;position:relative}
+.view{display:none;padding:14px 16px 24px}
+.view.active{display:block}
+.dev-hero{text-align:center;padding:12px 4px 16px;border-bottom:1px dashed rgba(132,5,34,.15);margin-bottom:12px}
+.dev-hero h3{font-family:var(--serif);color:var(--burgundy);font-size:1.02rem}
+.dev-hero p{color:var(--ink-soft);font-size:.66rem;margin-top:4px}
+.dev-menugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.devframe[data-device="mobile"] .dev-menugrid{grid-template-columns:1fr}
+.dev-mcard{background:#fff;border:1px solid rgba(132,5,34,.1);border-radius:9px;overflow:hidden;transition:.25s}
+.dev-mcard:hover{box-shadow:0 14px 26px -14px rgba(132,5,34,.3);transform:translateY(-2px)}
+.dev-mcard img{width:100%;height:72px;object-fit:cover}
+.mc-info{padding:7px 9px}
+.mc-info h4{font-size:.64rem;color:var(--ink);font-weight:700}
+.mc-info p{font-size:.55rem;color:var(--ink-soft);margin:2px 0 6px;line-height:1.4}
+.mc-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.mc-price{font-family:var(--serif);color:var(--burgundy);font-weight:700;font-size:.7rem}
+.mc-add{background:var(--green);color:#fff;border:none;font-size:.54rem;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:700;padding:5px 9px;border-radius:12px;transition:.2s;white-space:nowrap}
+.mc-add:hover{background:#1f4d29}
+.mc-add.added{background:var(--gold);color:#231a08}
+
+.dev-back{background:none;border:none;color:var(--burgundy);font-size:.62rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:10px;padding:0}
+.view-checkout h3,.view-success h3{font-family:var(--serif);color:var(--burgundy);font-size:.96rem;margin-bottom:8px}
+.co-list{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.co-item{display:flex;justify-content:space-between;gap:8px;font-size:.64rem;color:var(--ink-soft)}
+.co-item b{color:var(--ink);white-space:nowrap}
+.co-empty{font-size:.64rem;color:var(--ink-soft);text-align:center;padding:18px 0}
+.co-row{display:flex;justify-content:space-between;font-size:.64rem;color:var(--ink-soft);padding:5px 0;border-top:1px dashed rgba(132,5,34,.15)}
+.co-total{font-weight:700;color:var(--burgundy);font-size:.76rem;border-top:1px solid rgba(132,5,34,.25)}
+.co-address{margin:12px 0}
+.co-address label{display:block;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.co-address input{width:100%;border:1px solid rgba(132,5,34,.25);border-radius:6px;padding:6px 10px;font-size:.64rem;
+  font-family:var(--sans);color:var(--ink);background:#fff}
+.dev-place{width:100%;background:var(--burgundy);color:var(--ivory);border:none;padding:10px;border-radius:24px;
+  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:.25s}
+.dev-place:hover{background:var(--burgundy-deep)}
+.dev-place:disabled{opacity:.4;cursor:not-allowed}
+.dev-place.ghost{background:transparent;border:1px solid var(--burgundy);color:var(--burgundy);margin-top:8px}
+
+.view-success{text-align:center;padding-top:30px}
+.success-check{width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;display:flex;
+  align-items:center;justify-content:center;margin:0 auto 14px}
+.success-check svg{width:22px;height:22px}
+.view-success p{color:var(--ink-soft);font-size:.68rem;margin-bottom:14px}
+
+.dev-foot{flex:none;display:flex;justify-content:space-between;padding:7px 16px;font-size:.52rem;letter-spacing:.08em;
+  color:var(--ink-soft);border-top:1px solid rgba(132,5,34,.1)}
+.dev-foot-ar{font-family:var(--arabic);color:var(--green)}
+.devframe[data-device="tablet"] .dev-foot,.devframe[data-device="mobile"] .dev-foot{display:none}
+@media(max-width:900px){.devframe{width:100%!important}}
+
 /* ---------- CLOSING ---------- */
 .closing{align-items:center;text-align:center}
 .closing h2{font-size:clamp(2rem,4.6vw,3.4rem)}
@@ -1576,7 +1687,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 1 of 9 — The first impression</div>
+          <div class="eyebrow">Application 1 of 10 — The first impression</div>
           <h2>Storefront signage</h2>
           <span class="har">لافتة الواجهة — أول انطباع</span>
         </div>
@@ -1600,7 +1711,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 2 of 9 — The welcome</div>
+          <div class="eyebrow">Application 2 of 10 — The welcome</div>
           <h2>Reception &amp; interior</h2>
           <span class="har">الاستقبال — قلب الدار</span>
         </div>
@@ -1624,7 +1735,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 3 of 9 — The people</div>
+          <div class="eyebrow">Application 3 of 10 — The people</div>
           <h2>Staff uniform</h2>
           <span class="har">زيّ فريق العمل</span>
         </div>
@@ -1648,7 +1759,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 4 of 9 — The takeaway</div>
+          <div class="eyebrow">Application 4 of 10 — The takeaway</div>
           <h2>Packaging family</h2>
           <span class="har">عائلة التغليف</span>
         </div>
@@ -1672,7 +1783,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 5 of 9 — The street food voice</div>
+          <div class="eyebrow">Application 5 of 10 — The street food voice</div>
           <h2>Food wrapper</h2>
           <span class="har">ورق التغليف</span>
         </div>
@@ -1696,7 +1807,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 6 of 9 — The moving billboard</div>
+          <div class="eyebrow">Application 6 of 10 — The moving billboard</div>
           <h2>Delivery fleet</h2>
           <span class="har">أسطول التوصيل</span>
         </div>
@@ -1720,7 +1831,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 7 of 9 — The corporate hand</div>
+          <div class="eyebrow">Application 7 of 10 — The corporate hand</div>
           <h2>Letterhead</h2>
           <span class="har">الورق الرسمي</span>
         </div>
@@ -1744,7 +1855,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split flip" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 8 of 9 — The sealed invitation</div>
+          <div class="eyebrow">Application 8 of 10 — The sealed invitation</div>
           <h2>Envelope &amp; wax seal</h2>
           <span class="har">الظرف وختم الشمع</span>
         </div>
@@ -1768,7 +1879,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="split" style="grid-template-columns:.8fr 1.2fr">
       <div>
         <div class="head rev">
-          <div class="eyebrow">Application 9 of 9 — Events &amp; openings</div>
+          <div class="eyebrow">Application 9 of 10 — Events &amp; openings</div>
           <h2>Event roll-up</h2>
           <span class="har">لوحة العرض للفعاليات</span>
         </div>
@@ -1787,7 +1898,152 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     </div>
   </section>
 
-  <!-- ============ PAGE 51 · DIVIDER VIII ============ -->
+  <!-- ============ PAGE 51 · THE DIGITAL STOREFRONT (WEBSITE PROTOTYPE) ============ -->
+  <section class="slide webproto" data-title="Digital Storefront" data-ar="المتجر الرقمي" data-part="Part VII — Applications" data-partar="التطبيقات">
+    <div class="ghost">تسوق</div>
+    <div class="head rev" style="text-align:center">
+      <div class="eyebrow">Application 10 of 10 — The digital storefront</div>
+      <h2>A website that orders itself</h2>
+      <span class="har">موقع إلكتروني يطلب بنفسه</span>
+    </div>
+
+    <div class="webproto-wrap">
+      <div class="dev-tabs" role="tablist" aria-label="Preview device">
+        <button class="dtab active" type="button" data-device="desktop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.4"/><path d="M9 21h6M12 17v4"/></svg>
+          Desktop</button>
+        <button class="dtab" type="button" data-device="tablet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M11 18h2"/></svg>
+          Tablet</button>
+        <button class="dtab" type="button" data-device="mobile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 19h2"/></svg>
+          Mobile</button>
+      </div>
+
+      <div class="devframe" id="devFrame" data-device="desktop">
+        <div class="dev-chrome">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <div class="dev-url">🔒 daralbahja.ae/order</div>
+        </div>
+        <div class="dev-body">
+          <header class="dev-nav">
+            <div class="dev-brand"><img src="logo-transparent.png" alt="Dar Albahja"><span>Dar Albahja</span></div>
+            <nav class="dev-links">
+              <a>Menu</a><a>Our Story</a><a>Locations</a><a>Contact</a>
+            </nav>
+            <div class="dev-actions">
+              <button class="dev-burger" id="devBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+              <button class="dev-cart" id="devCartBtn" aria-label="View cart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h2l1.6 10.2a2 2 0 0 0 2 1.8h8a2 2 0 0 0 2-1.7L21 9H7"/><circle cx="10" cy="20" r="1.2" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.2" fill="currentColor" stroke="none"/></svg>
+                <span class="cart-badge" id="cartBadge">0</span>
+              </button>
+            </div>
+          </header>
+
+          <div class="dev-scrim" id="devScrim"></div>
+          <nav class="dev-drawer" id="devDrawer">
+            <button class="dev-drawer-close" id="devDrawerClose" aria-label="Close menu">✕</button>
+            <a>Menu</a><a>Our Story</a><a>Locations</a><a>Contact</a>
+            <div class="dev-drawer-cta">Order Now</div>
+          </nav>
+
+          <div class="dev-screen" id="devScreen">
+            <section class="view view-menu active" id="viewMenu">
+              <div class="dev-hero">
+                <h3>Taste of Marrakech, delivered</h3>
+                <p>Ten signature dishes · ready in 35 minutes</p>
+              </div>
+              <div class="dev-menugrid">
+                <article class="dev-mcard" data-name="Royal Lamb Tagine" data-price="68">
+                  <img src="Menu%20-A.png" alt="Royal Lamb Tagine" loading="lazy">
+                  <div class="mc-info"><h4>Royal Lamb Tagine</h4><p>Slow-braised lamb, apricot &amp; almonds</p>
+                    <div class="mc-row"><span class="mc-price">AED 68</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Chicken Pastilla" data-price="54">
+                  <img src="Menu%20-B.png" alt="Chicken Pastilla" loading="lazy">
+                  <div class="mc-info"><h4>Chicken Pastilla</h4><p>Cinnamon-sugar filo, almond &amp; saffron</p>
+                    <div class="mc-row"><span class="mc-price">AED 54</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Seven-Vegetable Couscous" data-price="49">
+                  <img src="Menu%20-C.png" alt="Seven-Vegetable Couscous" loading="lazy">
+                  <div class="mc-info"><h4>Seven-Veg Couscous</h4><p>Steamed semolina, garden vegetables</p>
+                    <div class="mc-row"><span class="mc-price">AED 49</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Mechoui Lamb Shoulder" data-price="89">
+                  <img src="Menu%20-D.png" alt="Mechoui Lamb Shoulder" loading="lazy">
+                  <div class="mc-info"><h4>Mechoui Lamb Shoulder</h4><p>Slow-roasted, cumin salt on the side</p>
+                    <div class="mc-row"><span class="mc-price">AED 89</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Harira Soup" data-price="28">
+                  <img src="Menu%20-E.png" alt="Harira Soup" loading="lazy">
+                  <div class="mc-info"><h4>Harira Soup</h4><p>Tomato, lentil &amp; herb, Marrakech style</p>
+                    <div class="mc-row"><span class="mc-price">AED 28</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Zaalouk &amp; Khobz Basket" data-price="22">
+                  <img src="Menu%20-F.png" alt="Zaalouk &amp; Khobz Basket" loading="lazy">
+                  <div class="mc-info"><h4>Zaalouk &amp; Khobz</h4><p>Smoked aubergine dip, warm flatbread</p>
+                    <div class="mc-row"><span class="mc-price">AED 22</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Grilled Kefta Skewers" data-price="46">
+                  <img src="Menu%20-G.png" alt="Grilled Kefta Skewers" loading="lazy">
+                  <div class="mc-info"><h4>Grilled Kefta Skewers</h4><p>Charcoal-grilled, cumin &amp; parsley</p>
+                    <div class="mc-row"><span class="mc-price">AED 46</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Saffron Seafood Bastilla" data-price="62">
+                  <img src="Menu%20-H.png" alt="Saffron Seafood Bastilla" loading="lazy">
+                  <div class="mc-info"><h4>Saffron Seafood Bastilla</h4><p>Prawn &amp; fish, saffron cream filo</p>
+                    <div class="mc-row"><span class="mc-price">AED 62</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Msemen &amp; Honey" data-price="24">
+                  <img src="Menu%20-I.png" alt="Msemen &amp; Honey" loading="lazy">
+                  <div class="mc-info"><h4>Msemen &amp; Honey</h4><p>Layered griddle bread, wild honey</p>
+                    <div class="mc-row"><span class="mc-price">AED 24</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+                <article class="dev-mcard" data-name="Mint Tea &amp; Chebakia" data-price="26">
+                  <img src="Menu%20-L.png" alt="Mint Tea &amp; Chebakia" loading="lazy">
+                  <div class="mc-info"><h4>Mint Tea &amp; Chebakia</h4><p>Fresh mint pour, sesame-honey pastry</p>
+                    <div class="mc-row"><span class="mc-price">AED 26</span><button class="mc-add" type="button">+ Add</button></div></div>
+                </article>
+              </div>
+            </section>
+
+            <section class="view view-checkout" id="viewCheckout">
+              <button class="dev-back" id="devBack" type="button">← Back to menu</button>
+              <h3>Your order</h3>
+              <div class="co-list" id="coList"></div>
+              <div class="co-row"><span>Subtotal</span><span id="coSub">AED 0</span></div>
+              <div class="co-row"><span>Delivery</span><span id="coDeliv">AED 0</span></div>
+              <div class="co-row co-total"><span>Total</span><span id="coTotal">AED 0</span></div>
+              <div class="co-address">
+                <label>Delivery address</label>
+                <input type="text" value="Jumeirah, Dubai" readonly>
+              </div>
+              <button class="dev-place" id="devPlace" type="button" disabled>Place Secure Order</button>
+            </section>
+
+            <section class="view view-success" id="viewSuccess">
+              <div class="success-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+              <h3>Order confirmed</h3>
+              <p>#DA-<span id="orderNo">2481</span> · Arriving in 35 min</p>
+              <button class="dev-place ghost" id="devNewOrder" type="button">Start a new order</button>
+            </section>
+          </div>
+
+          <footer class="dev-foot">
+            <span>© Dar Albahja</span><span class="dev-foot-ar">دار البهجة</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkrow" style="max-width:760px;margin:8px auto 0">
+      <div class="chk rev" style="--d:.15s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Fully responsive — one order flow that adapts from a desktop browser to a tablet to a one-thumb mobile checkout, burger menu included <span class="ar">— تصميم متجاوب بالكامل</span></span></div>
+      <div class="chk rev" style="--d:.25s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>A live prototype, not a picture — add dishes above, watch the cart total update, and walk through checkout right here <span class="ar">— نموذج تفاعلي حقيقي</span></span></div>
+      <div class="chk rev" style="--d:.35s"><svg viewBox="0 0 24 24"><use href="#checkIc"/></svg><span>Every pixel carries the identity — burgundy &amp; gold, the ogee frame, the Cormorant serif — from homepage to order confirmation <span class="ar">— الهوية حتى آخر خطوة</span></span></div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 52 · DIVIDER VIII ============ -->
   <section class="slide divider" data-title="Part VIII" data-ar="الجزء الثامن" data-part="Part VIII — The Close" data-partar="الختام">
     <div class="ghost">٨</div>
     <div class="dv-num rev">08</div>
@@ -1797,7 +2053,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="dv-line rev" style="--d:.5s"></div>
   </section>
 
-  <!-- ============ PAGE 52 · DELIVERABLES ============ -->
+  <!-- ============ PAGE 53 · DELIVERABLES ============ -->
   <section class="slide" data-title="Deliverables" data-ar="التسليمات" data-part="Part VIII — The Close" data-partar="الختام">
     <div class="ghost">تسليم</div>
     <div class="head rev">
@@ -1819,7 +2075,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     </div>
   </section>
 
-  <!-- ============ PAGE 53 · THANK YOU ============ -->
+  <!-- ============ PAGE 54 · THANK YOU ============ -->
   <section class="slide closing" data-title="Thank You" data-ar="شكراً" data-part="Part VIII — The Close" data-partar="الختام">
     <div class="floating-star" style="width:22px;height:22px;top:18%;right:14%"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
     <div class="floating-star" style="width:16px;height:16px;bottom:24%;left:14%;animation-delay:2s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
@@ -2359,6 +2615,83 @@ function pdfTry(){
 pdfGo.addEventListener('click',pdfTry);
 pdfPass.addEventListener('keydown',e=>{if(e.key==='Enter')pdfTry();});
 pdfPass.addEventListener('input',()=>pdfErr.classList.remove('show'));
+
+/* ============ WEB PROTOTYPE (Application 10 · the digital storefront) ============ */
+(function(){
+  const devFrame=document.getElementById('devFrame');
+  if(!devFrame)return;
+  const dtabs=[...document.querySelectorAll('.dtab')];
+  dtabs.forEach(t=>t.addEventListener('click',()=>{
+    FX.click();
+    dtabs.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    devFrame.dataset.device=t.dataset.device;
+    closeDrawer();
+  }));
+
+  const burger=document.getElementById('devBurger'),drawer=document.getElementById('devDrawer'),scrim=document.getElementById('devScrim');
+  function openDrawer(){FX.open();burger.classList.add('open');drawer.classList.add('open');scrim.classList.add('show');}
+  function closeDrawer(){FX.back();burger.classList.remove('open');drawer.classList.remove('open');scrim.classList.remove('show');}
+  burger.addEventListener('click',()=>burger.classList.contains('open')?closeDrawer():openDrawer());
+  scrim.addEventListener('click',closeDrawer);
+  document.getElementById('devDrawerClose').addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+
+  const views={menu:document.getElementById('viewMenu'),checkout:document.getElementById('viewCheckout'),success:document.getElementById('viewSuccess')};
+  const devScreen=document.getElementById('devScreen');
+  function showView(name){Object.values(views).forEach(v=>v.classList.remove('active'));views[name].classList.add('active');devScreen.scrollTop=0;}
+
+  const cart={};
+  const cartBadge=document.getElementById('cartBadge');
+  const DELIVERY=12;
+  function cartCount(){return Object.values(cart).reduce((a,b)=>a+b.qty,0);}
+  function cartSubtotal(){return Object.values(cart).reduce((a,b)=>a+b.qty*b.price,0);}
+
+  document.querySelectorAll('.mc-add').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      FX.copy();
+      const card=btn.closest('.dev-mcard');
+      const name=card.dataset.name,price=+card.dataset.price;
+      if(!cart[name])cart[name]={qty:0,price};
+      cart[name].qty++;
+      cartBadge.textContent=cartCount();
+      cartBadge.classList.remove('pulse');void cartBadge.offsetWidth;cartBadge.classList.add('pulse');
+      btn.textContent='✓ Added';btn.classList.add('added');
+      setTimeout(()=>{btn.textContent='+ Add';btn.classList.remove('added');},900);
+    });
+  });
+
+  function renderCheckout(){
+    const list=document.getElementById('coList');
+    const names=Object.keys(cart);
+    list.innerHTML=names.length
+      ? names.map(n=>`<div class="co-item"><span>${cart[n].qty}× ${n}</span><b>AED ${cart[n].qty*cart[n].price}</b></div>`).join('')
+      : '<div class="co-empty">Your cart is empty — add a dish first</div>';
+    const sub=cartSubtotal(),deliv=names.length?DELIVERY:0;
+    document.getElementById('coSub').textContent='AED '+sub;
+    document.getElementById('coDeliv').textContent='AED '+deliv;
+    document.getElementById('coTotal').textContent='AED '+(sub+deliv);
+    document.getElementById('devPlace').disabled=!names.length;
+  }
+
+  document.getElementById('devCartBtn').addEventListener('click',()=>{
+    if(cartCount()===0){FX.deny();return;}
+    FX.click();renderCheckout();showView('checkout');
+  });
+  document.getElementById('devBack').addEventListener('click',()=>{FX.click();showView('menu');});
+  document.getElementById('devPlace').addEventListener('click',()=>{
+    if(!cartCount())return;
+    FX.chime();
+    document.getElementById('orderNo').textContent=Math.floor(2000+Math.random()*7999);
+    showView('success');
+  });
+  document.getElementById('devNewOrder').addEventListener('click',()=>{
+    FX.click();
+    Object.keys(cart).forEach(k=>delete cart[k]);
+    cartBadge.textContent='0';
+    showView('menu');
+  });
+})();
 </script>
 </body>
 </html>
