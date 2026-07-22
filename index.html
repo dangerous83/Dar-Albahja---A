@@ -460,12 +460,44 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .pdf-ok.show{opacity:1}
 .pdf-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(245,241,232,.5);font-size:1.2rem;cursor:pointer}
 
+/* ---------- scroll-scrub cinematic intro ---------- */
+#intro{position:fixed;inset:0;z-index:850;overflow-y:scroll;overflow-x:hidden;background:var(--charcoal);
+  opacity:0;visibility:hidden;transition:opacity .8s var(--ease),visibility .8s}
+#intro.on{opacity:1;visibility:visible}
+#intro.leaving{opacity:0}
+.intro-scroll{height:560vh;position:relative}
+.intro-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.intro-stage::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 620px at 50% 42%,rgba(198,152,53,.16),transparent 62%)}
+.intro-bg{position:absolute;inset:-12%;opacity:.06;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23C69835' stroke-width='1'%3E%3Cpath d='M60 10 72.5 47.5 110 60 72.5 72.5 60 110 47.5 72.5 10 60 47.5 47.5Z'/%3E%3C/g%3E%3C/svg%3E");background-size:120px 120px}
+.intro-emblem{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:min(48vh,410px);height:min(48vh,410px)}
+.intro-emblem svg{width:100%;height:100%;overflow:visible}
+.ie-stroke{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.intro-cap{position:absolute;top:13%;left:0;right:0;text-align:center;pointer-events:none;height:64px;padding:0 20px}
+.intro-cap span{position:absolute;left:0;right:0;top:0;opacity:0;color:var(--ivory);font-family:var(--serif);
+  font-style:italic;font-size:clamp(1.1rem,2.4vw,1.7rem);letter-spacing:.02em}
+.intro-cap span .iar{font-family:var(--arabic);font-style:normal;color:var(--gold-soft);font-size:.85em;margin-left:12px}
+.intro-title{position:absolute;top:69%;left:0;right:0;text-align:center;pointer-events:none;opacity:0}
+.intro-title h1{font-family:var(--serif);color:var(--ivory);font-size:clamp(2.2rem,6vw,4.4rem);letter-spacing:.06em;font-weight:600}
+.intro-title .iar{font-family:var(--arabic);color:var(--gold-soft);font-size:clamp(1.2rem,3vw,1.9rem);margin-top:4px}
+.intro-enter{position:absolute;top:90%;left:50%;transform:translate(-50%,-50%) scale(.9);opacity:0;pointer-events:none;
+  transition:.6s var(--ease);text-align:center}
+.intro-enter.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.intro-enter.show .enterbtn{animation:mergepulse 1.8s infinite}
+.intro-enter-sub{margin-top:12px;color:rgba(245,241,232,.5);font-size:.6rem;letter-spacing:.32em;text-transform:uppercase}
+.intro-hint{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);color:rgba(245,241,232,.7);
+  font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity .5s;z-index:2}
+.intro-hint .chev{width:22px;height:22px;color:var(--gold);animation:chevb 1.6s infinite}
+@keyframes chevb{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
+.intro-prog{position:fixed;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));width:0;z-index:3;transition:width .05s linear}
+
 /* ---------- print-to-PDF layout ---------- */
 @page{size:A4 landscape;margin:0}
 @media print{
   html,body{height:auto;overflow:visible;background:#fff}
   body::before{display:none}
-  #loader,#gate,.topbar,.botbar,.rail,.kbd-hint,#menu,#lb,#pdfModal,#pbar,.floating-star{display:none!important}
+  #loader,#gate,#intro,.topbar,.botbar,.rail,.kbd-hint,#menu,#lb,#pdfModal,#pbar,.floating-star{display:none!important}
   #app{position:static;opacity:1!important}
   .stage{position:static}
   .slide{position:relative!important;inset:auto;opacity:1!important;visibility:visible!important;
@@ -505,6 +537,39 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
   <div class="loader-ar">دار البهجة مراكش</div>
   <div class="loader-bar"><i id="loadFill"></i></div>
   <div class="loader-pct" id="loadPct">PREPARING · جاري التحميل 0%</div>
+</div>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-scroll">
+    <div class="intro-stage">
+      <div class="intro-bg" id="introBg"></div>
+      <div class="intro-cap" id="introCap">
+        <span>A Moroccan story, drawn by hand<span class="iar">حكاية مغربية بخط اليد</span></span>
+        <span>From a single line…<span class="iar">من خطٍّ واحد…</span></span>
+        <span>…colour, craft and heritage…<span class="iar">لونٌ وحِرفةٌ وتراث…</span></span>
+        <span>…an identity is born<span class="iar">تُولد الهوية</span></span>
+      </div>
+      <div class="intro-emblem" id="introEmblem">
+        <svg id="ieSvg" viewBox="0 0 400 400" fill="none"></svg>
+      </div>
+      <div class="intro-title" id="introTitle">
+        <h1>Dar Albahja</h1>
+        <div class="iar">دار البهجة — مراكش</div>
+      </div>
+      <div class="intro-enter" id="introEnter">
+        <button class="enterbtn" id="introEnterBtn" style="background:var(--gold);color:#231a08;box-shadow:0 16px 40px -12px rgba(198,152,53,.7)">
+          ✦ Unveil the Identity · اكشف الهوية
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+        <div class="intro-enter-sub">Enter the presentation · للدخول إلى العرض</div>
+      </div>
+    </div>
+  </div>
+  <div class="intro-hint" id="introHint">
+    <span>Scroll to begin · مرّر للبدء</span>
+    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="intro-prog" id="introProg"></div>
 </div>
 
 <div id="gate" class="hidden" aria-hidden="true">
@@ -1852,8 +1917,7 @@ setTimeout(()=>{assetsDone=true;tryFinish();},9000);
 function tryFinish(){
   if(finished||!(minTimeDone&&assetsDone))return;
   finished=true;clearInterval(fakeTimer);setP(100);
-  setTimeout(()=>{loader.classList.add('hidden');gate.classList.remove('hidden');gate.removeAttribute('aria-hidden');
-    setTimeout(()=>document.getElementById('gateInput').focus(),400);},500);
+  setTimeout(()=>{loader.classList.add('hidden');startIntro();},500);
 }
 const gateInput=document.getElementById('gateInput'),gateBtn=document.getElementById('gateBtn'),
       gateErr=document.getElementById('gateErr'),gateCard=document.getElementById('gateCard');
@@ -1869,6 +1933,72 @@ function tryUnlock(){
 gateBtn.addEventListener('click',tryUnlock);
 gateInput.addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
 gateInput.addEventListener('input',()=>gateErr.classList.remove('show'));
+function openGate(){gate.classList.remove('hidden');gate.removeAttribute('aria-hidden');setTimeout(()=>gateInput.focus(),400);}
+
+/* ============ SCROLL-SCRUB CINEMATIC INTRO ============ */
+const intro=document.getElementById('intro'),ieSvg=document.getElementById('ieSvg'),
+      introEmblem=document.getElementById('introEmblem'),introTitle=document.getElementById('introTitle'),
+      introEnter=document.getElementById('introEnter'),introProg=document.getElementById('introProg'),
+      introHint=document.getElementById('introHint');
+const SVGNS='http://www.w3.org/2000/svg';
+function mk(tag,attrs){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+function circlePath(cx,cy,r){return `M ${cx-r} ${cy} A ${r} ${r} 0 1 0 ${cx+r} ${cy} A ${r} ${r} 0 1 0 ${cx-r} ${cy} Z`;}
+function ellipsePath(cx,cy,rx,ry){return `M ${cx-rx} ${cy} A ${rx} ${ry} 0 1 0 ${cx+rx} ${cy} A ${rx} ${ry} 0 1 0 ${cx-rx} ${cy} Z`;}
+function rosette(cx,cy,R,lobes,amp){let d='';const N=lobes*26;for(let i=0;i<=N;i++){const t=i/N*Math.PI*2;const r=R*(1+amp*Math.cos(lobes*t));const x=cx+r*Math.cos(t),y=cy+r*Math.sin(t);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}return d+'Z';}
+function starPath(cx,cy,r){let d='';const N=16;for(let i=0;i<=N;i++){const t=i/N*Math.PI*2-Math.PI/2;const rr=(i%2?r*0.42:r);d+=(i?'L':'M')+(cx+rr*Math.cos(t)).toFixed(1)+' '+(cy+rr*Math.sin(t)).toFixed(1);}return d+'Z';}
+const ieStrokes=[],ieFills=[],ieStars=[];
+(function buildEmblem(){
+  const innerFill=mk('path',{d:circlePath(200,196,98),fill:'#2C663A'});innerFill.style.opacity='0';ieSvg.appendChild(innerFill);ieFills.push([innerFill,0.15,0.5,0.72]);
+  const bodyFill=mk('path',{d:'M150,256 Q154,206 200,170 Q246,206 250,256 Z',fill:'#840522'});bodyFill.style.opacity='0';ieSvg.appendChild(bodyFill);ieFills.push([bodyFill,0.82,0.55,0.8]);
+  const knobFill=mk('path',{d:circlePath(200,151,6),fill:'#C69835'});knobFill.style.opacity='0';ieSvg.appendChild(knobFill);ieFills.push([knobFill,1,0.6,0.72]);
+  const S=(d,w)=>{const e=mk('path',{d});e.setAttribute('class','ie-stroke');if(w)e.style.strokeWidth=w;ieSvg.appendChild(e);ieStrokes.push(e);};
+  S(rosette(200,200,152,8,0.12),1.5);
+  S(rosette(200,198,120,8,0.06),1);
+  S(circlePath(200,196,98),1.1);
+  S(ellipsePath(200,258,68,15),1.3);
+  S('M150,256 Q154,206 200,170 Q246,206 250,256',1.5);
+  S('M192,164 Q200,150 208,164',1.2);
+  S(circlePath(200,151,7),1.2);
+  S('M185,140 C178,130 192,122 185,110 C180,101 190,94 185,84',1.2);
+  S('M200,138 C192,126 210,118 200,104 C193,94 206,86 200,74',1.2);
+  S('M215,140 C208,130 222,122 215,110 C210,101 220,94 215,84',1.2);
+  for(let i=0;i<8;i++){const a=(-90+i*45)*Math.PI/180;const x=200+152*Math.cos(a),y=200+152*Math.sin(a);
+    const st=mk('path',{d:starPath(x,y,9),fill:'#C69835'});st.style.opacity='0';st.style.transformBox='fill-box';st.style.transformOrigin='center';ieSvg.appendChild(st);ieStars.push(st);}
+  ieStrokes.forEach(e=>{const L=e.getTotalLength();e._L=L;e.style.strokeDasharray=L;e.style.strokeDashoffset=L;});
+})();
+const caps=[...document.getElementById('introCap').children];
+const capR=[[0.0,0.19],[0.2,0.45],[0.46,0.72],[0.73,0.92]];
+function c01(v){return v<0?0:v>1?1:v;}
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+function band(p,a,b){if(p<=a||p>=b)return 0;const fin=(b-a)*0.3;return c01(Math.min((p-a)/fin,(b-p)/fin,1));}
+let introStarted=false,introEnterShown=false;
+function introUpdate(){
+  const max=intro.scrollHeight-intro.clientHeight;const p=max>0?c01(intro.scrollTop/max):0;
+  const dwStart=0.05,dwEnd=0.58,n=ieStrokes.length,step=(dwEnd-dwStart)/n;
+  ieStrokes.forEach((e,i)=>{const st=dwStart+i*step;const d=ease(c01((p-st)/(step*2.1)));e.style.strokeDashoffset=e._L*(1-d);});
+  ieStars.forEach((s,i)=>{const d=ease(c01((p-(0.5+i*0.015))/0.13));s.style.opacity=d;s.style.transform=`scale(${0.3+0.7*d})`;});
+  ieFills.forEach(([e,mx,a,b])=>{e.style.opacity=(mx*ease(c01((p-a)/(b-a)))).toFixed(3);});
+  const tt=ease(c01((p-0.8)/0.16));
+  introEmblem.style.transform=`translate(-50%,-50%) scale(${1-0.12*tt})`;
+  introEmblem.style.filter=`drop-shadow(0 0 ${18+40*ease(c01((p-0.5)/0.4))}px rgba(198,152,53,${(0.14+0.26*tt).toFixed(2)}))`;
+  introTitle.style.opacity=tt;introTitle.style.transform=`translateY(${18*(1-tt)}px)`;
+  caps.forEach((el,i)=>{el.style.opacity=band(p,capR[i][0],capR[i][1]);});
+  introProg.style.width=(p*100)+'%';
+  introHint.style.opacity=p>0.015?'0':'0.7';
+  if(p>=0.93){if(!introEnterShown){introEnterShown=true;introEnter.classList.add('show');FX.chime();}}
+  else if(introEnterShown){introEnterShown=false;introEnter.classList.remove('show');}
+}
+let introRAF=false;
+function startIntro(){
+  intro.classList.add('on');intro.removeAttribute('aria-hidden');intro.scrollTop=0;introUpdate();
+  intro.addEventListener('scroll',()=>{if(!introStarted){introStarted=true;FX.open();}
+    if(!introRAF){introRAF=true;requestAnimationFrame(()=>{introRAF=false;introUpdate();});}},{passive:true});
+  window.addEventListener('resize',introUpdate);
+}
+document.getElementById('introEnterBtn').addEventListener('click',()=>{
+  FX.click();intro.classList.add('leaving');intro.setAttribute('aria-hidden','true');
+  setTimeout(()=>{intro.style.display='none';openGate();},700);
+});
 
 /* ============ DECK ============ */
 const slides=[...document.querySelectorAll('.slide')];
