@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dar Albahja — Brand Identity Proposal | دار البهجة</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23840522'/%3E%3Cpath d='M32 8 38 26 56 32 38 38 32 56 26 38 8 32 26 26Z' fill='%23C69835'/%3E%3Ccircle cx='32' cy='32' r='4.5' fill='%23F5F1E8'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="logo-transparent.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -89,6 +91,46 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .loader-bar{width:min(320px,70vw);height:2px;background:rgba(245,241,232,.12);margin-top:30px;position:relative;overflow:hidden;border-radius:2px}
 .loader-bar i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--burgundy),var(--gold));transition:transform .25s ease}
 .loader-pct{color:rgba(245,241,232,.5);font-size:.68rem;letter-spacing:.4em;margin-top:14px}
+
+/* ============ F11 FULLSCREEN START GATE ============ */
+#fsGate{position:fixed;inset:0;z-index:850;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(1100px 700px at 50% 15%, rgba(198,152,53,.14), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(132,5,34,.25), transparent 55%), var(--charcoal);
+  opacity:0;visibility:hidden;transition:opacity .8s var(--ease), visibility .8s}
+#fsGate.show{opacity:1;visibility:visible}
+#fsGate.leaving{opacity:0}
+#fsGate::before{content:"";position:absolute;inset:0;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23C69835' stroke-width='1'%3E%3Cpath d='M60 10 72.5 47.5 110 60 72.5 72.5 60 110 47.5 72.5 10 60 47.5 47.5Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:120px 120px}
+.fsg-card{position:relative;text-align:center;padding:52px 60px;max-width:600px;width:92%}
+.fsg-frame{position:absolute;inset:0;border:1px solid rgba(198,152,53,.4);border-radius:180px 180px 14px 14px;pointer-events:none}
+.fsg-frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(198,152,53,.22);border-radius:172px 172px 10px 10px}
+.fsg-emblem{width:64px;height:64px;margin:0 auto 16px;color:var(--gold)}
+.fsg-emblem svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(198,152,53,.35))}
+.fsg-title{font-family:var(--serif);font-size:2.1rem;color:var(--ivory);letter-spacing:.08em;font-weight:600}
+.fsg-title small{display:block;font-size:.6rem;font-family:var(--sans);letter-spacing:.5em;color:var(--gold);margin-top:9px;text-transform:uppercase;font-weight:600}
+.fsg-ar{font-family:var(--arabic);color:var(--gold-soft);font-size:1.35rem;margin-top:10px;direction:rtl}
+.fsg-text{color:rgba(245,241,232,.6);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-top:24px;line-height:2}
+.fsg-key{display:inline-flex;align-items:center;justify-content:center;min-width:118px;height:70px;padding:0 26px;margin:22px auto 16px;
+  border:1px solid rgba(198,152,53,.6);border-bottom-width:5px;border-radius:14px;
+  background:linear-gradient(180deg,#262015,#171310);color:var(--gold);
+  font-family:var(--sans);font-weight:700;font-size:1.85rem;letter-spacing:.14em;
+  box-shadow:0 20px 44px -14px rgba(198,152,53,.35), inset 0 1px 0 rgba(245,241,232,.09);
+  animation:fsgPulse 2.1s ease-in-out infinite;user-select:none}
+@keyframes fsgPulse{
+  0%,100%{transform:translateY(0);box-shadow:0 20px 44px -14px rgba(198,152,53,.35), inset 0 1px 0 rgba(245,241,232,.09)}
+  50%{transform:translateY(4px);box-shadow:0 10px 26px -12px rgba(198,152,53,.55), inset 0 1px 0 rgba(245,241,232,.09)}}
+.fsg-key.deny{animation:fsgDeny .45s}
+@keyframes fsgDeny{0%,100%{transform:translateX(0)}25%{transform:translateX(-9px)}55%{transform:translateX(7px)}80%{transform:translateX(-4px)}}
+.fsg-sub{color:rgba(245,241,232,.7);font-size:.8rem;letter-spacing:.1em;line-height:1.9}
+.fsg-sub b{color:var(--gold);font-weight:700}
+.fsg-sub .ar{display:block;font-family:var(--arabic);font-size:1.02rem;color:var(--gold-soft);margin-top:6px;letter-spacing:0}
+.fsg-lock{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;color:rgba(245,241,232,.38);
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase}
+.fsg-lock svg{width:13px;height:13px;flex:none}
+.fsg-touch{display:block;margin:20px auto 0;background:none;border:1px solid rgba(198,152,53,.35);color:rgba(245,241,232,.55);
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:9px 20px;border-radius:20px;transition:.3s}
+.fsg-touch:hover{border-color:var(--gold);color:var(--gold)}
 
 /* ============ DECK CHROME ============ */
 #app{position:fixed;inset:0;z-index:10;opacity:0;transition:opacity 1s var(--ease)}
@@ -488,7 +530,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
   font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:.25s}
 .dev-place:hover{background:var(--burgundy-deep)}
 .dev-place:disabled{opacity:.4;cursor:not-allowed}
-.dev-place.ghost{background:transparent;border:1px solid var(--burgundy);color:var(--burgundy);margin-top:8px}
+.dev-place.alt{background:transparent;border:1px solid var(--burgundy);color:var(--burgundy);margin-top:8px}
 
 .view-success{text-align:center;padding-top:30px}
 .success-check{width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;display:flex;
@@ -496,10 +538,86 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .success-check svg{width:22px;height:22px}
 .view-success p{color:var(--ink-soft);font-size:.68rem;margin-bottom:14px}
 
-.dev-foot{flex:none;display:flex;justify-content:space-between;padding:7px 16px;font-size:.52rem;letter-spacing:.08em;
-  color:var(--ink-soft);border-top:1px solid rgba(132,5,34,.1)}
-.dev-foot-ar{font-family:var(--arabic);color:var(--green)}
-.devframe[data-device="tablet"] .dev-foot,.devframe[data-device="mobile"] .dev-foot{display:none}
+/* --- real-website pieces: nav states, hero, sections, reviews, CTA, footer --- */
+.dev-links a{cursor:pointer;position:relative;padding-bottom:3px;transition:color .25s}
+.dev-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--gold);transition:right .3s var(--ease)}
+.dev-links a:hover{color:var(--burgundy)}
+.dev-links a.active{color:var(--burgundy)}
+.dev-links a.active::after{right:0}
+.dev-drawer a{cursor:pointer}
+.dev-drawer a.active{color:var(--gold)}
+.site-hero{position:relative;border-radius:10px;overflow:hidden;margin-bottom:14px;min-height:158px;display:flex;align-items:center}
+.site-hero::before{content:"";position:absolute;inset:0;background:url("Reception.png") center 30%/cover}
+.site-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(22,17,15,.86) 20%,rgba(92,3,23,.55) 60%,rgba(22,17,15,.25))}
+.sh-inner{position:relative;z-index:2;padding:18px 18px;max-width:78%}
+.sh-eyebrow{font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.sh-inner h3{font-family:var(--serif);color:var(--ivory);font-size:1.18rem;line-height:1.15;margin-top:6px}
+.sh-ar{font-family:var(--arabic);color:var(--gold-soft);font-size:.8rem;margin-top:5px;direction:rtl;text-align:left}
+.sh-ctas{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+.sh-btn{border:none;border-radius:16px;padding:7px 15px;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;transition:.25s;cursor:pointer}
+.sh-btn.gold{background:var(--gold);color:#231a08}
+.sh-btn.gold:hover{filter:brightness(1.1)}
+.sh-btn.line{background:transparent;border:1px solid rgba(245,241,232,.55);color:var(--ivory)}
+.sh-btn.line:hover{border-color:var(--gold);color:var(--gold)}
+.site-sect{margin:0 0 14px}
+.ss-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
+.ss-head h4{font-family:var(--serif);color:var(--burgundy);font-size:.86rem}
+.ss-link{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;cursor:pointer;white-space:nowrap}
+.ss-link:hover{color:var(--burgundy)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+.devframe[data-device="mobile"] .rev-grid{grid-template-columns:1fr}
+.rev-card{background:#fff;border:1px solid rgba(132,5,34,.1);border-radius:9px;padding:10px 11px}
+.rev-stars{color:var(--gold);font-size:.62rem;letter-spacing:.14em}
+.rev-card p{font-size:.58rem;color:var(--ink-soft);line-height:1.55;margin:5px 0 7px;font-style:italic}
+.rev-who{display:flex;align-items:center;gap:6px}
+.rev-av{width:18px;height:18px;border-radius:50%;background:var(--burgundy);color:var(--ivory);display:flex;align-items:center;justify-content:center;
+  font-size:.5rem;font-weight:700;flex:none}
+.rev-who b{font-size:.55rem;color:var(--ink)}
+.rev-who span{font-size:.5rem;color:var(--ink-soft)}
+.rev-score{display:flex;align-items:center;justify-content:center;gap:12px;background:rgba(198,152,53,.1);
+  border:1px solid rgba(198,152,53,.3);border-radius:9px;padding:9px 12px;margin-bottom:10px}
+.rev-score b{font-family:var(--serif);font-size:1.25rem;color:var(--burgundy)}
+.rev-score span{font-size:.56rem;color:var(--ink-soft)}
+.site-cta{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--burgundy),var(--burgundy-deep));border-radius:10px;
+  text-align:center;padding:18px 14px;margin:2px 0 14px}
+.site-cta::before{content:"";position:absolute;inset:0;opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 4 29 19 44 24 29 29 24 44 19 29 4 24 19 19Z' fill='none' stroke='%23C69835'/%3E%3C/svg%3E");background-size:48px 48px}
+.site-cta h4{position:relative;font-family:var(--serif);color:var(--ivory);font-size:.98rem}
+.site-cta p{position:relative;color:rgba(245,241,232,.75);font-size:.58rem;margin:4px 0 10px}
+.site-cta .sh-btn{position:relative}
+.site-foot{background:var(--charcoal);color:rgba(245,241,232,.65);margin-top:6px;padding:16px 16px 0}
+.sf-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:12px;padding-bottom:12px}
+.devframe[data-device="mobile"] .sf-grid,.devframe[data-device="tablet"] .sf-grid{grid-template-columns:1fr 1fr}
+.sf-brand img{width:30px;height:30px;object-fit:contain;filter:brightness(1.6)}
+.sf-brand p{font-size:.54rem;line-height:1.6;margin-top:6px;color:rgba(245,241,232,.5)}
+.sf-col h5{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;font-weight:700}
+.sf-col a,.sf-col span{display:block;font-size:.56rem;color:rgba(245,241,232,.65);margin-bottom:5px;cursor:pointer;transition:.2s}
+.sf-col span{cursor:default}
+.sf-col a:hover{color:var(--gold)}
+.sf-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid rgba(245,241,232,.12);
+  padding:8px 0;font-size:.5rem;letter-spacing:.08em;color:rgba(245,241,232,.4)}
+.sf-bottom .ar{font-family:var(--arabic);color:var(--gold-soft);font-size:.66rem}
+.page-head{text-align:center;padding:10px 4px 14px;border-bottom:1px dashed rgba(132,5,34,.15);margin-bottom:12px}
+.page-head h3{font-family:var(--serif);color:var(--burgundy);font-size:1.02rem}
+.page-head p{color:var(--ink-soft);font-size:.62rem;margin-top:4px}
+.story-img{border-radius:9px;overflow:hidden;margin-bottom:10px}
+.story-img img{width:100%;height:110px;object-fit:cover}
+.view-story p.body{font-size:.62rem;color:var(--ink-soft);line-height:1.75;margin-bottom:9px}
+.story-stats{display:flex;gap:8px;margin-top:12px}
+.story-stat{flex:1;text-align:center;background:#fff;border:1px solid rgba(132,5,34,.1);border-radius:9px;padding:9px 6px}
+.story-stat b{display:block;font-family:var(--serif);color:var(--burgundy);font-size:.95rem}
+.story-stat span{font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.ct-rows{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.ct-row{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(132,5,34,.1);border-radius:9px;padding:8px 11px}
+.ct-row svg{width:14px;height:14px;color:var(--green);flex:none}
+.ct-row div b{display:block;font-size:.58rem;color:var(--ink)}
+.ct-row div span{font-size:.55rem;color:var(--ink-soft)}
+.ct-form label{display:block;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:8px 0 3px}
+.ct-form input,.ct-form textarea{width:100%;border:1px solid rgba(132,5,34,.25);border-radius:6px;padding:6px 10px;font-size:.62rem;
+  font-family:var(--sans);color:var(--ink);background:#fff;outline:none;resize:none}
+.ct-form input:focus,.ct-form textarea:focus{border-color:var(--gold)}
+.ct-sent{display:none;text-align:center;color:var(--green);font-size:.62rem;font-weight:700;margin-top:9px}
+.ct-sent.show{display:block}
 @media(max-width:900px){.devframe{width:100%!important}}
 
 /* ---------- CLOSING ---------- */
@@ -637,7 +755,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 @media print{
   html,body{height:auto;overflow:visible;background:#fff}
   body::before{display:none}
-  #loader,#gate,#intro,#mobileblock,.topbar,.botbar,.rail,.kbd-hint,#menu,#lb,#pdfModal,#pbar,.floating-star{display:none!important}
+  #loader,#gate,#intro,#fsGate,#mobileblock,.topbar,.botbar,.rail,.kbd-hint,#menu,#lb,#pdfModal,#pbar,.floating-star{display:none!important}
   #app{position:static;opacity:1!important}
   .stage{position:static}
   .slide{position:relative!important;inset:auto;opacity:1!important;visibility:visible!important;
@@ -694,6 +812,29 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
   <div class="loader-ar">دار البهجة مراكش</div>
   <div class="loader-bar"><i id="loadFill"></i></div>
   <div class="loader-pct" id="loadPct">PREPARING · جاري التحميل 0%</div>
+</div>
+
+<div id="fsGate" aria-hidden="true">
+  <div class="fsg-card">
+    <div class="fsg-frame"></div>
+    <div class="fsg-emblem">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 1 15.1 8.9 23 12 15.1 15.1 12 23 8.9 15.1 1 12 8.9 8.9Z" stroke="currentColor" stroke-width=".8"/>
+        <circle cx="12" cy="12" r="1.6" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="fsg-title">Dar Albahja<small>An Immersive Experience</small></div>
+    <div class="fsg-ar">تجربة غامرة — دار البهجة</div>
+    <p class="fsg-text">This journey is crafted for the full screen</p>
+    <div class="fsg-key" id="fsgKey">F11</div>
+    <div class="fsg-sub">Press <b>F11</b> to enter full screen &amp; begin
+      <span class="ar">اضغط F11 لملء الشاشة وبدء التجربة</span></div>
+    <button class="fsg-touch" id="fsgTouch" type="button">No F11 key? Tap here for full screen · شاشة لمس؟ اضغط هنا</button>
+    <div class="fsg-lock">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10.5" width="14" height="9" rx="1.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
+      Locked until full screen · مقفل حتى ملء الشاشة
+    </div>
+  </div>
 </div>
 
 <div id="intro" aria-hidden="true">
@@ -1923,13 +2064,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
       <div class="devframe" id="devFrame" data-device="desktop">
         <div class="dev-chrome">
           <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <div class="dev-url">🔒 daralbahja.ae/order</div>
+          <div class="dev-url">🔒 daralbahja.ae</div>
         </div>
         <div class="dev-body">
           <header class="dev-nav">
             <div class="dev-brand"><img src="logo-transparent.png" alt="Dar Albahja"><span>Dar Albahja</span></div>
-            <nav class="dev-links">
-              <a>Menu</a><a>Our Story</a><a>Locations</a><a>Contact</a>
+            <nav class="dev-links" id="devLinks">
+              <a data-page="home" class="active">Home</a><a data-page="menu">Menu</a><a data-page="story">Our Story</a><a data-page="reviews">Reviews</a><a data-page="contact">Contact</a>
             </nav>
             <div class="dev-actions">
               <button class="dev-burger" id="devBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -1943,12 +2084,66 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
           <div class="dev-scrim" id="devScrim"></div>
           <nav class="dev-drawer" id="devDrawer">
             <button class="dev-drawer-close" id="devDrawerClose" aria-label="Close menu">✕</button>
-            <a>Menu</a><a>Our Story</a><a>Locations</a><a>Contact</a>
-            <div class="dev-drawer-cta">Order Now</div>
+            <a data-page="home" class="active">Home</a><a data-page="menu">Menu</a><a data-page="story">Our Story</a><a data-page="reviews">Reviews</a><a data-page="contact">Contact</a>
+            <div class="dev-drawer-cta" data-page="menu">Order Now</div>
           </nav>
 
           <div class="dev-screen" id="devScreen">
-            <section class="view view-menu active" id="viewMenu">
+
+            <section class="view view-home active" id="viewHome">
+              <div class="site-hero">
+                <div class="sh-inner">
+                  <span class="sh-eyebrow">Marrakech · Authentic Moroccan Cuisine</span>
+                  <h3>The house of joy,<br>on your table</h3>
+                  <div class="sh-ar">دار البهجة — مطبخ مغربي أصيل</div>
+                  <div class="sh-ctas">
+                    <button class="sh-btn gold" data-page="menu" type="button">Order Now</button>
+                    <button class="sh-btn line" data-page="story" type="button">Our Story</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="site-sect">
+                <div class="ss-head"><h4>Signature dishes</h4><a class="ss-link" data-page="menu">Full menu →</a></div>
+                <div class="dev-menugrid">
+                  <article class="dev-mcard" data-name="Royal Lamb Tagine" data-price="68">
+                    <img src="Menu%20-A.png" alt="Royal Lamb Tagine" loading="lazy">
+                    <div class="mc-info"><h4>Royal Lamb Tagine</h4><p>Slow-braised lamb, apricot &amp; almonds</p>
+                      <div class="mc-row"><span class="mc-price">AED 68</span><button class="mc-add" type="button">+ Add</button></div></div>
+                  </article>
+                  <article class="dev-mcard" data-name="Chicken Pastilla" data-price="54">
+                    <img src="Menu%20-B.png" alt="Chicken Pastilla" loading="lazy">
+                    <div class="mc-info"><h4>Chicken Pastilla</h4><p>Cinnamon-sugar filo, almond &amp; saffron</p>
+                      <div class="mc-row"><span class="mc-price">AED 54</span><button class="mc-add" type="button">+ Add</button></div></div>
+                  </article>
+                  <article class="dev-mcard" data-name="Mint Tea &amp; Chebakia" data-price="26">
+                    <img src="Menu%20-L.png" alt="Mint Tea &amp; Chebakia" loading="lazy">
+                    <div class="mc-info"><h4>Mint Tea &amp; Chebakia</h4><p>Fresh mint pour, sesame-honey pastry</p>
+                      <div class="mc-row"><span class="mc-price">AED 26</span><button class="mc-add" type="button">+ Add</button></div></div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="site-sect">
+                <div class="ss-head"><h4>What our guests say</h4><a class="ss-link" data-page="reviews">All reviews →</a></div>
+                <div class="rev-grid">
+                  <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                    <p>“The lamb tagine tastes exactly like my grandmother's in Marrakech. Unforgettable.”</p>
+                    <div class="rev-who"><span class="rev-av">SA</span><b>Salma A.</b><span>· Dubai</span></div></div>
+                  <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                    <p>“Beautiful branding, beautiful food. The whole experience feels like a riad.”</p>
+                    <div class="rev-who"><span class="rev-av">JM</span><b>James M.</b><span>· Jumeirah</span></div></div>
+                </div>
+              </div>
+
+              <div class="site-cta">
+                <h4>Craving Marrakech tonight?</h4>
+                <p>Free delivery on orders above AED 100 · at your door in 35 minutes</p>
+                <button class="sh-btn gold" data-page="menu" type="button">Order Now · اطلب الآن</button>
+              </div>
+            </section>
+
+            <section class="view view-menu" id="viewMenu">
               <div class="dev-hero">
                 <h3>Taste of Marrakech, delivered</h3>
                 <p>Ten signature dishes · ready in 35 minutes</p>
@@ -2025,13 +2220,88 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
               <div class="success-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
               <h3>Order confirmed</h3>
               <p>#DA-<span id="orderNo">2481</span> · Arriving in 35 min</p>
-              <button class="dev-place ghost" id="devNewOrder" type="button">Start a new order</button>
+              <button class="dev-place alt" id="devNewOrder" type="button">Start a new order</button>
             </section>
-          </div>
 
-          <footer class="dev-foot">
-            <span>© Dar Albahja</span><span class="dev-foot-ar">دار البهجة</span>
-          </footer>
+            <section class="view view-story" id="viewStory">
+              <div class="page-head"><h3>Our story</h3><p>From a dar in Marrakech to your table · قصتنا</p></div>
+              <div class="story-img"><img src="Reception.png" alt="Dar Albahja interior" loading="lazy"></div>
+              <p class="body">Dar Albahja means “the house of joy” — and that is exactly what we set out to build. Our recipes come from the family kitchens of Marrakech: tagines that simmer for hours over low fires, pastilla folded by hand, mint tea poured high the way tradition demands.</p>
+              <p class="body">Every plate carries the geometry of the medina — the zellige tiles, the ogee arches, the eight-point stars — because for us, food and craft are one hospitality. Ahlan wa sahlan; the door of joy is open.</p>
+              <div class="story-stats">
+                <div class="story-stat"><b>1987</b><span>Family recipes since</span></div>
+                <div class="story-stat"><b>10</b><span>Signature dishes</span></div>
+                <div class="story-stat"><b>35 min</b><span>To your door</span></div>
+              </div>
+            </section>
+
+            <section class="view view-reviews" id="viewReviews">
+              <div class="page-head"><h3>Guest reviews</h3><p>Real words from our tables · آراء ضيوفنا</p></div>
+              <div class="rev-score"><b>4.9 ★</b><span>average from 1,200+ verified guest reviews</span></div>
+              <div class="rev-grid">
+                <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                  <p>“The lamb tagine tastes exactly like my grandmother's in Marrakech. Unforgettable.”</p>
+                  <div class="rev-who"><span class="rev-av">SA</span><b>Salma A.</b><span>· Dubai</span></div></div>
+                <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                  <p>“Beautiful branding, beautiful food. The whole experience feels like stepping into a riad.”</p>
+                  <div class="rev-who"><span class="rev-av">JM</span><b>James M.</b><span>· Jumeirah</span></div></div>
+                <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                  <p>“Ordered for a family gathering — the packaging alone made everyone smile before the food did.”</p>
+                  <div class="rev-who"><span class="rev-av">NK</span><b>Noura K.</b><span>· Abu Dhabi</span></div></div>
+                <div class="rev-card"><div class="rev-stars">★★★★☆</div>
+                  <p>“Harira just like Ramadan evenings back home. Delivery was quick and still steaming hot.”</p>
+                  <div class="rev-who"><span class="rev-av">YB</span><b>Youssef B.</b><span>· Marina</span></div></div>
+                <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                  <p>“The mint tea and chebakia ended our dinner perfectly. A little ceremony in a box.”</p>
+                  <div class="rev-who"><span class="rev-av">LP</span><b>Laura P.</b><span>· Downtown</span></div></div>
+                <div class="rev-card"><div class="rev-stars">★★★★★</div>
+                  <p>“Finally, real Moroccan food in Dubai that doesn't cut corners. The pastilla is a must.”</p>
+                  <div class="rev-who"><span class="rev-av">RH</span><b>Rachid H.</b><span>· Business Bay</span></div></div>
+              </div>
+              <div class="site-cta" style="margin-top:14px">
+                <h4>Taste it for yourself</h4>
+                <p>Join 1,200+ happy guests · free delivery above AED 100</p>
+                <button class="sh-btn gold" data-page="menu" type="button">Order Now · اطلب الآن</button>
+              </div>
+            </section>
+
+            <section class="view view-contact" id="viewContact">
+              <div class="page-head"><h3>Contact us</h3><p>We answer faster than the kettle boils · تواصل معنا</p></div>
+              <div class="ct-rows">
+                <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                  <div><b>Visit us</b><span>Jumeirah Beach Road, Dubai · طريق جميرا</span></div></div>
+                <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+                  <div><b>Call or WhatsApp</b><span>+971 4 000 0000 · daily 12:00–23:00</span></div></div>
+                <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                  <div><b>Email</b><span>salam@daralbahja.ae</span></div></div>
+              </div>
+              <div class="ct-form">
+                <label>Your name</label><input type="text" id="ctName" placeholder="Full name">
+                <label>Message</label><textarea id="ctMsg" rows="3" placeholder="How can we help?"></textarea>
+                <button class="dev-place" id="ctSend" type="button" style="margin-top:10px">Send Message</button>
+                <div class="ct-sent" id="ctSent">✓ Message sent — shukran! We reply within the hour.</div>
+              </div>
+            </section>
+
+            <footer class="site-foot">
+              <div class="sf-grid">
+                <div class="sf-col sf-brand">
+                  <img src="logo-transparent.png" alt="Dar Albahja">
+                  <p>The house of joy — authentic Moroccan cuisine, from our dar to yours.</p>
+                </div>
+                <div class="sf-col"><h5>Explore</h5>
+                  <a data-page="home">Home</a><a data-page="menu">Menu</a><a data-page="story">Our Story</a><a data-page="reviews">Reviews</a><a data-page="contact">Contact</a>
+                </div>
+                <div class="sf-col"><h5>Visit</h5>
+                  <span>Jumeirah Beach Road</span><span>Dubai, UAE</span><span>Daily 12:00 – 23:00</span>
+                </div>
+                <div class="sf-col"><h5>Contact</h5>
+                  <span>+971 4 000 0000</span><span>salam@daralbahja.ae</span><span>@daralbahja</span>
+                </div>
+              </div>
+              <div class="sf-bottom"><span>© 2026 Dar Albahja · All rights reserved</span><span class="ar">دار البهجة مراكش</span></div>
+            </footer>
+          </div>
         </div>
       </div>
     </div>
@@ -2179,7 +2449,8 @@ const FX = {
     const g=this.ctx.createGain();this.env(g,t0,0.02,peak,dur-0.02);
     src.connect(bp).connect(g).connect(this.ctx.destination);src.start(t0);
   },
-  click(){this.tone(1250,0.06,'sine',0.06,0,700);},
+  /* soft, warm tap — low double-layer pop instead of the old high beep */
+  click(){this.tone(440,0.07,'sine',0.05,0,300);this.tone(220,0.09,'sine',0.035,0.005);},
   hover(){this.tone(1800,0.03,'sine',0.018);},
   whoosh(){this.noise(0.4,320,1500,0.09);},
   back(){this.noise(0.4,1500,320,0.09);},
@@ -2224,7 +2495,7 @@ function deviceIsPhone(){
 function checkDevice(){const phone=deviceIsPhone();window.__blocked=phone;mobileBlock.classList.toggle('show',phone);return phone;}
 checkDevice();
 window.addEventListener('resize',()=>{const was=window.__blocked;checkDevice();
-  if(was&&!window.__blocked&&document.getElementById('loader').classList.contains('hidden'))startIntro();});
+  if(was&&!window.__blocked&&document.getElementById('loader').classList.contains('hidden'))showFsGate();});
 
 /* ============ LOADER → GATE ============ */
 const PASS='dena';
@@ -2243,8 +2514,62 @@ setTimeout(()=>{assetsDone=true;tryFinish();},9000);
 function tryFinish(){
   if(finished||!(minTimeDone&&assetsDone))return;
   finished=true;clearInterval(fakeTimer);setP(100);
-  setTimeout(()=>{loader.classList.add('hidden');startIntro();},500);
+  setTimeout(()=>{loader.classList.add('hidden');showFsGate();},500);
 }
+
+/* ============ F11 FULLSCREEN START GATE + VOICEOVERS ============ */
+const fsGate=document.getElementById('fsGate'),fsgKey=document.getElementById('fsgKey');
+const voStart=new Audio('Starting%20F11.mp3');      /* "press F11" voiceover on load   */
+const voEnd=new Audio('ending.mp3');                 /* professional close on download  */
+let fsUnlocked=false,voStartDone=false;
+function playStartVO(){
+  if(voStartDone||fsUnlocked)return;
+  voStart.play().then(()=>{voStartDone=true;}).catch(()=>{});  /* autoplay may be blocked — retried on first gesture */
+}
+function isFullscreenNow(){
+  return !!document.fullscreenElement||
+    (window.innerHeight>=screen.height-2&&window.innerWidth>=screen.width-2);
+}
+function showFsGate(){
+  if(window.__blocked)return;                        /* phones see the device block instead */
+  if(fsUnlocked||isFullscreenNow()){unlockFs();return;}
+  fsGate.classList.add('show');fsGate.removeAttribute('aria-hidden');
+  playStartVO();
+}
+function unlockFs(){
+  if(fsUnlocked){startIntro();return;}
+  fsUnlocked=true;
+  try{voStart.pause();voStart.currentTime=0;}catch(e){}
+  FX.chime();
+  fsGate.classList.add('leaving');
+  setTimeout(()=>{fsGate.classList.remove('show','leaving');fsGate.setAttribute('aria-hidden','true');startIntro();},750);
+}
+/* capture phase so the deck never sees keys while the journey is locked */
+window.addEventListener('keydown',e=>{
+  if(!fsGate.classList.contains('show')||fsUnlocked)return;
+  e.preventDefault();e.stopPropagation();
+  playStartVO();                                     /* a keypress is a gesture — voiceover can start now */
+  if(e.key==='F11'){
+    const req=document.documentElement.requestFullscreen?.();
+    if(req&&req.catch)req.catch(()=>unlockFs());     /* never trap the guest if fullscreen is refused */
+    else if(!req)unlockFs();                         /* no Fullscreen API — let them through */
+  }else{
+    FX.deny();
+    fsgKey.classList.remove('deny');void fsgKey.offsetWidth;fsgKey.classList.add('deny');
+  }
+},true);
+document.addEventListener('fullscreenchange',()=>{
+  if(document.fullscreenElement&&fsGate.classList.contains('show'))unlockFs();
+});
+window.addEventListener('resize',()=>{               /* native F11 fires no fullscreenchange — catch it by size */
+  if(fsGate.classList.contains('show')&&!fsUnlocked&&isFullscreenNow())unlockFs();
+});
+document.getElementById('fsgTouch').addEventListener('click',()=>{
+  playStartVO();
+  const req=document.documentElement.requestFullscreen?.();
+  if(req&&req.catch)req.catch(()=>unlockFs());else unlockFs();
+});
+fsGate.addEventListener('pointerdown',()=>playStartVO());
 const gateInput=document.getElementById('gateInput'),gateBtn=document.getElementById('gateBtn'),
       gateErr=document.getElementById('gateErr'),gateCard=document.getElementById('gateCard');
 function tryUnlock(){
@@ -2599,15 +2924,17 @@ const pdfModal=document.getElementById('pdfModal'),pdfPass=document.getElementBy
 document.getElementById('downloadPdfBtn').addEventListener('click',()=>{
   FX.open();pdfErr.classList.remove('show');pdfOk.classList.remove('show');pdfPass.value='';
   pdfModal.classList.add('open');setTimeout(()=>pdfPass.focus(),300);
+  try{voEnd.currentTime=0;voEnd.play().catch(()=>{});}catch(e){}   /* closing voiceover — the professional farewell */
 });
-function closePdf(){pdfModal.classList.remove('open');}
+function closePdf(keepVO){pdfModal.classList.remove('open');
+  if(!keepVO){try{voEnd.pause();voEnd.currentTime=0;}catch(e){}}}   /* voiceover continues through the actual download */
 document.getElementById('pdfClose').addEventListener('click',()=>{FX.click();closePdf();});
 pdfModal.addEventListener('click',e=>{if(e.target===pdfModal)closePdf();});
 function pdfTry(){
   FX.ensure();
   if(pdfPass.value.trim().toLowerCase()===PASS){
     FX.chime();pdfErr.classList.remove('show');pdfOk.classList.add('show');
-    setTimeout(()=>{closePdf();window.print();},700);
+    setTimeout(()=>{closePdf(true);window.print();},700);
   }else{
     FX.deny();pdfErr.classList.add('show');pdfPass.select();
   }
@@ -2637,9 +2964,41 @@ pdfPass.addEventListener('input',()=>pdfErr.classList.remove('show'));
   document.getElementById('devDrawerClose').addEventListener('click',closeDrawer);
   drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
 
-  const views={menu:document.getElementById('viewMenu'),checkout:document.getElementById('viewCheckout'),success:document.getElementById('viewSuccess')};
+  const views={
+    home:document.getElementById('viewHome'),
+    menu:document.getElementById('viewMenu'),
+    story:document.getElementById('viewStory'),
+    reviews:document.getElementById('viewReviews'),
+    contact:document.getElementById('viewContact'),
+    checkout:document.getElementById('viewCheckout'),
+    success:document.getElementById('viewSuccess')
+  };
   const devScreen=document.getElementById('devScreen');
-  function showView(name){Object.values(views).forEach(v=>v.classList.remove('active'));views[name].classList.add('active');devScreen.scrollTop=0;}
+  const devUrl=document.querySelector('.dev-url');
+  const URLS={home:'daralbahja.ae',menu:'daralbahja.ae/menu',story:'daralbahja.ae/our-story',
+    reviews:'daralbahja.ae/reviews',contact:'daralbahja.ae/contact',checkout:'daralbahja.ae/checkout',success:'daralbahja.ae/order-confirmed'};
+  function showView(name){
+    Object.values(views).forEach(v=>v.classList.remove('active'));
+    views[name].classList.add('active');devScreen.scrollTop=0;
+    if(devUrl&&URLS[name])devUrl.textContent='🔒 '+URLS[name];
+    /* nav + drawer active states — checkout/success highlight Menu, their parent section */
+    const navKey=(name==='checkout'||name==='success')?'menu':name;
+    document.querySelectorAll('.dev-links a[data-page],.dev-drawer a[data-page]')
+      .forEach(a=>a.classList.toggle('active',a.dataset.page===navKey));
+  }
+  /* every element carrying data-page navigates — nav links, drawer, hero CTAs, footer, section links */
+  devFrame.addEventListener('click',e=>{
+    const p=e.target.closest('[data-page]');
+    if(!p||!views[p.dataset.page])return;
+    FX.click();showView(p.dataset.page);
+    if(burger.classList.contains('open'))closeDrawer();
+  });
+  /* contact form — friendly fake send */
+  const ctSend=document.getElementById('ctSend'),ctSent=document.getElementById('ctSent');
+  if(ctSend)ctSend.addEventListener('click',()=>{
+    FX.chime();ctSent.classList.add('show');
+    setTimeout(()=>ctSent.classList.remove('show'),3200);
+  });
 
   const cart={};
   const cartBadge=document.getElementById('cartBadge');
