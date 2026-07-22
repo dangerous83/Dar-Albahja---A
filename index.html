@@ -2498,7 +2498,8 @@ window.addEventListener('resize',()=>{const was=window.__blocked;checkDevice();
   if(was&&!window.__blocked&&document.getElementById('loader').classList.contains('hidden'))showFsGate();});
 
 /* ============ LOADER → GATE ============ */
-const PASS='dena';
+const PASS='dena';          /* entry gate */
+const PDF_PASS='1983';      /* PDF download on the closing slide */
 const loader=document.getElementById('loader'),gate=document.getElementById('gate'),app=document.getElementById('app'),
       fill=document.getElementById('loadFill'),pct=document.getElementById('loadPct');
 const critical=['Sketch Draw 1.png','Sketch Draw 2.png','Dar Albahja-Englsih and Arabic.jpg','Color palette.png'];
@@ -2932,7 +2933,7 @@ document.getElementById('pdfClose').addEventListener('click',()=>{FX.click();clo
 pdfModal.addEventListener('click',e=>{if(e.target===pdfModal)closePdf();});
 function pdfTry(){
   FX.ensure();
-  if(pdfPass.value.trim().toLowerCase()===PASS){
+  if(pdfPass.value.trim().toLowerCase()===PDF_PASS){
     FX.chime();pdfErr.classList.remove('show');pdfOk.classList.add('show');
     setTimeout(()=>{closePdf(true);window.print();},700);
   }else{
