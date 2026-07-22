@@ -96,7 +96,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 #pbar{position:absolute;top:0;left:0;right:0;height:3px;z-index:70;background:rgba(132,5,34,.12)}
 #pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--burgundy),var(--gold));transition:width .6s var(--ease)}
 .topbar{position:absolute;top:3px;left:0;right:0;height:62px;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  padding:0 26px;background:linear-gradient(180deg,rgba(245,241,232,.92),rgba(245,241,232,0));}
+  padding:0 26px;background:transparent;}
 .brandmini{display:flex;align-items:center;gap:12px}
 .brandmini .bm-ic{width:34px;height:34px;color:var(--burgundy)}
 .brandmini .bm-tx{font-family:var(--serif);font-weight:700;color:var(--burgundy);font-size:1.02rem;letter-spacing:.14em}
@@ -112,7 +112,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .ctl:not(.playing) .pause-ic{display:none}
 .ctl.playing{background:var(--green);color:var(--ivory);border-color:var(--green)}
 .botbar{position:absolute;bottom:0;left:0;right:0;height:70px;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  padding:0 26px;background:linear-gradient(0deg,rgba(245,241,232,.94),rgba(245,241,232,0));}
+  padding:0 26px;background:transparent;}
 .counter{font-family:var(--serif);color:var(--burgundy);font-size:1rem;letter-spacing:.14em;min-width:110px}
 .counter b{font-size:1.5rem}
 .counter i{color:var(--gold);font-style:normal;margin:0 6px}
@@ -167,7 +167,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .head .har{font-family:var(--arabic);color:var(--green);font-size:1.2rem;direction:rtl;display:inline-block}
 
 /* part divider slides */
-.divider{background:radial-gradient(1000px 600px at 70% 20%, rgba(198,152,53,.12), transparent 60%), var(--charcoal);align-items:flex-start}
+.divider{background:var(--charcoal);align-items:flex-start}
 .divider .dv-num{font-family:var(--serif);font-size:clamp(6rem,17vw,15rem);line-height:.9;color:transparent;
   -webkit-text-stroke:1px rgba(198,152,53,.5);letter-spacing:.04em}
 .divider h2{color:var(--ivory);font-size:clamp(2.4rem,5.4vw,4.2rem);margin-top:10px}
@@ -399,6 +399,84 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .kbd-hint{position:absolute;bottom:74px;left:50%;transform:translateX(-50%);font-size:.56rem;letter-spacing:.3em;
   text-transform:uppercase;color:rgba(92,80,73,.55);z-index:55;font-weight:600}
 @media(max-width:760px){.kbd-hint{display:none}}
+
+/* ---------- transparent chrome, dark-slide theming ---------- */
+#app.dark-ui .brandmini .bm-tx,#app.dark-ui .counter{color:var(--ivory)}
+#app.dark-ui .brandmini .bm-ic{color:var(--gold)}
+#app.dark-ui .counter i{color:var(--gold)}
+#app.dark-ui .slidetitle{color:rgba(245,241,232,.7)}
+#app.dark-ui .slidetitle .ar{color:var(--gold-soft)}
+#app.dark-ui .kbd-hint{color:rgba(245,241,232,.4)}
+#app.dark-ui .ctl{border-color:rgba(198,152,53,.4);background:rgba(22,17,15,.4);color:var(--gold-soft)}
+#app.dark-ui .ctl:hover{background:var(--gold);color:var(--charcoal)}
+#app.dark-ui .nbtn{border-color:rgba(198,152,53,.5);color:var(--gold-soft)}
+#app.dark-ui .nbtn:hover{background:var(--gold);color:var(--charcoal)}
+#app.dark-ui .nbtn.primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+#app.dark-ui #pbar{background:rgba(245,241,232,.14)}
+
+/* ---------- generated-image frame ---------- */
+.gimg{position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(132,5,34,.25);
+  box-shadow:0 26px 60px -30px rgba(42,33,28,.5);cursor:zoom-in;transition:.4s;background:#efe9dc}
+.gimg:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 34px 70px -30px rgba(132,5,34,.4)}
+.gimg img{width:100%;height:100%;object-fit:cover;display:block}
+.gcap{position:absolute;left:0;right:0;bottom:0;padding:13px 16px;background:rgba(22,17,15,.82);
+  color:var(--ivory);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.gcap b{font-family:var(--serif);font-size:1rem;letter-spacing:.06em;font-weight:600}
+.gcap .ar{font-family:var(--arabic);color:var(--gold-soft);font-size:.92rem}
+.gchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.gchip{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(132,5,34,.3);
+  color:var(--burgundy);border-radius:20px;padding:8px 14px;font-weight:700;background:rgba(255,255,255,.5);transition:.3s}
+.gchip:hover{border-color:var(--gold);background:#fff}
+.gchip .ar{font-family:var(--arabic);color:var(--green);margin-right:6px;letter-spacing:0}
+
+/* ---------- assembly pieces ---------- */
+.asm-piece{position:absolute;width:62px;height:62px;transform:translate(-50%,-50%) scale(.3);opacity:0;
+  transition:.6s var(--ease);display:flex;align-items:center;justify-content:center;color:var(--burgundy);z-index:4}
+.asm-piece svg{width:100%;height:100%;filter:drop-shadow(0 6px 12px rgba(132,5,34,.28))}
+.asm-piece.in{opacity:1;transform:translate(-50%,-50%) scale(1);animation:piecePop .6s var(--ease)}
+@keyframes piecePop{0%{transform:translate(-50%,-50%) scale(.2)}60%{transform:translate(-50%,-50%) scale(1.18)}100%{transform:translate(-50%,-50%) scale(1)}}
+.asm.merged .asm-piece{left:50%!important;top:50%!important;opacity:0;transform:translate(-50%,-50%) scale(.2);filter:blur(6px)}
+
+/* ---------- PDF download modal ---------- */
+#pdfModal{position:fixed;inset:0;z-index:400;background:rgba(22,17,15,.92);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.4s var(--ease)}
+#pdfModal.open{opacity:1;visibility:visible}
+.pdf-card{position:relative;text-align:center;padding:44px 48px;max-width:460px;width:92%;
+  background:#141010;border:1px solid rgba(198,152,53,.4);border-radius:12px}
+.pdf-card .pi{width:52px;height:52px;margin:0 auto 16px;color:var(--gold)}
+.pdf-card h3{color:var(--ivory);font-size:1.7rem}
+.pdf-card .par{font-family:var(--arabic);color:var(--gold-soft);font-size:1.05rem;margin-top:6px;direction:rtl}
+.pdf-card p{color:rgba(245,241,232,.6);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;margin:16px 0 12px;line-height:1.9}
+.pdf-row{display:flex;gap:10px;justify-content:center}
+#pdfPass{background:rgba(245,241,232,.06);border:1px solid rgba(198,152,53,.45);color:var(--ivory);
+  padding:13px 18px;font-size:1rem;letter-spacing:.3em;text-align:center;width:180px;border-radius:4px;outline:none}
+#pdfPass:focus{border-color:var(--gold)}
+#pdfGo{background:var(--gold);border:none;color:#231a08;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  font-size:.68rem;padding:0 22px;border-radius:4px;transition:.3s}
+#pdfGo:hover{filter:brightness(1.1)}
+.pdf-err{color:#e6a5b1;font-size:.72rem;margin-top:12px;height:14px;opacity:0;transition:.3s}
+.pdf-err.show{opacity:1}
+.pdf-ok{color:#a9d3b4;font-size:.72rem;margin-top:12px;height:14px;opacity:0;transition:.3s}
+.pdf-ok.show{opacity:1}
+.pdf-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(245,241,232,.5);font-size:1.2rem;cursor:pointer}
+
+/* ---------- print-to-PDF layout ---------- */
+@page{size:A4 landscape;margin:0}
+@media print{
+  html,body{height:auto;overflow:visible;background:#fff}
+  body::before{display:none}
+  #loader,#gate,.topbar,.botbar,.rail,.kbd-hint,#menu,#lb,#pdfModal,#pbar,.floating-star{display:none!important}
+  #app{position:static;opacity:1!important}
+  .stage{position:static}
+  .slide{position:relative!important;inset:auto;opacity:1!important;visibility:visible!important;
+    transform:none!important;height:100vh;width:100%;page-break-after:always;break-after:page;
+    display:flex!important;padding:48px 60px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .rev,.rev-l,.rev-r,.rev-sc{opacity:1!important;transform:none!important}
+  .ghost{opacity:.04}
+  .arch::after,.gimg{cursor:default}
+  .split{height:auto}
+}
 </style>
 </head>
 <body>
@@ -479,9 +557,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <div class="floating-star" style="width:14px;height:14px;bottom:22%;left:20%;animation-delay:2.6s"><svg viewBox="0 0 24 24"><use href="#star8"/></svg></div>
     <div class="cov-star rev-sc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1 15.1 8.9 23 12 15.1 15.1 12 23 8.9 15.1 1 12 8.9 8.9Z" stroke="currentColor" stroke-width=".8"/><path d="M12 5 14 10 19 12 14 14 12 19 10 14 5 12 10 10Z" stroke="currentColor" stroke-width=".6" opacity=".7"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg></div>
     <div class="eyebrow rev" style="--d:.2s">Brand Identity Proposal · Confidential</div>
-    <h1 class="rev" style="--d:.35s">The House of Joy</h1>
+    <h1 class="rev" style="--d:.35s">Dar Albahja</h1>
     <div class="cov-ar rev" style="--d:.5s">دار البهجة — مراكش</div>
-    <div class="cov-tag rev" style="--d:.65s">A complete identity <b>·</b> from first pencil stroke <b>·</b> to storefront</div>
+    <div class="cov-tag rev" style="--d:.65s">Authentic Moroccan Cuisine <b>·</b> Marrakech <b>·</b> from first pencil stroke to storefront</div>
     <div class="cov-note rev" style="--d:.8s">The logo stays sealed until you assemble it, chapter by chapter <span class="ar">الشعار مختوم حتى تُركّبوه بأنفسكم</span></div>
     <button class="enterbtn rev" style="--d:.95s" data-goto="1">
       Begin the story · ابدأ القصة
@@ -545,9 +623,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         of the logo — an architectural doorway that shelters everything inside it.</p>
       </div>
       <div class="rev-r" style="--d:.3s">
-        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%201.png');background-size:820%;background-position:0% 14%"
-             data-full="Sketch Draw 1.png" data-cap="Hand study — horseshoe arches of the medina" data-capar="دراسة يدوية — أقواس المدينة">
-          <div class="cr-tag"><b>Pencil study · The Doorway</b><span class="ar">دراسة القوس</span></div>
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235829_98172f37-16e1-417b-8fc3-cbe587caff5e.png" data-cap="The riad — a Moroccan home that shelters its guests" data-capar="الرياض — بيت مغربي يحتضن ضيوفه">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235829_98172f37-16e1-417b-8fc3-cbe587caff5e.png" alt="Moroccan riad courtyard with an open carved cedar door" loading="lazy">
+          <div class="gcap"><b>The House · Dar</b><span class="ar">الدار</span></div>
         </div>
       </div>
     </div>
@@ -571,9 +649,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         saffron gold — not as an address, but as a birthplace. <span class="ar-sub">مدينة البهجة — مراكش</span></p>
       </div>
       <div class="rev-l" style="--d:.3s">
-        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%201.png');background-size:340%;background-position:24% 44%"
-             data-full="Sketch Draw 1.png" data-cap="Hand study — Marrakech ambiance at dusk" data-capar="دراسة يدوية — أجواء مراكش">
-          <div class="cr-tag"><b>Pencil study · The City of Joy</b><span class="ar">مدينة البهجة</span></div>
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235857_d1a10c0e-3932-4899-afd7-f2996cd3079a.png" data-cap="Marrakech at golden dusk — the City of Joy" data-capar="مراكش عند الغسق — مدينة البهجة">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235857_d1a10c0e-3932-4899-afd7-f2996cd3079a.png" alt="Koutoubia minaret over the Marrakech medina at dusk" loading="lazy">
+          <div class="gcap"><b>The City of Joy</b><span class="ar">مدينة البهجة</span></div>
         </div>
       </div>
     </div>
@@ -598,9 +676,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         <span class="ar-sub">من ثقافة المغرب الغنية إلى مائدتكم</span></p>
       </div>
       <div class="rev-r" style="--d:.3s">
-        <div class="crop" style="height:20vh;background-image:url('Sketch%20Draw%201.png');background-size:400%;background-position:26% 100%"
-             data-full="Sketch Draw 1.png" data-cap="The promise — written in pencil on the first board" data-capar="الوعد بخط الرصاص على اللوحة الأولى">
-          <div class="cr-tag"><b>The original pencil note</b><span class="ar">الملاحظة الأصلية</span></div>
+        <div class="gimg" style="height:42vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235859_83ea786b-dc9b-49cf-96d5-0d48a163718f.png" data-cap="A generous Moroccan table — the experience we promise" data-capar="مائدة مغربية كريمة — التجربة التي نعِد بها">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235859_83ea786b-dc9b-49cf-96d5-0d48a163718f.png" alt="Overhead Moroccan feast table shared by many hands" loading="lazy">
+          <div class="gcap"><b>The Experience</b><span class="ar">التجربة</span></div>
         </div>
         <p class="lead rev" style="--d:.45s;font-size:.8rem;margin-top:36px">Positioning: a <b>premium yet welcoming</b> Moroccan dining brand —
         corporate enough for franchising, soulful enough to feel hand-made.</p>
@@ -671,9 +749,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         </div>
       </div>
       <div class="rev-r" style="--d:.3s">
-        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:3.5% 15%"
-             data-full="Sketch Draw 1.png" data-cap="Pencil study — horseshoe arch, timeless architecture" data-capar="دراسة القوس بالرصاص">
-          <div class="cr-tag"><b>Study I · The Arch</b><span class="ar">القوس</span></div>
+        <div class="gimg" style="height:58vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235901_22cdc214-efc6-4842-bf42-f9ce3d38667e.png" data-cap="Horseshoe ogee arch — the doorway of the medina" data-capar="قوس المدينة — بوابة الترحيب">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235901_22cdc214-efc6-4842-bf42-f9ce3d38667e.png" alt="Ornate Moroccan horseshoe arch doorway" loading="lazy">
+          <div class="gcap"><b>Study I · The Arch</b><span class="ar">القوس</span></div>
         </div>
       </div>
     </div>
@@ -698,9 +776,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         </div>
       </div>
       <div class="rev-l" style="--d:.3s">
-        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:15% 15%"
-             data-full="Sketch Draw 1.png" data-cap="Pencil study — zellige geometry, harmony &amp; balance" data-capar="دراسة الزليج بالرصاص">
-          <div class="cr-tag"><b>Study II · Zellige</b><span class="ar">الزليج</span></div>
+        <div class="gimg" style="height:58vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235903_f1532674-1aad-4361-8538-6071b5bef791.png" data-cap="Zellige mosaic — the eight-point khatam star" data-capar="فسيفساء الزليج — النجمة الثمانية">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235903_f1532674-1aad-4361-8538-6071b5bef791.png" alt="Macro of Moroccan zellige tile forming an eight-point star" loading="lazy">
+          <div class="gcap"><b>Study II · Zellige</b><span class="ar">الزليج</span></div>
         </div>
       </div>
     </div>
@@ -725,9 +803,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         </div>
       </div>
       <div class="rev-r" style="--d:.3s">
-        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:27% 15%"
-             data-full="Sketch Draw 1.png" data-cap="Pencil study — arabesque foliage, nature &amp; prosperity" data-capar="دراسة الأرابيسك بالرصاص">
-          <div class="cr-tag"><b>Study III · Arabesque</b><span class="ar">الأرابيسك</span></div>
+        <div class="gimg" style="height:58vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235910_5110d5ff-e55b-485c-a0c3-99df7ac3c14e.png" data-cap="Carved arabesque foliage — nature &amp; prosperity" data-capar="نقش الأرابيسك — النماء والازدهار">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235910_5110d5ff-e55b-485c-a0c3-99df7ac3c14e.png" alt="Hand-carved cedar arabesque foliage panel" loading="lazy">
+          <div class="gcap"><b>Study III · Arabesque</b><span class="ar">الأرابيسك</span></div>
         </div>
       </div>
     </div>
@@ -752,9 +830,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         </div>
       </div>
       <div class="rev-l" style="--d:.3s">
-        <div class="crop" style="height:58vh;background-image:url('Sketch%20Draw%201.png');background-size:520%;background-position:38.5% 15%"
-             data-full="Sketch Draw 1.png" data-cap="Pencil study — the tagine, authentic flavors" data-capar="دراسة الطاجين بالرصاص">
-          <div class="cr-tag"><b>Study IV · The Tagine</b><span class="ar">الطاجين</span></div>
+        <div class="gimg" style="height:58vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235913_abf9c925-37d3-40d0-8902-a29674e9ad4a.png" data-cap="The tagine — authentic flavors, rising steam" data-capar="الطاجين — نكهات أصيلة وبخار متصاعد">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235913_abf9c925-37d3-40d0-8902-a29674e9ad4a.png" alt="Steaming Moroccan tagine on a brass tray" loading="lazy">
+          <div class="gcap"><b>Study IV · The Tagine</b><span class="ar">الطاجين</span></div>
         </div>
       </div>
     </div>
@@ -797,43 +875,32 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 
   <!-- ============ PAGE 15 · CORE ELEMENTS ============ -->
   <section class="slide" data-title="Core Elements" data-ar="العناصر الأساسية" data-part="Part III — The Sketch" data-partar="الرسم">
-    <div class="head rev">
-      <div class="eyebrow">Part III · The Sketch — Click any study to enlarge</div>
-      <h2>Eight core elements, studied one by one</h2>
-      <span class="har">العناصر الأساسية — دُرست عنصراً عنصراً</span>
-    </div>
-    <div class="cropgrid" style="grid-template-columns:repeat(4,1fr);margin-top:26px">
-      <div class="crop rev" style="--d:.1s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:38.5% 22%"
-           data-full="Sketch Draw 1.png" data-cap="Ornamental frame — symmetry, protection, elegance" data-capar="الإطار الزخرفي">
-        <div class="cr-tag"><b>Ornamental Frame</b><span class="ar">الإطار</span></div>
+    <div class="split">
+      <div>
+        <div class="head rev">
+          <div class="eyebrow">Part III · The Sketch — Eight elements on paper</div>
+          <h2>Eight core elements,<br>studied one by one</h2>
+          <span class="har">ثمانية عناصر أساسية — دُرست عنصراً عنصراً</span>
+        </div>
+        <div class="orn rev" style="--d:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg></div>
+        <p class="lead rev" style="--d:.22s">Before composition, each ingredient of the mark was drawn on its own —
+        so every line would later earn its place. These eight studies became the visual vocabulary of the whole identity.</p>
+        <div class="gchips">
+          <span class="gchip rev" style="--d:.3s"><span class="ar">الإطار</span>Ornamental Frame</span>
+          <span class="gchip rev" style="--d:.34s"><span class="ar">الطاجين</span>Tagine Icon</span>
+          <span class="gchip rev" style="--d:.38s"><span class="ar">البخار</span>Rising Steam</span>
+          <span class="gchip rev" style="--d:.42s"><span class="ar">النجمة</span>Floral Star</span>
+          <span class="gchip rev" style="--d:.46s"><span class="ar">الأرابيسك</span>Arabesque</span>
+          <span class="gchip rev" style="--d:.5s"><span class="ar">الشبكة</span>Lattice Band</span>
+          <span class="gchip rev" style="--d:.54s"><span class="ar">الخط</span>Arabic Script</span>
+          <span class="gchip rev" style="--d:.58s"><span class="ar">الحرف</span>Serif Type</span>
+        </div>
       </div>
-      <div class="crop rev" style="--d:.18s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:48% 22%"
-           data-full="Sketch Draw 1.png" data-cap="Tagine icon — heritage, flavors, gathering" data-capar="أيقونة الطاجين">
-        <div class="cr-tag"><b>Tagine Icon</b><span class="ar">الطاجين</span></div>
-      </div>
-      <div class="crop rev" style="--d:.26s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:57.5% 22%"
-           data-full="Sketch Draw 1.png" data-cap="Steam — warmth, aroma, life" data-capar="البخار">
-        <div class="cr-tag"><b>Steam</b><span class="ar">البخار</span></div>
-      </div>
-      <div class="crop rev" style="--d:.34s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:66.5% 22%"
-           data-full="Sketch Draw 1.png" data-cap="Floral star — beauty, balance, tradition" data-capar="النجمة الزهرية">
-        <div class="cr-tag"><b>Floral Star</b><span class="ar">النجمة</span></div>
-      </div>
-      <div class="crop rev" style="--d:.42s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:38.5% 55%"
-           data-full="Sketch Draw 1.png" data-cap="Arabesque foliage — growth, prosperity, nature" data-capar="أوراق الأرابيسك">
-        <div class="cr-tag"><b>Arabesque</b><span class="ar">الأرابيسك</span></div>
-      </div>
-      <div class="crop rev" style="--d:.5s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:48% 55%"
-           data-full="Sketch Draw 1.png" data-cap="Lattice band — unity, rhythm, craftsmanship" data-capar="الشريط الشبكي">
-        <div class="cr-tag"><b>Lattice Band</b><span class="ar">الشبكة</span></div>
-      </div>
-      <div class="crop rev" style="--d:.58s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:57.5% 55%"
-           data-full="Sketch Draw 1.png" data-cap="Arabic influence — identity, pride, authenticity" data-capar="الأثر العربي">
-        <div class="cr-tag"><b>Arabic Script</b><span class="ar">الخط</span></div>
-      </div>
-      <div class="crop rev" style="--d:.66s;height:220px;background-image:url('Sketch%20Draw%201.png');background-size:700%;background-position:66.5% 55%"
-           data-full="Sketch Draw 1.png" data-cap="Serif typography — heritage, strength, timelessness" data-capar="الحرف السيريفي">
-        <div class="cr-tag"><b>Serif Type</b><span class="ar">الحرف</span></div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="gimg" style="height:60vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235917_941cb5fb-4ab8-4f6e-b98f-7e6b039ba0a7.png" data-cap="Element studies — the vocabulary of the mark, drawn by hand" data-capar="دراسات العناصر — مفردات الشعار مرسومة باليد">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235917_941cb5fb-4ab8-4f6e-b98f-7e6b039ba0a7.png" alt="Designer's pencil thumbnail sketches of Moroccan emblem elements" loading="lazy">
+          <div class="gcap"><b>The Element Studies</b><span class="ar">دراسات العناصر</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -857,9 +924,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         <span class="ar-sub">لوحة ألوان من مناظر المغرب وبلاطه وحرفه الخالدة</span></p>
       </div>
       <div class="rev-l" style="--d:.3s">
-        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%201.png');background-size:330%;background-position:7% 82%"
-             data-full="Sketch Draw 1.png" data-cap="The color story — maroon, green, gold in raw pigment" data-capar="قصة الألوان بالصبغة الخام">
-          <div class="cr-tag"><b>Raw pigment studies</b><span class="ar">دراسات الصبغة</span></div>
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235915_aba5e8a9-b574-4547-bf15-b11f2fc3c10e.png" data-cap="Pigments of the souk — burgundy, green, gold" data-capar="أصباغ السوق — عنابي وأخضر وذهبي">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235915_aba5e8a9-b574-4547-bf15-b11f2fc3c10e.png" alt="Mounds of burgundy, green and gold pigment powders" loading="lazy">
+          <div class="gcap"><b>The Palette in Pigment</b><span class="ar">لوحة الأصباغ</span></div>
         </div>
       </div>
     </div>
@@ -904,14 +971,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         steam gestures. One composition earned refinement — and its frame was then rebuilt properly:
         an ogee outline constructed on <b>45° guides</b>, so the “hand-drawn” emblem is secretly precise.</p>
       </div>
-      <div class="cropgrid rev-r" style="--d:.3s">
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:330%;background-position:9% 9%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 1 — nine rough thumbnail explorations" data-capar="المرحلة ١ — الأفكار الأولية">
-          <div class="cr-tag"><b>1 · Rough Ideas</b><span class="ar">أفكار أولية</span></div>
-        </div>
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:260%;background-position:52% 12%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 2 — ogee frame constructed on 45° geometry" data-capar="المرحلة ٢ — الإطار الهندسي">
-          <div class="cr-tag"><b>2 · Geometric Frame</b><span class="ar">الإطار</span></div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235923_de55f087-547a-44d9-86fa-876edf8e35bd.png" data-cap="Constructing the ogee frame on precise 45° guides" data-capar="بناء الإطار على خطوط ٤٥ درجة">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235923_de55f087-547a-44d9-86fa-876edf8e35bd.png" alt="Hand drafting the geometric construction of the frame" loading="lazy">
+          <div class="gcap"><b>Stages 1–2 · The Frame</b><span class="ar">الإطار الهندسي</span></div>
         </div>
       </div>
     </div>
@@ -931,14 +994,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         florals on the cone, a diamond band on the lid. Around it, the supporting cast was detailed by hand:
         star motifs, flower accents, scrolling leaves and the lattice band.</p>
       </div>
-      <div class="cropgrid rev-l" style="--d:.3s">
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:300%;background-position:90% 11%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 3 — the central tagine icon, patterned by hand" data-capar="المرحلة ٣ — الأيقونة المركزية">
-          <div class="cr-tag"><b>3 · Central Icon</b><span class="ar">الأيقونة</span></div>
-        </div>
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:300%;background-position:10% 36%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 4 — ornamental details: stars, flowers, lattice" data-capar="المرحلة ٤ — التفاصيل الزخرفية">
-          <div class="cr-tag"><b>4 · Ornamental Details</b><span class="ar">الزخارف</span></div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260722_000135_40245246-8200-4ee7-92e0-873277ea2430.png" data-cap="Detailing the tagine hero icon and its ornaments" data-capar="تفصيل أيقونة الطاجين وزخارفها">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260722_000135_40245246-8200-4ee7-92e0-873277ea2430.png" alt="Detailed pencil study of the tagine emblem and motifs" loading="lazy">
+          <div class="gcap"><b>Stages 3–4 · The Icon</b><span class="ar">الأيقونة والزخارف</span></div>
         </div>
       </div>
     </div>
@@ -959,14 +1018,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         <span class="ar" style="color:var(--green)">دار البهجة مراكش</span> — until both scripts balanced
         on the same baseline of dignity.</p>
       </div>
-      <div class="cropgrid rev-r" style="--d:.3s">
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:280%;background-position:88% 37%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 5 — ink outlines of the full emblem" data-capar="المرحلة ٥ — الحبر">
-          <div class="cr-tag"><b>5 · Ink Outlines</b><span class="ar">الحبر</span></div>
-        </div>
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:320%;background-position:9% 56%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 6 — bilingual typography studies" data-capar="المرحلة ٦ — دراسات الخطوط">
-          <div class="cr-tag"><b>6 · Typography Studies</b><span class="ar">الخطوط</span></div>
+      <div class="rev-r" style="--d:.3s">
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235925_926d5829-c3aa-42fc-b1cc-71d2a363a1ee.png" data-cap="Ink outlines and bilingual lettering studies" data-capar="الحبر ودراسات الخط بلغتين">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235925_926d5829-c3aa-42fc-b1cc-71d2a363a1ee.png" alt="Latin serif and Arabic naskh lettering studies on paper" loading="lazy">
+          <div class="gcap"><b>Stages 5–6 · The Type</b><span class="ar">الحبر والخطوط</span></div>
         </div>
       </div>
     </div>
@@ -987,14 +1042,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         then the final refined logo united all three. That mark is waiting for you in the next chapter —
         <b>you will assemble it yourself</b>. <span class="ar-sub">ستركّبون الشعار بأنفسكم في الفصل القادم</span></p>
       </div>
-      <div class="cropgrid rev-l" style="--d:.3s">
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:300%;background-position:47% 58%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 7 — layout composition of the full lockup" data-capar="المرحلة ٧ — التكوين">
-          <div class="cr-tag"><b>7 · Layout Composition</b><span class="ar">التكوين</span></div>
-        </div>
-        <div class="crop" style="height:240px;background-image:url('Sketch%20Draw%202.png');background-size:330%;background-position:7% 73%"
-             data-full="Sketch Draw 2.png" data-cap="Stage 8 — color exploration in the three brand inks" data-capar="المرحلة ٨ — استكشاف اللون">
-          <div class="cr-tag"><b>8 · Color Exploration</b><span class="ar">اللون</span></div>
+      <div class="rev-l" style="--d:.3s">
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235927_9d1a76eb-4bb9-4041-b181-412dbe84f1dd.png" data-cap="Color exploration — burgundy, green and gold studies" data-capar="استكشاف اللون — عنابي وأخضر وذهبي">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235927_9d1a76eb-4bb9-4041-b181-412dbe84f1dd.png" alt="Three color studies of the emblem in burgundy, green and gold" loading="lazy">
+          <div class="gcap"><b>Stages 7–9 · The Color</b><span class="ar">اللون والصقل</span></div>
         </div>
       </div>
     </div>
@@ -1038,6 +1089,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
           <div class="asm-oct2"></div>
           <div class="asm-q" id="asmQ">؟</div>
           <div class="asm-slots" id="asmSlots"></div>
+          <div class="asm-pieces" id="asmPieces"></div>
           <div class="asm-logo" id="asmLogo">
             <img src="Dar%20Albahja-Englsih%20and%20Arabic.jpg" alt="Dar Albahja — the assembled logo">
           </div>
@@ -1149,9 +1201,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
         </div>
       </div>
       <div class="rev-l" style="--d:.3s">
-        <div class="crop" style="height:56vh;background-image:url('Sketch%20Draw%202.png');background-size:250%;background-position:52% 12%"
-             data-full="Sketch Draw 2.png" data-cap="Construction — the ogee frame on 45° geometry" data-capar="البناء الهندسي للإطار">
-          <div class="cr-tag"><b>45° construction grid</b><span class="ar">شبكة البناء</span></div>
+        <div class="gimg" style="height:56vh" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235929_f3930e10-3d4f-42dd-b8f2-5afc1138f8f0.png" data-cap="Construction diagram — the ogee frame on radial geometry" data-capar="مخطط البناء — الإطار على هندسة شعاعية">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_34SGn9O1DyKx5raXvDSnlxgbueE/hf_20260721_235929_f3930e10-3d4f-42dd-b8f2-5afc1138f8f0.png" alt="Geometric construction diagram of the ogee frame" loading="lazy">
+          <div class="gcap"><b>45° Construction</b><span class="ar">البناء الهندسي</span></div>
         </div>
       </div>
     </div>
@@ -1675,14 +1727,20 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
     <p class="lead rev" style="--d:.42s;max-width:620px;text-align:center">You began this presentation with a sealed logo —
     and assembled it with your own hands. Now it is ready to open its doors.</p>
     <div class="sig">
-      <div class="sitem rev" style="--d:.5s"><div class="sk">Pages</div><div class="sv">53 · from pencil to storefront</div></div>
+      <div class="sitem rev" style="--d:.5s"><div class="sk">Pages</div><div class="sv">A full brand journey</div></div>
       <div class="sitem rev" style="--d:.58s"><div class="sk">Formats</div><div class="sv">AI · EPS · SVG · PDF · PNG</div></div>
       <div class="sitem rev" style="--d:.66s"><div class="sk">Status</div><div class="sv">Awaiting your blessing ✦</div></div>
     </div>
-    <button class="enterbtn rev" style="--d:.78s;margin-top:30px" data-goto="0">
-      Replay the story · إعادة العرض
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
-    </button>
+    <div class="rev" style="--d:.74s;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px">
+      <button class="enterbtn" id="downloadPdfBtn" style="background:var(--gold);color:#231a08;box-shadow:0 14px 34px -12px rgba(198,152,53,.7)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+        Download full proposal (PDF) · تحميل العرض
+      </button>
+      <button class="enterbtn" data-goto="0" style="background:transparent;color:var(--burgundy);border:1px solid var(--burgundy);box-shadow:none">
+        Replay the story · إعادة العرض
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
+      </button>
+    </div>
   </section>
 
   </div><!-- /stage -->
@@ -1709,6 +1767,22 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
   <img id="lbImg" alt="Preview">
   <button class="lbnav" id="lbNext">→</button>
   <div id="lbCap"></div>
+</div>
+
+<div id="pdfModal">
+  <div class="pdf-card">
+    <button class="pdf-close" id="pdfClose">✕</button>
+    <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 3h7l5 5v13a0 0 0 0 1 0 0H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5"/><path d="M9 14h6M9 17h6M9 11h2"/></svg></div>
+    <h3>Download the proposal</h3>
+    <div class="par">تحميل العرض الكامل</div>
+    <p>Enter the access key to download the full PDF<br><span class="ar" style="font-size:.95rem;letter-spacing:0;text-transform:none">أدخل رمز الدخول لتحميل الملف</span></p>
+    <div class="pdf-row">
+      <input id="pdfPass" type="password" placeholder="••••" autocomplete="off" aria-label="Access key">
+      <button id="pdfGo">Download</button>
+    </div>
+    <div class="pdf-err" id="pdfErr">Incorrect key · رمز غير صحيح</div>
+    <div class="pdf-ok" id="pdfOk">Opening print — choose “Save as PDF” · اختر حفظ كـ PDF</div>
+  </div>
 </div>
 
 <script>
@@ -1835,6 +1909,8 @@ function go(i,silent){
   stAr.textContent=slides[cur].dataset.ar;
   pbarFill.style.width=((cur)/(slides.length-1)*100)+'%';
   mitems.forEach((m,k)=>m.classList.toggle('here',k===cur));
+  const darkSlide=slides[cur].classList.contains('divider')||slides[cur].classList.contains('full');
+  app.classList.toggle('dark-ui',darkSlide);
 }
 document.getElementById('nextBtn').addEventListener('click',()=>go(cur+1));
 document.getElementById('prevBtn').addEventListener('click',()=>go(cur-1));
@@ -1915,27 +1991,40 @@ document.querySelectorAll('.pill[data-pillar]').forEach(p=>{
 });
 
 /* ============ ASSEMBLY GAME ============ */
-const asm=document.getElementById('asm'),asmSlots=document.getElementById('asmSlots'),
+const asm=document.getElementById('asm'),asmSlots=document.getElementById('asmSlots'),asmPieces=document.getElementById('asmPieces'),
       asmCount=document.getElementById('asmCount'),asmHint=document.getElementById('asmHint'),
       asmQ=document.getElementById('asmQ'),mergeBtn=document.getElementById('mergeBtn');
-const slotEls=[];
+/* icon per element index (matches the six cards) */
+const PIECE_ICONS=[
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2c2.4 3 7 3.5 9 8s-1.2 10-9 12C4.2 20 1 15.5 3 10s6.6-5 9-8Z"/></svg>',
+  '<svg viewBox="0 0 24 24"><use href="#tagineIcon"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 21c-2-3 2-5 0-9s2-6 0-9M15 21c-2-3 2-5 0-9s2-6 0-9"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="currentColor"><use href="#star8"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 18c4-8 8 2 12-6M6 8c2-2 5-2 6 0M14 16c2 2 5 2 6 0"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 17V7m0 6c3 0 3-4 6-4m0 8V7m5 10c-2 0-3-2-3-5s1-5 3-5 3 2 3 5-1 5-3 5Z"/></svg>'
+];
+const slotEls=[],pieceEls=[];
 for(let k=0;k<6;k++){
   const a=(-90+k*60)*Math.PI/180;
+  const lx=(50+42*Math.cos(a)),ly=(50+42*Math.sin(a));
   const s=document.createElement('span');s.className='asm-slot';
-  s.style.left=(50+44*Math.cos(a))+'%';s.style.top=(50+44*Math.sin(a))+'%';
-  asmSlots.appendChild(s);slotEls.push(s);
+  s.style.left=lx+'%';s.style.top=ly+'%';asmSlots.appendChild(s);slotEls.push(s);
+  const pc=document.createElement('span');pc.className='asm-piece';
+  pc.style.left=lx+'%';pc.style.top=ly+'%';pc.innerHTML=PIECE_ICONS[k];
+  asmPieces.appendChild(pc);pieceEls.push(pc);
 }
 let gathered=0,merged=false;
 document.querySelectorAll('.el-card').forEach(c=>{
   c.addEventListener('click',()=>{
     if(c.classList.contains('done')||merged)return;
-    c.classList.add('done');
     const i=+c.dataset.el;
+    c.classList.add('done');
     FX.note(gathered);
-    slotEls[gathered].classList.add('lit');
+    slotEls[i].classList.add('lit');
+    pieceEls[i].classList.add('in');
     gathered++;
     asmCount.textContent=gathered+' / 6 elements gathered';
-    asmQ.style.transform=`scale(${1+gathered*0.06}) rotate(${gathered*3}deg)`;
+    asmQ.style.opacity=Math.max(0,1-gathered*0.18);
     if(gathered===6){
       FX.chime();
       asmCount.textContent='All six elements ready · العناصر جاهزة';
@@ -2037,6 +2126,29 @@ document.getElementById('lbClose').addEventListener('click',e=>{e.stopPropagatio
 document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();lbStep(-1);});
 document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();lbStep(1);});
 lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+
+/* ============ PDF DOWNLOAD (password-gated) ============ */
+const pdfModal=document.getElementById('pdfModal'),pdfPass=document.getElementById('pdfPass'),
+      pdfGo=document.getElementById('pdfGo'),pdfErr=document.getElementById('pdfErr'),pdfOk=document.getElementById('pdfOk');
+document.getElementById('downloadPdfBtn').addEventListener('click',()=>{
+  FX.open();pdfErr.classList.remove('show');pdfOk.classList.remove('show');pdfPass.value='';
+  pdfModal.classList.add('open');setTimeout(()=>pdfPass.focus(),300);
+});
+function closePdf(){pdfModal.classList.remove('open');}
+document.getElementById('pdfClose').addEventListener('click',()=>{FX.click();closePdf();});
+pdfModal.addEventListener('click',e=>{if(e.target===pdfModal)closePdf();});
+function pdfTry(){
+  FX.ensure();
+  if(pdfPass.value.trim().toLowerCase()===PASS){
+    FX.chime();pdfErr.classList.remove('show');pdfOk.classList.add('show');
+    setTimeout(()=>{closePdf();window.print();},700);
+  }else{
+    FX.deny();pdfErr.classList.add('show');pdfPass.select();
+  }
+}
+pdfGo.addEventListener('click',pdfTry);
+pdfPass.addEventListener('keydown',e=>{if(e.key==='Enter')pdfTry();});
+pdfPass.addEventListener('input',()=>pdfErr.classList.remove('show'));
 </script>
 </body>
 </html>
