@@ -2673,7 +2673,7 @@ function startIntro(){
 document.getElementById('introEnterBtn').addEventListener('click',()=>{
   FX.chime();try{introVideo.pause();}catch(e){}
   intro.classList.add('leaving');intro.setAttribute('aria-hidden','true');
-  setTimeout(()=>{intro.style.display='none';openGate();},700);
+  setTimeout(()=>{intro.style.display='none';gate.classList.add('hidden');app.classList.add('on');setTimeout(()=>go(0,true),150);},700);
 });
 
 /* ============ DECK ============ */
