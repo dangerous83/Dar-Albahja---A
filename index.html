@@ -2426,7 +2426,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
       <button id="pdfGo">Download</button>
     </div>
     <div class="pdf-err" id="pdfErr">Incorrect key · رمز غير صحيح</div>
-    <div class="pdf-ok" id="pdfOk">Opening print — choose “Save as PDF” · اختر حفظ كـ PDF</div>
+    <div class="pdf-ok" id="pdfOk">Downloading the full brand identity PDF · جارٍ تحميل الملف</div>
   </div>
 </div>
 
@@ -2970,7 +2970,12 @@ function pdfTry(){
   FX.ensure();
   if(pdfPass.value.trim().toLowerCase()===PDF_PASS){
     FX.chime();pdfErr.classList.remove('show');pdfOk.classList.add('show');
-    setTimeout(()=>{closePdf(true);window.print();},700);
+    setTimeout(()=>{closePdf(true);
+      const a=document.createElement('a');
+      a.href='Dar_Albahja_Brand_Identity_Final_Updated.pdf';
+      a.download='Dar Albahja - Brand Identity.pdf';
+      document.body.appendChild(a);a.click();a.remove();
+    },700);
   }else{
     FX.deny();pdfErr.classList.add('show');pdfPass.select();
   }
