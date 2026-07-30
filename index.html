@@ -736,9 +736,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 #intro.leaving{opacity:0}
 .intro-scroll{height:560vh;position:relative}
 .intro-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#0c0908;display:flex;align-items:center;justify-content:center}
-#introVideo{width:100%;height:100%;object-fit:contain;background:#0c0908;display:block}
+#introVideo{width:100%;height:100%;object-fit:contain;background:#0c0908;display:block;pointer-events:none}
 .intro-vig{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 180px 40px rgba(12,9,8,.7)}
-.intro-loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(245,241,232,.55);
+.intro-loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(245,241,232,.55);pointer-events:none;
   font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;transition:opacity .5s}
 .intro-loading.hide{opacity:0}
 .intro-enter{position:absolute;left:50%;bottom:10%;transform:translate(-50%,0) scale(.9);opacity:0;pointer-events:none;
@@ -746,11 +746,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--burgundy);line-hei
 .intro-enter.show{opacity:1;transform:translate(-50%,0) scale(1);pointer-events:auto}
 .intro-enter.show .enterbtn{animation:mergepulse 1.8s infinite}
 .intro-enter-sub{margin-top:12px;color:rgba(245,241,232,.5);font-size:.6rem;letter-spacing:.32em;text-transform:uppercase}
-.intro-hint{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);color:rgba(245,241,232,.7);
+.intro-hint{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);color:rgba(245,241,232,.7);pointer-events:none;
   font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity .5s;z-index:2}
 .intro-hint .chev{width:22px;height:22px;color:var(--gold);animation:chevb 1.6s infinite}
 @keyframes chevb{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
-.intro-prog{position:fixed;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));width:0;z-index:3;transition:width .05s linear}
+.intro-prog{position:fixed;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));width:0;z-index:3;transition:width .05s linear;pointer-events:none}
 
 /* ---------- mobile / phone gate ---------- */
 #mobileblock{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:34px;text-align:center;
@@ -2627,6 +2627,7 @@ window.addEventListener('resize',()=>{               /* native F11 fires no full
 });
 fsgTouch.addEventListener('click',()=>{playStartVO();
   if(window.__isTouch){                               /* touch: try fullscreen (nice on Android) but begin regardless */
+    primeIntroVideo();                                /* MUST run inside this gesture so iOS loads the scrub video */
     try{const r=document.documentElement.requestFullscreen?.();if(r&&r.catch)r.catch(()=>{});}catch(e){}
     proceed();
   }else requestFs();});
@@ -2653,7 +2654,10 @@ const intro=document.getElementById('intro'),introVideo=document.getElementById(
       introHint=document.getElementById('introHint'),introLoading=document.getElementById('introLoading');
 function c01(v){return v<0?0:v>1?1:v;}
 let introStarted=false,introEnterShown=false,introDur=0,seeking=false,pendingT=null;
-introVideo.addEventListener('loadedmetadata',()=>{introDur=introVideo.duration||0;introUpdate();});
+function noteDur(){const d=introVideo.duration;if(d&&isFinite(d)&&d>0){introDur=d;introUpdate();}}
+introVideo.addEventListener('loadedmetadata',noteDur);
+introVideo.addEventListener('durationchange',noteDur);   /* iOS sometimes reports duration only after this */
+introVideo.addEventListener('canplay',noteDur);
 function introReadyUI(){introLoading&&introLoading.classList.add('hide');}
 introVideo.addEventListener('canplay',introReadyUI);
 introVideo.addEventListener('loadeddata',introReadyUI);
@@ -2668,7 +2672,14 @@ function applySeek(t){
   if(introDur<=0)return;
   if(seeking){pendingT=t;return;}
   if(Math.abs(introVideo.currentTime-t)<0.02)return;
-  seeking=true;try{introVideo.currentTime=t;}catch(e){seeking=false;}
+  seeking=true;
+  try{
+    /* fastSeek() is the scrubbing API on Safari/iOS — it lands on the nearest keyframe
+       quickly, and since the intro is all-intra encoded that is frame-accurate.
+       Chrome/Android lack it, so fall back to currentTime there. */
+    if(typeof introVideo.fastSeek==='function')introVideo.fastSeek(t);
+    else introVideo.currentTime=t;
+  }catch(e){try{introVideo.currentTime=t;}catch(e2){seeking=false;}}
 }
 function introUpdate(){
   const max=intro.scrollHeight-intro.clientHeight;const p=max>0?c01(intro.scrollTop/max):0;
@@ -2684,17 +2695,24 @@ function introUpdate(){
   if(p>=0.985){if(!introEnterShown){introEnterShown=true;introEnter.classList.add('show');FX.arrive();}}
   else if(introEnterShown){introEnterShown=false;introEnter.classList.remove('show');}
 }
-let introRAF=false,introLastSec=-1,introDoor=false,introInit=false;
+let introRAF=false,introLastSec=-1,introDoor=false,introInit=false,introPrimed=false;
+/* Prime the video for frame-accurate scrubbing: iOS/Android won't decode or seek a
+   video until it has actually played, and iOS only allows that from inside a user
+   gesture. So we call this from the tap-to-begin handler (a real gesture) — a muted
+   inline play, immediately paused, which loads metadata and buffers the first frames. */
+function primeIntroVideo(){
+  if(introPrimed)return;
+  try{introVideo.load();}catch(e){}
+  try{const pr=introVideo.play();
+    if(pr&&pr.then)pr.then(()=>{try{introVideo.pause();introVideo.currentTime=0.001;}catch(e){}introPrimed=true;noteDur();}).catch(()=>{});
+    else{try{introVideo.pause();}catch(e){}introPrimed=true;noteDur();}
+  }catch(e){}
+}
 function startIntro(){
   if(window.__blocked||introInit)return;
   introInit=true;
   intro.classList.add('on');intro.removeAttribute('aria-hidden');intro.scrollTop=0;
-  try{introVideo.pause();introVideo.load();}catch(e){}
-  /* Prime for frame-accurate scrubbing on mobile: iOS/Android won't seek a video
-     until it has decoded at least one frame, so kick a muted play then pause. */
-  try{const pr=introVideo.play();
-    if(pr&&pr.then)pr.then(()=>{introVideo.pause();try{introVideo.currentTime=0;}catch(e){}}).catch(()=>{});
-  }catch(e){}
+  primeIntroVideo();
   introUpdate();
   intro.addEventListener('scroll',()=>{if(!introStarted){introStarted=true;FX.rise();}
     if(!introRAF){introRAF=true;requestAnimationFrame(()=>{introRAF=false;introUpdate();});}},{passive:true});
@@ -3003,7 +3021,7 @@ function pdfTry(){
     FX.chime();pdfErr.classList.remove('show');pdfOk.classList.add('show');
     setTimeout(()=>{closePdf(true);
       const a=document.createElement('a');
-      a.href='Dar_Albahja_Brand_Identity_Final_Updated.pdf';
+      a.href=encodeURI('Dar Albahja Brand and Identity.pdf');
       a.download='Dar Albahja - Brand Identity.pdf';
       document.body.appendChild(a);a.click();a.remove();
     },700);
