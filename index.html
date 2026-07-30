@@ -3021,7 +3021,7 @@ function pdfTry(){
     FX.chime();pdfErr.classList.remove('show');pdfOk.classList.add('show');
     setTimeout(()=>{closePdf(true);
       const a=document.createElement('a');
-      a.href='Dar_Albahja_Brand_Identity_Final_Updated.pdf';
+      a.href=encodeURI('Dar Albahja Brand and Identity.pdf');
       a.download='Dar Albahja - Brand Identity.pdf';
       document.body.appendChild(a);a.click();a.remove();
     },700);
